@@ -1,0 +1,76 @@
+@use 'tokens' as *;
+
+// Inspirado em inspiracao-footer/desing-01.png: bloco escuro com topo arredondado.
+.site-footer {
+  position: relative;
+  margin-top: -$radius-lg; // sobe sobre o CTA para mostrar a curva
+  padding: clamp(4rem, 8vw, 6.5rem) 0 2rem;
+  border-radius: $radius-lg $radius-lg 0 0;
+  background: $brown-900;
+  color: rgba(246, 238, 229, .86);
+
+  a { text-decoration: none; transition: color .3s $ease; }
+  a:hover { color: $rose; }
+}
+
+.site-footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  border-bottom: 1px solid rgba(246, 238, 229, .14);
+}
+
+.site-footer__headline {
+  max-width: 46rem;
+  font-family: $serif;
+  font-size: clamp(2.3rem, 5.4vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1.02;
+  color: $cream;
+  text-wrap: balance;
+
+  em { color: $rose; }
+}
+
+.site-footer__cols {
+  display: grid;
+  gap: 2rem;
+  padding-block: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: .95rem;
+
+  @include up($bp-sm) { grid-template-columns: repeat(2, 1fr); }
+  @include up($bp-lg) { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+}
+
+.site-footer__brand {
+  font-family: $serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: $cream;
+  margin-bottom: .5rem;
+}
+
+.site-footer__muted { color: rgba(246, 238, 229, .62); max-width: 22rem; }
+
+.site-footer__label {
+  margin: 0 0 .7rem;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: $rose;
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(246, 238, 229, .14);
+  font-size: .82rem;
+  color: rgba(246, 238, 229, .55);
+}

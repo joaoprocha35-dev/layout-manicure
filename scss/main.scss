@@ -1,0 +1,10 @@
+// Vilma Delmiro — estilos principais
+// Compilar: npm run build:css   |   Assistir: npm run watch:css
+@use 'base';
+@use 'header';
+@use 'hero';
+@use 'services';
+@use 'gallery';
+@use 'sections';
+@use 'footer';
+@use 'booking';

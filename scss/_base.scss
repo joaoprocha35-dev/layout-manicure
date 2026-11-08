@@ -1,0 +1,170 @@
+@use 'tokens' as *;
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: $cream;
+  color: $brown-800;
+  font-family: $sans;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+p, h1, h2, h3, figure, blockquote, dl, dd { margin: 0; }
+ul[role='list'] { list-style: none; margin: 0; padding: 0; }
+button, input, textarea { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: 2px solid $rose-600;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: .6rem 1rem;
+  background: $brown-800;
+  color: $cream;
+  border-radius: 999px;
+  text-decoration: none;
+  &:focus { top: 1rem; }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+
+  &--narrow { max-width: 820px; }
+}
+
+.section {
+  padding-block: clamp(4.5rem, 10vw, 8rem);
+}
+
+// ---------- Tipografia comum ----------
+.eyebrow {
+  font-family: $sans;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: $brown-600;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.75rem);
+
+  .eyebrow { margin-bottom: 1rem; }
+}
+
+.section-title {
+  font-family: $serif;
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+
+  em { font-style: italic; color: $rose-600; }
+}
+
+.section-lead {
+  margin-top: 1rem;
+  color: $brown-600;
+  text-wrap: pretty;
+}
+
+// ---------- Botões ----------
+.btn {
+  --btn-bg: transparent;
+  --btn-fg: #{$brown-800};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  min-height: 48px;
+  padding: .8rem 1.6rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: $sans;
+  font-size: .95rem;
+  font-weight: 400;
+  letter-spacing: .02em;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .3s $ease, color .3s $ease, border-color .3s $ease, transform .3s $ease;
+
+  &:hover { transform: translateY(-1px); }
+  &:active { transform: translateY(0); }
+
+  &--dark {
+    --btn-bg: #{$brown-800};
+    --btn-fg: #{$cream};
+    &:hover { --btn-bg: #{$brown-900}; }
+  }
+
+  &--ghost {
+    --btn-bg: rgba(251, 247, 242, .55);
+    border-color: rgba(62, 43, 34, .35);
+    &:hover { --btn-bg: #{$paper}; border-color: $brown-800; }
+  }
+
+  &--pink {
+    --btn-bg: #{$rose};
+    --btn-fg: #{$brown-900};
+    &:hover { --btn-bg: #{$paper}; }
+  }
+
+  &--small {
+    min-height: 40px;
+    padding: .55rem 1.15rem;
+    font-size: .88rem;
+  }
+
+  &[disabled] { opacity: .45; pointer-events: none; }
+}
+
+.btn__icon {
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
+  flex: none;
+}
+
+// Texto da hero escondido até o GSAP entrar; se o JS falhar, aparece sozinho.
+.preload-anim [data-hero-item] {
+  opacity: 0;
+  animation: vd-show 0s 2.5s forwards;
+}
+@keyframes vd-show { to { opacity: 1; } }
+
+// Seções focadas via link interno não mostram contorno
+[tabindex='-1']:focus { outline: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

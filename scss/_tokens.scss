@@ -1,0 +1,43 @@
+// ---------- Identidade Vilma Delmiro ----------
+$cream:      #F6EEE5;  // fundo principal
+$cream-hero: #F4EAE0;  // creme do topo da foto mobile
+$cream-2:    #EFE4D8;  // seções alternadas
+$sand:       #E7D5C3;  // creme da foto desktop
+$paper:      #FBF7F2;  // cartões / caixinhas
+
+$brown-900: #2F211A;  // footer
+$brown-800: #3E2B22;  // texto e botões
+$brown-600: #6A5044;  // texto secundário
+$brown-400: #9C7F70;
+
+$rose:      #EBCFC8;  // rosa claro
+$rose-300:  #DDB0A7;
+$rose-600:  #B9776E;  // detalhes
+
+$line: rgba(62, 43, 34, .14);
+
+$serif: 'Cormorant Garamond', 'Times New Roman', serif;
+$sans:  'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+$radius-sm: 10px;
+$radius:    16px;
+$radius-lg: 28px;
+
+$ease: cubic-bezier(.22, .61, .36, 1);
+
+// ---------- Breakpoints ----------
+$bp-sm: 600px;
+$bp-md: 768px;
+$bp-lg: 960px;
+
+// Hero empilhada (foto vertical): celular OU qualquer tela em retrato.
+// Mesmas condições usadas no <source media> do <picture>.
+$hero-stacked: '(max-width: 767px), (orientation: portrait)';
+$hero-wide:    '(min-width: 768px) and (orientation: landscape)';
+
+@mixin up($bp) {
+  @media (min-width: $bp) { @content; }
+}
+@mixin down($bp) {
+  @media (max-width: $bp - 1px) { @content; }
+}

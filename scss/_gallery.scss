@@ -1,0 +1,60 @@
+@use 'tokens' as *;
+
+// Mosaico: 2 colunas no celular, 3 no computador.
+// Usa colunas CSS para manter as proporções reais (1:1 e 4:5) lado a lado.
+.gallery { background: $cream-2; }
+
+.gallery__grid {
+  --gap: clamp(.6rem, 1.6vw, 1.1rem);
+  columns: 2;
+  column-gap: var(--gap);
+
+  @include up($bp-md) { columns: 3; }
+}
+
+.gallery__item {
+  break-inside: avoid;
+  margin-bottom: var(--gap);
+
+  figure {
+    position: relative;
+    overflow: hidden;
+    border-radius: $radius-sm;
+    background: $sand;
+  }
+
+  img {
+    width: 100%;
+    height: auto; // espaço reservado pelos atributos width/height
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform 1.1s $ease;
+  }
+
+  &--tall img { aspect-ratio: 4 / 5; }
+
+  figcaption {
+    position: absolute;
+    left: .6rem;
+    bottom: .6rem;
+    padding: .3rem .7rem;
+    border-radius: 999px;
+    background: rgba(251, 247, 242, .88);
+    font-size: .75rem;
+    letter-spacing: .02em;
+    color: $brown-800;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .4s $ease, transform .4s $ease;
+  }
+
+  figure:hover img { transform: scale(1.035); }
+  // Legenda só no hover (no celular ela ficaria sobre as unhas).
+  figure:hover figcaption { opacity: 1; transform: none; }
+}
+
+.gallery__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}

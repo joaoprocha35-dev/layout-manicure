@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vilma Delmiro · Especialista em Fibra de Vidro</title>
+  <meta name="description" content="Unhas naturais e resistentes. Manicure, pedicure, esmalte em gel, arte nas unhas, fibra de vidro e SPA dos pés com a Vilma Delmiro.">
+  <meta name="theme-color" content="#F4EAE0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233E2B22'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-style='italic' text-anchor='middle' fill='%23EBCFC8'%3EV%3C/text%3E%3C/svg%3E">
+
+  <!-- Hero: carrega primeiro a foto certa para cada formato de tela -->
+  <link rel="preload" as="image" type="image/webp"
+        imagesrcset="assets/hero/hero-mobile-600.webp 600w, assets/hero/hero-mobile.webp 941w" imagesizes="100vw"
+        media="(max-width: 767px), (orientation: portrait)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp"
+        imagesrcset="assets/hero/hero-desktop-1000.webp 1000w, assets/hero/hero-desktop.webp 1672w" imagesizes="100vw"
+        media="(min-width: 768px) and (orientation: landscape)" fetchpriority="high">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <script>
+    // Esconde o texto da hero até o GSAP assumir (com fallback em CSS após 2,5s)
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('preload-anim');
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- Header fica fora do wrapper do ScrollSmoother para continuar fixo -->
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="brand" href="#topo" data-scroll-link>Vilma Delmiro</a>
+      <nav class="site-nav" aria-label="Principal">
+        <a href="#servicos" data-scroll-link>Serviços</a>
+        <a href="#galeria" data-scroll-link>Trabalhos</a>
+        <a href="#experiencia" data-scroll-link>Experiência</a>
+        <a href="#duvidas" data-scroll-link>Dúvidas</a>
+      </nav>
+      <a class="btn btn--small btn--dark" href="https://wa.me/5500000000000" data-booking data-wa>Agendar</a>
+    </div>
+  </header>
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main id="conteudo">
+
+        <!-- ================= HERO ================= -->
+        <section class="hero" id="topo" aria-labelledby="hero-title">
+          <picture class="hero__media">
+            <source media="(max-width: 767px), (orientation: portrait)"
+                    srcset="assets/hero/hero-mobile-600.webp 600w, assets/hero/hero-mobile.webp 941w"
+                    sizes="100vw" width="941" height="1672">
+            <img class="hero__img"
+                 src="assets/hero/hero-desktop.webp"
+                 srcset="assets/hero/hero-desktop-1000.webp 1000w, assets/hero/hero-desktop.webp 1672w"
+                 sizes="100vw" width="1672" height="941"
+                 alt="Mãos com unhas amendoadas em francesinha nude, com uma flor branca delicada no anelar, apoiadas sobre linho creme."
+                 fetchpriority="high" decoding="async">
+          </picture>
+
+          <div class="container hero__inner">
+            <div class="hero__content">
+              <p class="eyebrow" data-hero-item>Especialista em Fibra de Vidro</p>
+              <h1 class="hero__title" id="hero-title" data-hero-item>
+                Unhas <em>naturais</em><br> e resistentes.
+              </h1>
+              <p class="hero__lead" data-hero-item>
+                Cuidado artesanal e acabamento delicado para unhas bonitas que duram — do jeito que combina com você.
+              </p>
+              <div class="hero__actions" data-hero-item>
+                <a class="btn btn--dark" href="https://wa.me/5500000000000" data-booking data-wa>
+                  <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
+                  Agendar via WhatsApp
+                </a>
+                <a class="btn btn--ghost" href="#galeria" data-scroll-link>Ver trabalhos</a>
+              </div>
+            </div>
+          </div>
+          <div class="hero__spacer" aria-hidden="true"></div>
+        </section>
+
+        <!-- ================= SERVIÇOS ================= -->
+        <section class="section services" id="servicos" aria-labelledby="servicos-title">
+          <div class="container">
+            <header class="section-head" data-reveal>
+              <p class="eyebrow">Nossos serviços</p>
+              <h2 class="section-title" id="servicos-title">O que <em>fazemos</em>.</h2>
+              <p class="section-lead">Seis cuidados pensados para deixar suas mãos e pés bonitos, saudáveis e com a sua personalidade.</p>
+            </header>
+
+            <ul class="services__grid" role="list">
+              <li class="service-card" data-card>
+                <div class="service-card__media" style="--pos: 50% 78%">
+                  <img src="assets/galeria/05-nude-natural-560.webp"
+                       srcset="assets/galeria/05-nude-natural-560.webp 560w, assets/galeria/05-nude-natural.webp 1000w"
+                       sizes="(min-width: 960px) 30vw, (min-width: 600px) 46vw, 92vw"
+                       width="1000" height="1000" loading="lazy" decoding="async"
+                       alt="Unhas curtas em nude rosado natural com acabamento brilhante.">
+                </div>
+                <h3 class="service-card__title">Manicure</h3>
+                <p class="service-card__text">Cutilagem cuidadosa, formato sob medida e esmaltação impecável para unhas limpas e bonitas.</p>
+                <a class="service-card__link" href="https://wa.me/5500000000000" data-booking data-wa data-service="Manicure">Agendar este serviço <span aria-hidden="true">→</span></a>
+              </li>
+
+              <li class="service-card" data-card>
+                <div class="service-card__media" style="--pos: 50% 70%">
+                  <img src="assets/servicos/pedicure-560.webp"
+                       srcset="assets/servicos/pedicure-560.webp 560w, assets/servicos/pedicure.webp 1000w"
+                       sizes="(min-width: 960px) 30vw, (min-width: 600px) 46vw, 92vw"
+                       width="1000" height="750" loading="lazy" decoding="async"
+                       alt="Pés com unhas em nude rosado e brilho suave, apoiados sobre toalha creme.">
+                </div>
+                <h3 class="service-card__title">Pedicure</h3>
+                <p class="service-card__text">Cuidado completo para os pés, com cutilagem, lixamento e acabamento caprichado.</p>
+                <a class="service-card__link" href="https://wa.me/5500000000000" data-booking data-wa data-service="Pedicure">Agendar este serviço <span aria-hidden="true">→</span></a>
+              </li>
+
+              <li class="service-card" data-card>
+                <div class="service-card__media" style="--pos: 50% 74%">
+                  <img src="assets/galeria/10-blush-rose-560.webp"
+                       srcset="assets/galeria/10-blush-rose-560.webp 560w, assets/galeria/10-blush-rose.webp 1000w"
+                       sizes="(min-width: 960px) 30vw, (min-width: 600px) 46vw, 92vw"
+                       width="1000" height="1000" loading="lazy" decoding="async"
+                       alt="Unhas arredondadas em rosa blush queimado com brilho de esmalte em gel.">
+                </div>
+                <h3 class="service-card__title">Esmalte em Gel</h3>
+                <p class="service-card__text">Cor com brilho intenso que dura semanas sem lascar, aplicada sobre a sua unha natural.</p>
+                <a class="service-card__link" href="https://wa.me/5500000000000" data-booking data-wa data-service="Esmalte em Gel">Agendar este serviço <span aria-hidden="true">→</span></a>
+              </li>
+
+              <li class="service-card" data-card>
+                <div class="service-card__media" style="--pos: 50% 70%">
+                  <img src="assets/galeria/01-fibra-de-vidro-560.webp"
+                       srcset="assets/galeria/01-fibra-de-vidro-560.webp 560w, assets/galeria/01-fibra-de-vidro.webp 1000w"
+                       sizes="(min-width: 960px) 30vw, (min-width: 600px) 46vw, 92vw"
+                       width="1000" height="1250" loading="lazy" decoding="async"
+                       alt="Unhas amendoadas em rosa translúcido com uma pequena flor branca pintada à mão.">
+                </div>
+                <h3 class="service-card__title">Arte nas Unhas</h3>
+                <p class="service-card__text">Detalhes feitos à mão — flores, linhas e francesinhas — para personalizar o seu estilo.</p>
+                <a class="service-card__link" href="https://wa.me/5500000000000" data-booking data-wa data-service="Arte nas Unhas">Agendar este serviço <span aria-hidden="true">→</span></a>
+              </li>
+
+              <li class="service-card" data-card>
+                <div class="service-card__media" style="--pos: 50% 62%">
+                  <img src="assets/galeria/06-french-classic-560.webp"
+                       srcset="assets/galeria/06-french-classic-560.webp 560w, assets/galeria/06-french-classic.webp 1000w"
+                       sizes="(min-width: 960px) 30vw, (min-width: 600px) 46vw, 92vw"
+                       width="1000" height="1250" loading="lazy" decoding="async"
+                       alt="Unhas em fibra de vidro com francesinha clássica: base nude e pontas brancas finas.">
+                </div>
+                <h3 class="service-card__title">Fibra de Vidro</h3>
+                <p class="service-card__text">Alongamento leve e resistente, com aparência de unha natural. A especialidade da casa.</p>
+                <a class="service-card__link" href="https://wa.me/5500000000000" data-booking data-wa data-service="Fibra de Vidro">Agendar este serviço <span aria-hidden="true">→</span></a>
+              </li>
+
+              <li class="service-card" data-card>
+                <div class="service-card__media" style="--pos: 62% 72%">
+                  <img src="assets/servicos/spa-dos-pes-560.webp"
+                       srcset="assets/servicos/spa-dos-pes-560.webp 560w, assets/servicos/spa-dos-pes.webp 1000w"
+                       sizes="(min-width: 960px) 30vw, (min-width: 600px) 46vw, 92vw"
+                       width="1000" height="750" loading="lazy" decoding="async"
+                       alt="Pé hidratado com unhas em nude rosado e uma florzinha branca no dedão, sobre toalha macia.">
+                </div>
+                <h3 class="service-card__title">SPA dos Pés</h3>
+                <p class="service-card__text">Esfoliação, hidratação profunda e massagem relaxante para pés macios e renovados.</p>
+                <a class="service-card__link" href="https://wa.me/5500000000000" data-booking data-wa data-service="SPA dos Pés">Agendar este serviço <span aria-hidden="true">→</span></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ================= GALERIA ================= -->
+        <section class="section gallery" id="galeria" aria-labelledby="galeria-title">
+          <div class="container">
+            <header class="section-head" data-reveal>
+              <p class="eyebrow">Inspirações de esmaltação</p>
+              <h2 class="section-title" id="galeria-title">Encontre sua próxima <em>inspiração</em>.</h2>
+              <p class="section-lead">Cores, formatos e acabamentos para você escolher o seu. As imagens são ilustrações criadas digitalmente como referência de estilo.</p>
+            </header>
+
+            <!-- Ordem pensada para 3 colunas (V/Q alternando) e equilibrada em 2 colunas -->
+            <ul class="gallery__grid" role="list">
+              <li class="gallery__item gallery__item--tall">
+                <figure>
+                  <img src="assets/galeria/01-fibra-de-vidro-560.webp" srcset="assets/galeria/01-fibra-de-vidro-560.webp 560w, assets/galeria/01-fibra-de-vidro.webp 1000w" sizes="(min-width: 768px) 31vw, 46vw" width="1000" height="1250" loading="lazy" decoding="async"
+                       alt="Unhas amendoadas em rosa translúcido com acabamento brilhante e uma flor branca delicada no anelar.">
+                  <figcaption>Rosa translúcido com flor</figcaption>
+                </figure>
+              </li>
+              <li class="gallery__item">
+                <figure>
+                  <img src="assets/galeria/02-esmeralda-560.webp" srcset="assets/galeria/02-esmeralda-560.webp 560w, assets/galeria/02-esmeralda.webp 1000w" sizes="(min-width: 768px) 31vw, 46vw" width="1000" height="1000" loading="lazy" decoding="async"
+                       alt="Unhas curtas quadradas em verde-esmeralda escuro com brilho intenso, sobre tricô creme.">
+                  <figcaption>Verde-esmeralda</figcaption>
+                </figure>
+              </li>
+              <li class="gallery__item gallery__item--tall">
+                <figure>
+                  <img src="assets/galeria/03-lilas-opalescente-560.webp" srcset="assets/galeria/03-lilas-opalescente-560.webp 560w, assets/galeria/03-lilas-opalescente.webp 1000w" sizes="(min-width: 768px) 31vw, 46vw" width="1000" height="1250" loading="lazy" decoding="async"
+                       alt="Unhas ovais em lilás claro com acabamento opalescente perolado.">
+                  <figcaption>Lilás opalescente</figcaption>
+                </figure>
+              </li>
+              <li class="gallery__item">
+                <figure>
+                  <img src="assets/galeria/04-vermelho-cereja-560.webp" srcset="assets/galeria/04-vermelho-cereja-560.webp 560w, assets/galeria/04-vermelho-cereja.webp 1000w" sizes="(min-width: 768px) 31vw, 46vw" width="1000" height="1000" loading="lazy" decoding="async"
+                       alt="Unhas ovais em vermelho-cereja com brilho espelhado.">
+                  <figcaption>Vermelho-cereja</figcaption>
+                </figure>
+              </li>
+              <li class="gallery__item">
+                <figure>
+                  <img src="assets/galeria/05-nude-natural-560.webp" srcset="assets/galeria/05-nude-natural-560.webp 560w, assets/galeria/05-nude-natural.webp 1000w" sizes="(min-width: 768px) 31vw, 46vw" width="1000" height="1000" loading="lazy" decoding="async"
+                       alt="Unhas curtas em nude rosado natural com acabamento brilhante.">
+                  <figcaption>Nude natural</figcaption>
+                </figure>
+              </li>
+              <li class="gallery__item gallery__item--tall">
+                <figure>
+                  <img src="assets/galeria/06-french-classic-560.webp" srcset="assets/galeria/06-french-classic-560.webp 560w, assets/galeria/06-french-classic.webp 1000w" sizes="(min-width: 768px) 31vw, 46vw" width="1000" height="1250" loading="lazy" decoding="async"
+                       alt="Francesinha clássica com base nude rosada e pontas brancas finas, acabamento brilhante.">
+                  <figcaption>Francesinha clássica</figcaption>
+                </figure>
+              </li>
+              <li class="gallery__item">
+                <figure>
+                  <img src="assets/galeria/07-coral-560.webp" srcset="assets/galeria/07-coral-560.webp 560w, assets/galeria/07-coral.webp 1000w" sizes="(min-width: 768px) 31vw, 46vw" width="1000" height="1000" loading="lazy" decoding="async"
+                       alt="Unhas ovais em coral vibrante com brilho de esmalte em gel.">
+                  <figcaption>Coral vibrante</figcaption>
+                </figure>
+              </li>
+              <li class="gallery__item gallery__item--tall">
+                <figure>
+                  <img src="assets/galeria/08-vinho-560.webp" srcset="assets/galeria/08-vinho-560.webp 560w, assets/galeria/08-vinho.webp 1000w" sizes="(min-width: 768px) 31vw, 46vw" width="1000" height="1250" loading="lazy" decoding="async"
+                       alt="Unhas amendoadas em vinho profundo com acabamento brilhante, sobre linho creme.">
+                  <figcaption>Vinho profundo</figcaption>
+                </figure>
+              </li>
+              <li class="gallery__item gallery__item--tall">
+                <figure>
+                  <img src="assets/galeria/09-preto-560.webp" srcset="assets/galeria/09-preto-560.webp 560w, assets/galeria/09-preto.webp 1000w" sizes="(min-width: 768px) 31vw, 46vw" width="1000" height="1250" loading="lazy" decoding="async"
+                       alt="Unhas amendoadas em preto intenso com brilho espelhado.">
+                  <figcaption>Preto brilhante</figcaption>
+                </figure>
+              </li>
+              <li class="gallery__item">
+                <figure>
+                  <img src="assets/galeria/10-blush-rose-560.webp" srcset="assets/galeria/10-blush-rose-560.webp 560w, assets/galeria/10-blush-rose.webp 1000w" sizes="(min-width: 768px) 31vw, 46vw" width="1000" height="1000" loading="lazy" decoding="async"
+                       alt="Unhas curtas arredondadas em rosa blush queimado, com acabamento brilhante.">
+                  <figcaption>Rosa blush</figcaption>
+                </figure>
+              </li>
+              <li class="gallery__item gallery__item--tall">
+                <figure>
+                  <img src="assets/galeria/11-rose-gold-560.webp" srcset="assets/galeria/11-rose-gold-560.webp 560w, assets/galeria/11-rose-gold.webp 1000w" sizes="(min-width: 768px) 31vw, 46vw" width="1000" height="1250" loading="lazy" decoding="async"
+                       alt="Unhas amendoadas em rose gold com glitter fino e cintilante, sobre cetim.">
+                  <figcaption>Rose gold cintilante</figcaption>
+                </figure>
+              </li>
+              <li class="gallery__item">
+                <figure>
+                  <img src="assets/galeria/12-menta-560.webp" srcset="assets/galeria/12-menta-560.webp 560w, assets/galeria/12-menta.webp 1000w" sizes="(min-width: 768px) 31vw, 46vw" width="1000" height="1000" loading="lazy" decoding="async"
+                       alt="Unhas quadradas em verde-menta pastel com acabamento cremoso e brilhante.">
+                  <figcaption>Verde-menta</figcaption>
+                </figure>
+              </li>
+            </ul>
+
+            <div class="gallery__cta" data-reveal>
+              <a class="btn btn--dark" href="https://wa.me/5500000000000" data-booking data-wa>Quero uma dessas</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= EXPERIÊNCIA ================= -->
+        <section class="section experience" id="experiencia" aria-labelledby="experiencia-title">
+          <div class="container">
+            <header class="section-head" data-reveal>
+              <p class="eyebrow">Por que a Vilma</p>
+              <h2 class="section-title" id="experiencia-title">Uma experiência de unhas <em>diferente</em>.</h2>
+            </header>
+
+            <div class="experience__layout">
+              <div class="experience__media">
+                <div class="experience__frame" data-parallax-frame>
+                  <img src="assets/hero/hero-mobile-600.webp"
+                       srcset="assets/hero/hero-mobile-600.webp 600w, assets/hero/hero-mobile.webp 941w"
+                       sizes="(min-width: 900px) 40vw, 92vw"
+                       width="941" height="1672" loading="lazy" decoding="async" data-parallax-img
+                       alt="Mãos com unhas longas em nude rosado, cruzadas suavemente sobre linho creme.">
+                </div>
+              </div>
+
+              <div class="experience__list">
+                <article class="feature" data-reveal>
+                  <svg class="feature__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3v6M16 23v6M3 16h6M23 16h6M7 7l4 4M21 21l4 4M25 7l-4 4M11 21l-4 4"/></svg>
+                  <h3 class="feature__title">Especialista em fibra de vidro</h3>
+                  <p>Alongamento fino e leve, moldado para a sua mão. O resultado é uma unha resistente que parece natural.</p>
+                  <ul role="list">
+                    <li>Formato e comprimento escolhidos com você</li>
+                    <li>Preparação cuidadosa da unha e cutícula</li>
+                    <li>Manutenção que preserva a unha natural</li>
+                  </ul>
+                </article>
+
+                <article class="feature" data-reveal>
+                  <svg class="feature__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l10 4v8c0 7-4.5 11.5-10 14C10.5 26.5 6 22 6 15V7l10-4Z"/><path d="M11.5 16l3 3 6-6"/></svg>
+                  <h3 class="feature__title">Materiais de qualidade e higiene</h3>
+                  <p>Produtos selecionados e instrumentos esterilizados a cada atendimento, para você relaxar com tranquilidade.</p>
+                  <ul role="list">
+                    <li>Esmaltes e géis de alta durabilidade</li>
+                    <li>Instrumentos esterilizados e lixas individuais</li>
+                    <li>Acabamento com brilho que dura</li>
+                  </ul>
+                </article>
+
+                <article class="feature" data-reveal>
+                  <svg class="feature__icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/></svg>
+                  <h3 class="feature__title">Atendimento sem pressa</h3>
+                  <p>Horário reservado só para você, num espaço calmo e acolhedor, com tempo para cuidar de cada detalhe.</p>
+                  <ul role="list">
+                    <li>Atendimento com hora marcada</li>
+                    <li>Ambiente tranquilo e confortável</li>
+                    <li>Indicação de cuidados para depois</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= DEPOIMENTOS ================= -->
+        <section class="section testimonials" aria-labelledby="depoimentos-title">
+          <div class="container">
+            <header class="section-head" data-reveal>
+              <p class="eyebrow">Histórias de clientes</p>
+              <h2 class="section-title" id="depoimentos-title">Um pouco de carinho para a sua <em>próxima visita</em>.</h2>
+              <!-- TODO: substituir pelos depoimentos reais das clientes (com autorização). -->
+              <p class="section-lead">Textos de exemplo para visualização do layout — substitua por avaliações reais das clientes.</p>
+            </header>
+
+            <ul class="testimonials__grid" role="list">
+              <li class="quote-card" data-card>
+                <p class="quote-card__stars" aria-label="5 de 5 estrelas">★★★★★</p>
+                <blockquote>“A fibra ficou tão natural que ninguém acredita que não é a minha unha. Durou lindamente até a manutenção.”</blockquote>
+                <p class="quote-card__author"><span class="avatar" aria-hidden="true">C</span> Cliente · Fibra de Vidro</p>
+              </li>
+              <li class="quote-card" data-card>
+                <p class="quote-card__stars" aria-label="5 de 5 estrelas">★★★★★</p>
+                <blockquote>“Atendimento calmo, sem pressa, e um capricho em cada detalhe. Saí de lá renovada depois do SPA dos pés.”</blockquote>
+                <p class="quote-card__author"><span class="avatar" aria-hidden="true">M</span> Cliente · SPA dos Pés</p>
+              </li>
+              <li class="quote-card" data-card>
+                <p class="quote-card__stars" aria-label="5 de 5 estrelas">★★★★★</p>
+                <blockquote>“Levei uma foto de referência e a Vilma ainda sugeriu um detalhe que deixou tudo mais delicado. Amei!”</blockquote>
+                <p class="quote-card__author"><span class="avatar" aria-hidden="true">A</span> Cliente · Arte nas Unhas</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ================= DÚVIDAS ================= -->
+        <section class="section faq" id="duvidas" aria-labelledby="duvidas-title">
+          <div class="container container--narrow">
+            <header class="section-head" data-reveal>
+              <p class="eyebrow">Dúvidas frequentes</p>
+              <h2 class="section-title" id="duvidas-title">Antes do seu <em>horário</em>.</h2>
+            </header>
+
+            <div class="faq__list" data-reveal>
+              <details class="faq__item">
+                <summary>O que é a fibra de vidro e quanto tempo dura?</summary>
+                <div class="faq__answer"><p>É um alongamento feito com fios finos de fibra aplicados sobre a unha natural e cobertos com gel. Fica leve, resistente e com aparência natural. A manutenção costuma ser feita a cada 15 a 21 dias, conforme o crescimento da sua unha.</p></div>
+              </details>
+              <details class="faq__item">
+                <summary>A fibra de vidro estraga a unha natural?</summary>
+                <div class="faq__answer"><p>Quando aplicada e removida corretamente, não. A preparação é suave e a remoção é feita com cuidado, sem arrancar o material. Por isso é importante fazer a manutenção e a remoção sempre com profissional.</p></div>
+              </details>
+              <details class="faq__item">
+                <summary>Posso levar uma foto de referência?</summary>
+                <div class="faq__answer"><p>Pode e deve! Envie a foto pelo WhatsApp ao agendar. A Vilma avalia o formato da sua unha e sugere ajustes para o resultado ficar harmônico com as suas mãos.</p></div>
+              </details>
+              <details class="faq__item">
+                <summary>Quanto tempo leva o atendimento?</summary>
+                <div class="faq__answer"><p>Depende do serviço. Manicure e pedicure são mais rápidas; alongamento em fibra e arte nas unhas pedem mais tempo. O tempo estimado é informado na confirmação do horário.</p></div>
+              </details>
+              <details class="faq__item">
+                <summary>Como faço para remarcar ou cancelar?</summary>
+                <div class="faq__answer"><p>É só avisar pelo WhatsApp com antecedência. Assim o horário pode ser oferecido a outra cliente e a gente encontra uma nova data para você.</p></div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= CTA ================= -->
+        <section class="cta" aria-labelledby="cta-title">
+          <img class="cta__bg" src="assets/servicos/spa-dos-pes.webp" width="1000" height="750" loading="lazy" decoding="async" alt="" data-cta-bg>
+          <div class="cta__card" data-reveal>
+            <p class="eyebrow">Agende hoje</p>
+            <h2 class="cta__title" id="cta-title">Pronta para o seu <em>próximo</em> cuidado?</h2>
+            <p>Responda algumas perguntas rápidas e envie tudo pronto pelo WhatsApp.</p>
+            <a class="btn btn--dark" href="https://wa.me/5500000000000" data-booking data-wa>Agendar horário</a>
+          </div>
+        </section>
+      </main>
+
+      <!-- ================= FOOTER ================= -->
+      <footer class="site-footer">
+        <div class="container">
+          <div class="site-footer__top">
+            <p class="site-footer__headline">Unhas naturais, feitas com <em>calma</em> e cuidado.</p>
+            <a class="btn btn--pink" href="https://wa.me/5500000000000" data-booking data-wa>Agendar horário</a>
+          </div>
+
+          <div class="site-footer__cols">
+            <div>
+              <p class="site-footer__brand">Vilma Delmiro</p>
+              <p class="site-footer__muted">Especialista em fibra de vidro, manicure, pedicure e cuidados para mãos e pés.</p>
+            </div>
+            <div>
+              <h3 class="site-footer__label">Visita</h3>
+              <!-- TODO: endereço real -->
+              <p>Atendimento com hora marcada.<br>Endereço enviado na confirmação.</p>
+            </div>
+            <div>
+              <h3 class="site-footer__label">Horários</h3>
+              <!-- TODO: confirmar horários -->
+              <p>Segunda a sexta, 9h às 19h<br>Sábado, 9h às 14h</p>
+            </div>
+            <div>
+              <h3 class="site-footer__label">Fale comigo</h3>
+              <p><a href="https://wa.me/5500000000000" data-wa target="_blank" rel="noopener">WhatsApp</a><br>
+                 <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></p>
+            </div>
+          </div>
+
+          <div class="site-footer__bottom">
+            <p>© <span data-year>2026</span> Vilma Delmiro. Todos os direitos reservados.</p>
+            <a href="#topo" data-scroll-link>Voltar ao topo ↑</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ================= QUESTIONÁRIO DE AGENDAMENTO ================= -->
+  <dialog class="booking" id="booking" aria-labelledby="booking-title">
+    <form class="booking__panel" method="dialog" novalidate data-booking-form>
+      <header class="booking__head">
+        <div>
+          <p class="eyebrow" id="booking-title">Agendar horário</p>
+          <p class="booking__step-count" aria-live="polite"><span data-step-current>1</span> de <span data-step-total>6</span></p>
+        </div>
+        <button class="booking__close" type="button" data-booking-close aria-label="Fechar questionário">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+      <div class="booking__progress" aria-hidden="true"><span data-progress></span></div>
+
+      <div class="booking__body">
+        <!-- 1. Serviço -->
+        <fieldset class="booking__step" data-step data-required="servico">
+          <legend class="booking__question">Qual serviço você quer agendar?</legend>
+          <p class="booking__hint">Pode escolher mais de um.</p>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" name="servico" value="Manicure"><span class="choice__box"><span class="choice__title">Manicure</span></span></label>
+            <label class="choice"><input type="checkbox" name="servico" value="Pedicure"><span class="choice__box"><span class="choice__title">Pedicure</span></span></label>
+            <label class="choice"><input type="checkbox" name="servico" value="Esmalte em Gel"><span class="choice__box"><span class="choice__title">Esmalte em Gel</span></span></label>
+            <label class="choice"><input type="checkbox" name="servico" value="Arte nas Unhas"><span class="choice__box"><span class="choice__title">Arte nas Unhas</span></span></label>
+            <label class="choice"><input type="checkbox" name="servico" value="Fibra de Vidro"><span class="choice__box"><span class="choice__title">Fibra de Vidro</span><span class="choice__sub">Alongamento ou manutenção</span></span></label>
+            <label class="choice"><input type="checkbox" name="servico" value="SPA dos Pés"><span class="choice__box"><span class="choice__title">SPA dos Pés</span></span></label>
+            <label class="choice choice--wide"><input type="checkbox" name="servico" value="Ainda não sei, quero orientação"><span class="choice__box"><span class="choice__title">Ainda não sei</span><span class="choice__sub">Quero uma orientação da Vilma</span></span></label>
+          </div>
+        </fieldset>
+
+        <!-- 2. Primeira vez -->
+        <fieldset class="booking__step" data-step data-required="primeira_vez" data-auto hidden>
+          <legend class="booking__question">É a sua primeira vez com a Vilma?</legend>
+          <div class="choices choices--two">
+            <label class="choice"><input type="radio" name="primeira_vez" value="Sim, primeira vez"><span class="choice__box"><span class="choice__title">Sim, primeira vez</span><span class="choice__sub">Bem-vinda!</span></span></label>
+            <label class="choice"><input type="radio" name="primeira_vez" value="Já sou cliente"><span class="choice__box"><span class="choice__title">Já sou cliente</span><span class="choice__sub">Que bom te ver de novo</span></span></label>
+          </div>
+        </fieldset>
+
+        <!-- 3. Unhas hoje -->
+        <fieldset class="booking__step" data-step data-required="unhas_hoje" data-auto hidden>
+          <legend class="booking__question">Como estão suas unhas hoje?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="unhas_hoje" value="Naturais, sem produto"><span class="choice__box"><span class="choice__title">Naturais</span><span class="choice__sub">Sem nenhum produto</span></span></label>
+            <label class="choice"><input type="radio" name="unhas_hoje" value="Com esmalte em gel"><span class="choice__box"><span class="choice__title">Com esmalte em gel</span><span class="choice__sub">Precisa remover</span></span></label>
+            <label class="choice"><input type="radio" name="unhas_hoje" value="Com fibra ou alongamento"><span class="choice__box"><span class="choice__title">Com fibra ou alongamento</span><span class="choice__sub">Manutenção ou remoção</span></span></label>
+            <label class="choice"><input type="radio" name="unhas_hoje" value="Fracas ou roídas"><span class="choice__box"><span class="choice__title">Fracas ou roídas</span><span class="choice__sub">Quero recuperar</span></span></label>
+          </div>
+        </fieldset>
+
+        <!-- 4. Estilo -->
+        <fieldset class="booking__step" data-step data-required="estilo" data-auto hidden>
+          <legend class="booking__question">Qual estilo combina com você?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="estilo" value="Natural e discreto"><span class="choice__box"><span class="swatch" style="--sw: #e9c4b4"></span><span class="choice__title">Natural e discreto</span></span></label>
+            <label class="choice"><input type="radio" name="estilo" value="Francesinha clássica"><span class="choice__box"><span class="swatch swatch--french"></span><span class="choice__title">Francesinha clássica</span></span></label>
+            <label class="choice"><input type="radio" name="estilo" value="Cor marcante"><span class="choice__box"><span class="swatch" style="--sw: #a3122a"></span><span class="choice__title">Cor marcante</span></span></label>
+            <label class="choice"><input type="radio" name="estilo" value="Com arte e detalhes"><span class="choice__box"><span class="swatch swatch--art"></span><span class="choice__title">Com arte e detalhes</span></span></label>
+            <label class="choice choice--wide"><input type="radio" name="estilo" value="Quero sugestão da Vilma"><span class="choice__box"><span class="choice__title">Quero uma sugestão</span><span class="choice__sub">A Vilma indica o que combina com você</span></span></label>
+          </div>
+        </fieldset>
+
+        <!-- 5. Quando -->
+        <fieldset class="booking__step" data-step data-required="dias,periodo" hidden>
+          <legend class="booking__question">Quando fica melhor para você?</legend>
+          <p class="booking__label" id="lbl-dias">Dias da semana <span class="booking__hint-inline">(pode marcar vários)</span></p>
+          <div class="choices choices--chips" role="group" aria-labelledby="lbl-dias">
+            <label class="choice choice--chip"><input type="checkbox" name="dias" value="Segunda"><span class="choice__box">Seg</span></label>
+            <label class="choice choice--chip"><input type="checkbox" name="dias" value="Terça"><span class="choice__box">Ter</span></label>
+            <label class="choice choice--chip"><input type="checkbox" name="dias" value="Quarta"><span class="choice__box">Qua</span></label>
+            <label class="choice choice--chip"><input type="checkbox" name="dias" value="Quinta"><span class="choice__box">Qui</span></label>
+            <label class="choice choice--chip"><input type="checkbox" name="dias" value="Sexta"><span class="choice__box">Sex</span></label>
+            <label class="choice choice--chip"><input type="checkbox" name="dias" value="Sábado"><span class="choice__box">Sáb</span></label>
+          </div>
+          <p class="booking__label" id="lbl-periodo">Período</p>
+          <div class="choices choices--three" role="radiogroup" aria-labelledby="lbl-periodo">
+            <label class="choice"><input type="radio" name="periodo" value="Manhã"><span class="choice__box"><span class="choice__title">Manhã</span></span></label>
+            <label class="choice"><input type="radio" name="periodo" value="Tarde"><span class="choice__box"><span class="choice__title">Tarde</span></span></label>
+            <label class="choice"><input type="radio" name="periodo" value="Fim do dia"><span class="choice__box"><span class="choice__title">Fim do dia</span></span></label>
+          </div>
+        </fieldset>
+
+        <!-- 6. Finalizar -->
+        <fieldset class="booking__step" data-step data-required="nome" hidden>
+          <legend class="booking__question">Para finalizar, como você se chama?</legend>
+          <label class="field">
+            <span class="field__label">Seu nome</span>
+            <input class="field__input" type="text" name="nome" autocomplete="given-name" placeholder="Ex.: Ana" required>
+          </label>
+          <label class="field">
+            <span class="field__label">Algum detalhe? <span class="booking__hint-inline">(opcional)</span></span>
+            <textarea class="field__input" name="obs" rows="2" placeholder="Ex.: tenho uma foto de referência, prefiro unha curta…"></textarea>
+          </label>
+          <div class="summary">
+            <p class="booking__label">Resumo</p>
+            <dl class="summary__list" data-summary></dl>
+          </div>
+        </fieldset>
+
+        <!-- Concluído -->
+        <div class="booking__done" data-done hidden tabindex="-1">
+          <svg class="booking__done-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M15 24.5l6 6 12-13"/></svg>
+          <h3 class="booking__question">Tudo pronto!</h3>
+          <p>Abrimos o WhatsApp com as suas respostas. É só enviar a mensagem que a Vilma responde para confirmar o horário.</p>
+          <a class="btn btn--ghost" href="#" data-wa-final target="_blank" rel="noopener">Abrir o WhatsApp de novo</a>
+        </div>
+
+        <p class="booking__error" role="alert" data-error></p>
+      </div>
+
+      <footer class="booking__foot" data-foot>
+        <button class="btn btn--ghost" type="button" data-prev>Voltar</button>
+        <button class="btn btn--dark" type="button" data-next>Continuar</button>
+        <button class="btn btn--dark" type="button" data-submit hidden>
+          <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+          Enviar pelo WhatsApp
+        </button>
+      </footer>
+    </form>
+  </dialog>
+
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/ScrollSmoother.min.js" defer></script>
+  <script src="js/booking.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+@use 'tokens' as *;
+
+// =========================================================
+// QUESTIONÁRIO DE AGENDAMENTO (<dialog>)
+// =========================================================
+.booking {
+  width: calc(100% - 2rem);
+  max-width: 640px;
+  max-height: calc(100svh - 2rem);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: $brown-800;
+  overflow: visible;
+
+  &::backdrop {
+    background: rgba(47, 33, 26, .5);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+
+  // Celular: vira uma "folha" que sobe da base da tela
+  @include down($bp-sm) {
+    width: 100%;
+    max-width: 100%;
+    max-height: 92svh;
+    margin: auto 0 0;
+  }
+}
+
+.booking__panel {
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+  height: 100%;
+  border-radius: 22px;
+  background: $cream;
+  box-shadow: 0 40px 80px -30px rgba(47, 33, 26, .5);
+  overflow: hidden;
+
+  @include down($bp-sm) {
+    max-height: 92svh;
+    border-radius: 22px 22px 0 0;
+  }
+}
+
+.booking__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem clamp(1.25rem, 4vw, 2rem) 1rem;
+}
+
+.booking__step-count {
+  margin-top: .3rem;
+  font-size: .82rem;
+  color: $brown-400;
+}
+
+.booking__close {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid $line;
+  border-radius: 50%;
+  background: $paper;
+  cursor: pointer;
+  transition: background-color .3s $ease;
+
+  svg {
+    width: 16px; height: 16px;
+    fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round;
+  }
+  &:hover { background: $rose; }
+}
+
+.booking__progress {
+  height: 3px;
+  margin-inline: clamp(1.25rem, 4vw, 2rem);
+  border-radius: 3px;
+  background: $cream-2;
+  overflow: hidden;
+
+  span {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: $rose-600;
+    transform-origin: left;
+    transform: scaleX(.16);
+  }
+}
+
+.booking__body {
+  position: relative;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1.6rem clamp(1.25rem, 4vw, 2rem) 1rem;
+}
+
+.booking__step {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.booking__question {
+  display: block;
+  padding: 0;
+  margin-bottom: .4rem;
+  font-family: $serif;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 5vw, 2.3rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.booking__hint { color: $brown-600; font-size: .9rem; margin-bottom: 1.25rem; }
+.booking__hint-inline { color: $brown-400; font-weight: 300; }
+
+.booking__label {
+  margin: 1.4rem 0 .7rem;
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: $brown-600;
+}
+
+.booking__step > .booking__question + .choices,
+.booking__step > .booking__question + .field { margin-top: 1.25rem; }
+
+.booking__error {
+  min-height: 1.4em;
+  margin-top: .9rem;
+  font-size: .88rem;
+  color: #A0413A;
+}
+
+.booking__foot {
+  display: flex;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: 1rem clamp(1.25rem, 4vw, 2rem) calc(1.25rem + env(safe-area-inset-bottom));
+  border-top: 1px solid $line;
+  background: $cream;
+
+  .btn { flex: 0 1 auto; }
+  [data-next], [data-submit] { margin-left: auto; }
+  [hidden] { display: none; }
+
+  // telas bem estreitas: "Enviar pelo WhatsApp" cabe em uma linha
+  @media (max-width: 380px) {
+    gap: .5rem;
+    .btn { padding-inline: 1rem; font-size: .88rem; white-space: nowrap; }
+  }
+}
+
+// ---------- Caixinhas de resposta ----------
+.choices {
+  display: grid;
+  gap: .6rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 13.5rem), 1fr));
+
+  &--two { grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr)); }
+  &--three { grid-template-columns: repeat(3, 1fr); }
+
+  &--chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+}
+
+.choice {
+  position: relative;
+  display: block;
+  cursor: pointer;
+
+  &--wide { grid-column: 1 / -1; }
+
+  // input nativo continua acessível (teclado e leitor de tela)
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    pointer-events: none;
+  }
+}
+
+.choice__box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .15rem;
+  min-height: 64px;
+  height: 100%;
+  padding: .85rem 2.75rem .85rem 1rem;
+  border: 1px solid $line;
+  border-radius: 14px;
+  background: $paper;
+  transition: border-color .25s $ease, background-color .25s $ease, box-shadow .25s $ease, transform .25s $ease;
+
+  // marcador (círculo) à direita
+  &::after {
+    content: '';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    border: 1px solid rgba(62, 43, 34, .3);
+    border-radius: 50%;
+    background: $paper no-repeat center / 12px;
+    transition: background-color .25s $ease, border-color .25s $ease;
+  }
+
+  .choice:hover & { border-color: rgba(62, 43, 34, .35); }
+
+  input:checked + & {
+    border-color: $brown-800;
+    background: #F5E3DE;
+    box-shadow: 0 0 0 1px $brown-800 inset;
+
+    &::after {
+      border-color: $brown-800;
+      background-color: $brown-800;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%23F6EEE5' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+  }
+
+  input:focus-visible + & {
+    outline: 2px solid $rose-600;
+    outline-offset: 2px;
+  }
+
+  input:active + & { transform: scale(.985); }
+}
+
+.choice__title { font-weight: 400; line-height: 1.25; }
+.choice__sub { font-size: .82rem; color: $brown-600; line-height: 1.3; }
+
+// chips de dias
+.choice--chip .choice__box {
+  min-height: 44px;
+  min-width: 64px;
+  padding: .5rem 1rem;
+  border-radius: 999px;
+  align-items: center;
+  font-size: .92rem;
+
+  &::after { display: none; }
+}
+
+.choices--three .choice__box {
+  padding-right: 1rem;
+  align-items: center;
+  text-align: center;
+  &::after { display: none; }
+}
+
+// amostras de cor no passo "estilo"
+.choice__box:has(.swatch) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .75rem;
+}
+
+.swatch {
+  flex: none;
+  width: 22px;
+  height: 30px;
+  border-radius: 11px 11px 9px 9px; // formato de unha
+  background: var(--sw, $rose);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .06);
+
+  &--french { background: linear-gradient(to top, #F1E7DF 0 28%, #EBC8BC 28%); }
+  &--art {
+    background:
+      radial-gradient(circle at 50% 55%, #fff 0 3px, transparent 3.5px),
+      radial-gradient(circle at 38% 45%, #fff 0 2.5px, transparent 3px),
+      radial-gradient(circle at 62% 45%, #fff 0 2.5px, transparent 3px),
+      #E6B9B1;
+  }
+}
+
+// ---------- Campos de texto ----------
+.field {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.field__label {
+  display: block;
+  margin-bottom: .4rem;
+  font-size: .9rem;
+  font-weight: 400;
+}
+
+.field__input {
+  width: 100%;
+  min-height: 52px;
+  padding: .8rem 1rem;
+  border: 1px solid $line;
+  border-radius: 12px;
+  background: $paper;
+  font-size: 1rem; // evita zoom automático no iOS
+  resize: vertical;
+  transition: border-color .25s $ease;
+
+  &:focus { outline: none; border-color: $brown-800; box-shadow: 0 0 0 1px $brown-800 inset; }
+  &::placeholder { color: $brown-400; }
+}
+
+// ---------- Resumo ----------
+.summary {
+  margin-top: 1.25rem;
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
+  background: $cream-2;
+
+  .booking__label { margin-top: 0; }
+}
+
+.summary__list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .35rem 1rem;
+  font-size: .9rem;
+
+  dt { color: $brown-600; }
+  dd { font-weight: 400; }
+
+  @include down(380px) {
+    grid-template-columns: 1fr;
+    dd { margin-bottom: .4rem; }
+  }
+}
+
+// ---------- Concluído ----------
+.booking__done {
+  padding: 1rem 0 .5rem;
+  text-align: center;
+  outline: none;
+
+  p { color: $brown-600; max-width: 26rem; margin: .5rem auto 1.5rem; }
+}
+
+.booking__done-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1rem;
+  fill: none;
+  stroke: $rose-600;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+// Rolagem da página travada com o questionário aberto
+html.is-locked, html.is-locked body { overflow: hidden; }

@@ -1,0 +1,60 @@
+@use 'tokens' as *;
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  transition: background-color .4s $ease, box-shadow .4s $ease, backdrop-filter .4s $ease;
+
+  &.is-scrolled {
+    background: rgba(246, 238, 229, .86);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 $line;
+  }
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 72px;
+}
+
+.brand {
+  margin-right: auto;
+  font-family: $serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav {
+  display: none;
+  gap: 2rem;
+
+  a {
+    position: relative;
+    font-size: .9rem;
+    text-decoration: none;
+    color: $brown-600;
+    transition: color .3s $ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -4px;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s $ease;
+    }
+    &:hover { color: $brown-800; }
+    &:hover::after { transform: scaleX(1); }
+  }
+
+  @include up($bp-lg) { display: flex; }
+}
