@@ -1,30 +1,46 @@
 @use 'tokens' as *;
 
+// =========================================================
+// HEADER — navbar em "pílula" flutuante, com blush ao rolar
+// =========================================================
 .site-header {
   position: fixed;
-  inset: 0 0 auto;
+  inset: clamp(.5rem, 1.4vw, .9rem) 0 auto;
   z-index: 50;
-  transition: background-color .4s $ease, box-shadow .4s $ease, backdrop-filter .4s $ease;
-
-  &.is-scrolled {
-    background: rgba(246, 238, 229, .86);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 1px 0 $line;
-  }
+  padding-inline: clamp(.75rem, 3vw, 1.5rem);
+  pointer-events: none; // só a pílula captura cliques
 }
 
 .site-header__inner {
+  pointer-events: auto;
+  margin-inline: auto;
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  min-height: 72px;
+  min-height: 60px;
+  max-width: 1120px;
+  padding: .45rem .5rem .45rem 1.5rem;
+  border-radius: 999px;
+  background: rgba(251, 247, 242, .5);
+  border: 1px solid rgba(255, 255, 255, .5);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  box-shadow: 0 12px 34px -24px rgba(47, 33, 26, .5);
+  transition: background-color .45s $ease, box-shadow .45s $ease,
+              border-color .45s $ease, transform .45s $ease;
+}
+
+// Blush ao rolar
+.site-header.is-scrolled .site-header__inner {
+  background: rgba(233, 196, 188, .72);
+  border-color: rgba(255, 255, 255, .6);
+  box-shadow: 0 16px 40px -20px rgba(185, 119, 110, .55);
 }
 
 .brand {
   margin-right: auto;
   font-family: $serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: .01em;
   text-decoration: none;
@@ -33,11 +49,11 @@
 
 .site-nav {
   display: none;
-  gap: 2rem;
+  gap: 1.6rem;
 
   a {
     position: relative;
-    font-size: .9rem;
+    font-size: .88rem;
     text-decoration: none;
     color: $brown-600;
     transition: color .3s $ease;
@@ -45,9 +61,10 @@
     &::after {
       content: '';
       position: absolute;
-      left: 0; right: 0; bottom: -4px;
-      height: 1px;
-      background: currentColor;
+      left: 0; right: 0; bottom: -5px;
+      height: 2px;
+      border-radius: 2px;
+      background: $rose-600;
       transform: scaleX(0);
       transform-origin: left;
       transition: transform .35s $ease;
@@ -58,3 +75,6 @@
 
   @include up($bp-lg) { display: flex; }
 }
+
+// O botão Agendar já é a "bolinha" à direita da pílula
+.site-header .btn--small { white-space: nowrap; }

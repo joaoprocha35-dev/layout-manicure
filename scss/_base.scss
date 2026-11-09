@@ -161,6 +161,9 @@ button, input, textarea { font: inherit; color: inherit; }
 // Seções focadas via link interno não mostram contorno
 [tabindex='-1']:focus { outline: none; }
 
+// Trava a rolagem do fundo quando um modal está aberto
+html.is-locked, html.is-locked body { overflow: hidden; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: .01ms !important;

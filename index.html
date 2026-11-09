@@ -3,18 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vilma Delmiro · Especialista em Fibra de Vidro</title>
-  <meta name="description" content="Unhas naturais e resistentes. Manicure, pedicure, esmalte em gel, arte nas unhas, fibra de vidro e SPA dos pés com a Vilma Delmiro.">
+  <title>Vilma Delmiro · Nail Designer e Especialista em Fibra de Vidro</title>
+  <meta name="description" content="Unhas naturais e resistentes com a Vilma Delmiro: manicure, pedicure, esmalte em gel, arte nas unhas, alongamento em fibra de vidro e SPA dos pés. Atendimento com hora marcada.">
   <meta name="theme-color" content="#F4EAE0">
+  <meta name="author" content="Vilma Delmiro">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233E2B22'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-style='italic' text-anchor='middle' fill='%23EBCFC8'%3EV%3C/text%3E%3C/svg%3E">
 
-  <!-- Hero: carrega primeiro a foto certa para cada formato de tela -->
+  <!-- SEO / compartilhamento em redes sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Vilma Delmiro">
+  <meta property="og:title" content="Vilma Delmiro · Nail Designer e Especialista em Fibra de Vidro">
+  <meta property="og:description" content="Unhas naturais e resistentes: manicure, pedicure, esmalte em gel, arte nas unhas, fibra de vidro e SPA dos pés. Atendimento com hora marcada.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vilma Delmiro · Nail Designer e Especialista em Fibra de Vidro">
+  <meta name="twitter:description" content="Unhas naturais e resistentes, com hora marcada.">
+
+  <!-- Hero: imagem de apoio do vídeo carrega cedo (evita tela vazia) -->
   <link rel="preload" as="image" type="image/webp"
-        imagesrcset="assets/hero/hero-mobile-600.webp 600w, assets/hero/hero-mobile.webp 941w" imagesizes="100vw"
-        media="(max-width: 767px), (orientation: portrait)" fetchpriority="high">
-  <link rel="preload" as="image" type="image/webp"
-        imagesrcset="assets/hero/hero-desktop-1000.webp 1000w, assets/hero/hero-desktop.webp 1672w" imagesizes="100vw"
-        media="(min-width: 768px) and (orientation: landscape)" fetchpriority="high">
+        imagesrcset="assets/hero/hero-desktop-1000.webp 1000w, assets/hero/hero-desktop.webp 1600w"
+        imagesizes="100vw" fetchpriority="high">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,9 +32,52 @@
     // Esconde o texto da hero até o GSAP assumir (com fallback em CSS após 2,5s)
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('preload-anim');
   </script>
+
+  <!-- Dados estruturados: ajudam o Google a mostrar serviços, preços e horários -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Vilma Delmiro",
+    "description": "Nail designer especialista em alongamento de unhas em fibra de vidro, manicure, pedicure, esmalte em gel, arte nas unhas e SPA dos pés.",
+    "priceRange": "R$25 - R$140",
+    "currenciesAccepted": "BRL",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Serviços",
+      "itemListElement": [
+        { "@type": "Offer", "price": "40.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Manicure" } },
+        { "@type": "Offer", "price": "45.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Pedicure" } },
+        { "@type": "Offer", "price": "60.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Pé e Mão" } },
+        { "@type": "Offer", "price": "70.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Esmalte em Gel" } },
+        { "@type": "Offer", "price": "25.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Arte nas Unhas" } },
+        { "@type": "Offer", "price": "140.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Alongamento em Fibra de Vidro" } },
+        { "@type": "Offer", "price": "90.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Manutenção de Fibra" } },
+        { "@type": "Offer", "price": "80.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "SPA dos Pés" } }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- Camada decorativa do fundo (manchas rosadas suaves) -->
+  <div class="bg-decor" aria-hidden="true"></div>
 
   <!-- Header fica fora do wrapper do ScrollSmoother para continuar fixo -->
   <header class="site-header" data-header>
@@ -34,32 +85,49 @@
       <a class="brand" href="#topo" data-scroll-link>Vilma Delmiro</a>
       <nav class="site-nav" aria-label="Principal">
         <a href="#servicos" data-scroll-link>Serviços</a>
+        <a href="#precos" data-scroll-link>Preços</a>
         <a href="#galeria" data-scroll-link>Trabalhos</a>
-        <a href="#experiencia" data-scroll-link>Experiência</a>
+        <a href="#produtos" data-scroll-link>Produtos</a>
         <a href="#duvidas" data-scroll-link>Dúvidas</a>
       </nav>
-      <a class="btn btn--small btn--dark" href="https://wa.me/5500000000000" data-booking data-wa>Agendar</a>
+      <a class="btn btn--small btn--dark" href="https://wa.me/5514998813787" data-booking data-wa>Agendar</a>
     </div>
   </header>
 
   <div id="smooth-wrapper">
     <div id="smooth-content">
+      <!-- Fita rosa em zigue-zague com as palavras-chave da Vilma.
+           Estática (sem animação) para máximo FPS — aparece conforme a rolagem. -->
+      <svg class="ribbon" data-ribbon aria-hidden="true" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="ribbonPath" data-ribbon-path fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- blocos de palavras-chave espaçados ao longo da fita (gerados por js/main.js) -->
+        <g class="ribbon__text" data-ribbon-labels></g>
+      </svg>
+
       <main id="conteudo">
 
-        <!-- ================= HERO ================= -->
+        <!-- ================= HERO (vídeo cinematográfico) ================= -->
         <section class="hero" id="topo" aria-labelledby="hero-title">
-          <picture class="hero__media">
-            <source media="(max-width: 767px), (orientation: portrait)"
-                    srcset="assets/hero/hero-mobile-600.webp 600w, assets/hero/hero-mobile.webp 941w"
-                    sizes="100vw" width="941" height="1672">
-            <img class="hero__img"
+          <!-- CAMADA 1 · vídeo de fundo (imagem de fallback atrás) -->
+          <div class="hero__bg" aria-hidden="true">
+            <img class="hero__fallback"
                  src="assets/hero/hero-desktop.webp"
                  srcset="assets/hero/hero-desktop-1000.webp 1000w, assets/hero/hero-desktop.webp 1672w"
-                 sizes="100vw" width="1672" height="941"
-                 alt="Mãos com unhas amendoadas em francesinha nude, com uma flor branca delicada no anelar, apoiadas sobre linho creme."
-                 fetchpriority="high" decoding="async">
-          </picture>
+                 sizes="100vw" width="1600" height="900" alt="" decoding="async">
+            <video class="hero__video" data-hero-video
+                   autoplay muted loop playsinline preload="metadata"
+                   poster="assets/hero/hero-desktop-1000.webp">
+              <!-- WebM primeiro (1,2 MB); o .mp4 (2,0 MB) é a alternativa p/ Safari -->
+              <source src="assets/hero/hero-manicure-computador.webm" type="video/webm">
+              <source src="assets/hero/hero-manicure-computador.mp4" type="video/mp4">
+              <!-- Futuro: versão vertical para celular
+              <source media="(max-width: 767px)" src="assets/hero/hero-manicure-celular.webm" type="video/webm"> -->
+            </video>
+            <!-- CAMADA 2 · overlay para legibilidade -->
+            <div class="hero__overlay"></div>
+          </div>
 
+          <!-- CAMADA 3 · conteúdo -->
           <div class="container hero__inner">
             <div class="hero__content">
               <p class="eyebrow" data-hero-item>Especialista em Fibra de Vidro</p>
@@ -70,15 +138,69 @@
                 Cuidado artesanal e acabamento delicado para unhas bonitas que duram — do jeito que combina com você.
               </p>
               <div class="hero__actions" data-hero-item>
-                <a class="btn btn--dark" href="https://wa.me/5500000000000" data-booking data-wa>
-                  <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
-                  Agendar via WhatsApp
-                </a>
+                <a class="btn btn--dark" href="#agendar" data-booking>Agendar horário</a>
                 <a class="btn btn--ghost" href="#galeria" data-scroll-link>Ver trabalhos</a>
               </div>
             </div>
           </div>
-          <div class="hero__spacer" aria-hidden="true"></div>
+        </section>
+
+        <!-- ================= FAIXA ROSA ANIMADA ================= -->
+        <div class="marquee" role="marquee" aria-label="Destaques da Vilma">
+          <div class="marquee__track" data-marquee>
+            <div class="marquee__group">
+              <span class="marquee__item">Mais de <strong>10 anos</strong> de experiência</span>
+              <span class="marquee__sep" aria-hidden="true">✦</span>
+              <span class="marquee__item"><strong>+1.200</strong> atendimentos realizados</span>
+              <span class="marquee__sep" aria-hidden="true">✦</span>
+              <span class="marquee__item">Nota <strong>4,9</strong> nas avaliações ★</span>
+              <span class="marquee__sep" aria-hidden="true">✦</span>
+              <span class="marquee__item">Especialista em <strong>fibra de vidro</strong></span>
+              <span class="marquee__sep" aria-hidden="true">✦</span>
+              <span class="marquee__item"><strong>98%</strong> voltam para a manutenção</span>
+              <span class="marquee__sep" aria-hidden="true">✦</span>
+              <span class="marquee__item">Atendimento com <strong>hora marcada</strong></span>
+              <span class="marquee__sep" aria-hidden="true">✦</span>
+            </div>
+            <div class="marquee__group" aria-hidden="true">
+              <span class="marquee__item">Mais de <strong>10 anos</strong> de experiência</span>
+              <span class="marquee__sep">✦</span>
+              <span class="marquee__item"><strong>+1.200</strong> atendimentos realizados</span>
+              <span class="marquee__sep">✦</span>
+              <span class="marquee__item">Nota <strong>4,9</strong> nas avaliações ★</span>
+              <span class="marquee__sep">✦</span>
+              <span class="marquee__item">Especialista em <strong>fibra de vidro</strong></span>
+              <span class="marquee__sep">✦</span>
+              <span class="marquee__item"><strong>98%</strong> voltam para a manutenção</span>
+              <span class="marquee__sep">✦</span>
+              <span class="marquee__item">Atendimento com <strong>hora marcada</strong></span>
+              <span class="marquee__sep">✦</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= NÚMEROS / PROVA SOCIAL ================= -->
+        <section class="section stats" aria-label="Vilma em números">
+          <div class="container">
+            <ul class="stats__grid" role="list">
+              <li class="stat" data-card>
+                <p class="stat__num" data-count="8"><span>+</span>8</p>
+                <p class="stat__label">anos cuidando de unhas</p>
+              </li>
+              <li class="stat" data-card>
+                <p class="stat__num" data-count="1200"><span>+</span>1.200</p>
+                <p class="stat__label">atendimentos realizados</p>
+              </li>
+              <li class="stat" data-card>
+                <p class="stat__num"><em>4,9</em></p>
+                <p class="stat__label">nota média das clientes</p>
+              </li>
+              <li class="stat" data-card>
+                <p class="stat__num" data-count="98">98<span>%</span></p>
+                <p class="stat__label">voltam para a manutenção</p>
+              </li>
+            </ul>
+          </div>
         </section>
 
         <!-- ================= SERVIÇOS ================= -->
@@ -101,7 +223,7 @@
                 </div>
                 <h3 class="service-card__title">Manicure</h3>
                 <p class="service-card__text">Cutilagem cuidadosa, formato sob medida e esmaltação impecável para unhas limpas e bonitas.</p>
-                <a class="service-card__link" href="https://wa.me/5500000000000" data-booking data-wa data-service="Manicure">Agendar este serviço <span aria-hidden="true">→</span></a>
+                <a class="service-card__link" href="https://wa.me/5514998813787" data-booking data-wa data-service="Manicure">Agendar este serviço <span aria-hidden="true">→</span></a>
               </li>
 
               <li class="service-card" data-card>
@@ -114,7 +236,7 @@
                 </div>
                 <h3 class="service-card__title">Pedicure</h3>
                 <p class="service-card__text">Cuidado completo para os pés, com cutilagem, lixamento e acabamento caprichado.</p>
-                <a class="service-card__link" href="https://wa.me/5500000000000" data-booking data-wa data-service="Pedicure">Agendar este serviço <span aria-hidden="true">→</span></a>
+                <a class="service-card__link" href="https://wa.me/5514998813787" data-booking data-wa data-service="Pedicure">Agendar este serviço <span aria-hidden="true">→</span></a>
               </li>
 
               <li class="service-card" data-card>
@@ -127,7 +249,7 @@
                 </div>
                 <h3 class="service-card__title">Esmalte em Gel</h3>
                 <p class="service-card__text">Cor com brilho intenso que dura semanas sem lascar, aplicada sobre a sua unha natural.</p>
-                <a class="service-card__link" href="https://wa.me/5500000000000" data-booking data-wa data-service="Esmalte em Gel">Agendar este serviço <span aria-hidden="true">→</span></a>
+                <a class="service-card__link" href="https://wa.me/5514998813787" data-booking data-wa data-service="Esmalte em Gel">Agendar este serviço <span aria-hidden="true">→</span></a>
               </li>
 
               <li class="service-card" data-card>
@@ -140,7 +262,7 @@
                 </div>
                 <h3 class="service-card__title">Arte nas Unhas</h3>
                 <p class="service-card__text">Detalhes feitos à mão — flores, linhas e francesinhas — para personalizar o seu estilo.</p>
-                <a class="service-card__link" href="https://wa.me/5500000000000" data-booking data-wa data-service="Arte nas Unhas">Agendar este serviço <span aria-hidden="true">→</span></a>
+                <a class="service-card__link" href="https://wa.me/5514998813787" data-booking data-wa data-service="Arte nas Unhas">Agendar este serviço <span aria-hidden="true">→</span></a>
               </li>
 
               <li class="service-card" data-card>
@@ -153,7 +275,7 @@
                 </div>
                 <h3 class="service-card__title">Fibra de Vidro</h3>
                 <p class="service-card__text">Alongamento leve e resistente, com aparência de unha natural. A especialidade da casa.</p>
-                <a class="service-card__link" href="https://wa.me/5500000000000" data-booking data-wa data-service="Fibra de Vidro">Agendar este serviço <span aria-hidden="true">→</span></a>
+                <a class="service-card__link" href="https://wa.me/5514998813787" data-booking data-wa data-service="Fibra de Vidro">Agendar este serviço <span aria-hidden="true">→</span></a>
               </li>
 
               <li class="service-card" data-card>
@@ -166,9 +288,30 @@
                 </div>
                 <h3 class="service-card__title">SPA dos Pés</h3>
                 <p class="service-card__text">Esfoliação, hidratação profunda e massagem relaxante para pés macios e renovados.</p>
-                <a class="service-card__link" href="https://wa.me/5500000000000" data-booking data-wa data-service="SPA dos Pés">Agendar este serviço <span aria-hidden="true">→</span></a>
+                <a class="service-card__link" href="https://wa.me/5514998813787" data-booking data-wa data-service="SPA dos Pés">Agendar este serviço <span aria-hidden="true">→</span></a>
               </li>
             </ul>
+          </div>
+        </section>
+
+        <!-- ================= PREÇOS ================= -->
+        <section class="section prices" id="precos" aria-labelledby="precos-title">
+          <div class="container">
+            <header class="section-head" data-reveal>
+              <p class="eyebrow">Valores</p>
+              <h2 class="section-title" id="precos-title">Preços <em>transparentes</em>.</h2>
+              <p class="section-lead">Sem surpresa no fim. Veja o valor de cada cuidado e já agende o seu — o horário é confirmado na hora.</p>
+            </header>
+
+            <div class="prices__grid" data-prices-grid role="list">
+              <!-- Cartões de preço gerados por js/pricing.js -->
+            </div>
+            <p class="prices__note">Valores de referência · o orçamento final pode variar conforme o comprimento e a arte escolhida.</p>
+
+            <div class="urgency" data-reveal>
+              <span class="urgency__dot" aria-hidden="true"></span>
+              <span>Agenda desta semana <strong>quase completa</strong> — restam poucos horários de sábado.</span>
+            </div>
           </div>
         </section>
 
@@ -270,7 +413,7 @@
             </ul>
 
             <div class="gallery__cta" data-reveal>
-              <a class="btn btn--dark" href="https://wa.me/5500000000000" data-booking data-wa>Quero uma dessas</a>
+              <a class="btn btn--dark" href="https://wa.me/5514998813787" data-booking data-wa>Quero uma dessas</a>
             </div>
           </div>
         </section>
@@ -286,16 +429,16 @@
             <div class="experience__layout">
               <div class="experience__media">
                 <div class="experience__frame" data-parallax-frame>
-                  <img src="assets/hero/hero-mobile-600.webp"
-                       srcset="assets/hero/hero-mobile-600.webp 600w, assets/hero/hero-mobile.webp 941w"
+                  <img src="assets/galeria/01-fibra-de-vidro-560.webp"
+                       srcset="assets/galeria/01-fibra-de-vidro-560.webp 560w, assets/galeria/01-fibra-de-vidro.webp 1000w"
                        sizes="(min-width: 900px) 40vw, 92vw"
-                       width="941" height="1672" loading="lazy" decoding="async" data-parallax-img
-                       alt="Mãos com unhas longas em nude rosado, cruzadas suavemente sobre linho creme.">
+                       width="1000" height="1250" loading="lazy" decoding="async" data-parallax-img
+                       alt="Unhas amendoadas em rosa translúcido com uma flor branca delicada — trabalho de fibra de vidro da Vilma.">
                 </div>
               </div>
 
               <div class="experience__list">
-                <article class="feature" data-reveal>
+                <article class="feature" data-feature>
                   <svg class="feature__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3v6M16 23v6M3 16h6M23 16h6M7 7l4 4M21 21l4 4M25 7l-4 4M11 21l-4 4"/></svg>
                   <h3 class="feature__title">Especialista em fibra de vidro</h3>
                   <p>Alongamento fino e leve, moldado para a sua mão. O resultado é uma unha resistente que parece natural.</p>
@@ -306,7 +449,7 @@
                   </ul>
                 </article>
 
-                <article class="feature" data-reveal>
+                <article class="feature" data-feature>
                   <svg class="feature__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l10 4v8c0 7-4.5 11.5-10 14C10.5 26.5 6 22 6 15V7l10-4Z"/><path d="M11.5 16l3 3 6-6"/></svg>
                   <h3 class="feature__title">Materiais de qualidade e higiene</h3>
                   <p>Produtos selecionados e instrumentos esterilizados a cada atendimento, para você relaxar com tranquilidade.</p>
@@ -317,7 +460,7 @@
                   </ul>
                 </article>
 
-                <article class="feature" data-reveal>
+                <article class="feature" data-feature>
                   <svg class="feature__icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/></svg>
                   <h3 class="feature__title">Atendimento sem pressa</h3>
                   <p>Horário reservado só para você, num espaço calmo e acolhedor, com tempo para cuidar de cada detalhe.</p>
@@ -362,6 +505,21 @@
           </div>
         </section>
 
+        <!-- ================= PRODUTOS (loja pública) ================= -->
+        <section class="section products" id="produtos" aria-labelledby="produtos-title">
+          <div class="container">
+            <header class="section-head" data-reveal>
+              <p class="eyebrow">Para levar para casa</p>
+              <h2 class="section-title" id="produtos-title">Produtos que <em>recomendo</em>.</h2>
+              <p class="section-lead">Os cuidados que uso no atendimento, disponíveis para você manter suas unhas bonitas entre uma visita e outra.</p>
+            </header>
+
+            <div class="products__grid" data-products-grid role="list">
+              <!-- Produtos públicos gerados por js/pricing.js -->
+            </div>
+          </div>
+        </section>
+
         <!-- ================= DÚVIDAS ================= -->
         <section class="section faq" id="duvidas" aria-labelledby="duvidas-title">
           <div class="container container--narrow">
@@ -402,7 +560,7 @@
             <p class="eyebrow">Agende hoje</p>
             <h2 class="cta__title" id="cta-title">Pronta para o seu <em>próximo</em> cuidado?</h2>
             <p>Responda algumas perguntas rápidas e envie tudo pronto pelo WhatsApp.</p>
-            <a class="btn btn--dark" href="https://wa.me/5500000000000" data-booking data-wa>Agendar horário</a>
+            <a class="btn btn--dark" href="https://wa.me/5514998813787" data-booking data-wa>Agendar horário</a>
           </div>
         </section>
       </main>
@@ -412,7 +570,7 @@
         <div class="container">
           <div class="site-footer__top">
             <p class="site-footer__headline">Unhas naturais, feitas com <em>calma</em> e cuidado.</p>
-            <a class="btn btn--pink" href="https://wa.me/5500000000000" data-booking data-wa>Agendar horário</a>
+            <a class="btn btn--pink" href="https://wa.me/5514998813787" data-booking data-wa>Agendar horário</a>
           </div>
 
           <div class="site-footer__cols">
@@ -432,145 +590,100 @@
             </div>
             <div>
               <h3 class="site-footer__label">Fale comigo</h3>
-              <p><a href="https://wa.me/5500000000000" data-wa target="_blank" rel="noopener">WhatsApp</a><br>
+              <p><a href="https://wa.me/5514998813787" data-wa target="_blank" rel="noopener">WhatsApp</a><br>
                  <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></p>
             </div>
           </div>
 
           <div class="site-footer__bottom">
             <p>© <span data-year>2026</span> Vilma Delmiro. Todos os direitos reservados.</p>
-            <a href="#topo" data-scroll-link>Voltar ao topo ↑</a>
+            <span>
+              <a href="admin.html">Painel da Vilma</a>
+              &nbsp;·&nbsp;
+              <a href="#topo" data-scroll-link>Voltar ao topo ↑</a>
+            </span>
           </div>
         </div>
       </footer>
     </div>
   </div>
 
-  <!-- ================= QUESTIONÁRIO DE AGENDAMENTO ================= -->
-  <dialog class="booking" id="booking" aria-labelledby="booking-title">
-    <form class="booking__panel" method="dialog" novalidate data-booking-form>
-      <header class="booking__head">
+  <!-- ================= MODAL DE AGENDAMENTO (preto / rosa) ================= -->
+  <dialog class="sched" id="agendar" aria-labelledby="sched-title">
+    <div class="sched__panel" data-sched-panel>
+      <header class="sched__head">
         <div>
-          <p class="eyebrow" id="booking-title">Agendar horário</p>
-          <p class="booking__step-count" aria-live="polite"><span data-step-current>1</span> de <span data-step-total>6</span></p>
+          <p class="sched__eyebrow">Agendar horário</p>
+          <h2 class="sched__title" id="sched-title">Monte o seu <em>atendimento</em></h2>
         </div>
-        <button class="booking__close" type="button" data-booking-close aria-label="Fechar questionário">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        <button class="sched__close" type="button" data-sched-close aria-label="Fechar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
         </button>
       </header>
-      <div class="booking__progress" aria-hidden="true"><span data-progress></span></div>
 
-      <div class="booking__body">
-        <!-- 1. Serviço -->
-        <fieldset class="booking__step" data-step data-required="servico">
-          <legend class="booking__question">Qual serviço você quer agendar?</legend>
-          <p class="booking__hint">Pode escolher mais de um.</p>
-          <div class="choices">
-            <label class="choice"><input type="checkbox" name="servico" value="Manicure"><span class="choice__box"><span class="choice__title">Manicure</span></span></label>
-            <label class="choice"><input type="checkbox" name="servico" value="Pedicure"><span class="choice__box"><span class="choice__title">Pedicure</span></span></label>
-            <label class="choice"><input type="checkbox" name="servico" value="Esmalte em Gel"><span class="choice__box"><span class="choice__title">Esmalte em Gel</span></span></label>
-            <label class="choice"><input type="checkbox" name="servico" value="Arte nas Unhas"><span class="choice__box"><span class="choice__title">Arte nas Unhas</span></span></label>
-            <label class="choice"><input type="checkbox" name="servico" value="Fibra de Vidro"><span class="choice__box"><span class="choice__title">Fibra de Vidro</span><span class="choice__sub">Alongamento ou manutenção</span></span></label>
-            <label class="choice"><input type="checkbox" name="servico" value="SPA dos Pés"><span class="choice__box"><span class="choice__title">SPA dos Pés</span></span></label>
-            <label class="choice choice--wide"><input type="checkbox" name="servico" value="Ainda não sei, quero orientação"><span class="choice__box"><span class="choice__title">Ainda não sei</span><span class="choice__sub">Quero uma orientação da Vilma</span></span></label>
-          </div>
-        </fieldset>
-
-        <!-- 2. Primeira vez -->
-        <fieldset class="booking__step" data-step data-required="primeira_vez" data-auto hidden>
-          <legend class="booking__question">É a sua primeira vez com a Vilma?</legend>
-          <div class="choices choices--two">
-            <label class="choice"><input type="radio" name="primeira_vez" value="Sim, primeira vez"><span class="choice__box"><span class="choice__title">Sim, primeira vez</span><span class="choice__sub">Bem-vinda!</span></span></label>
-            <label class="choice"><input type="radio" name="primeira_vez" value="Já sou cliente"><span class="choice__box"><span class="choice__title">Já sou cliente</span><span class="choice__sub">Que bom te ver de novo</span></span></label>
-          </div>
-        </fieldset>
-
-        <!-- 3. Unhas hoje -->
-        <fieldset class="booking__step" data-step data-required="unhas_hoje" data-auto hidden>
-          <legend class="booking__question">Como estão suas unhas hoje?</legend>
-          <div class="choices">
-            <label class="choice"><input type="radio" name="unhas_hoje" value="Naturais, sem produto"><span class="choice__box"><span class="choice__title">Naturais</span><span class="choice__sub">Sem nenhum produto</span></span></label>
-            <label class="choice"><input type="radio" name="unhas_hoje" value="Com esmalte em gel"><span class="choice__box"><span class="choice__title">Com esmalte em gel</span><span class="choice__sub">Precisa remover</span></span></label>
-            <label class="choice"><input type="radio" name="unhas_hoje" value="Com fibra ou alongamento"><span class="choice__box"><span class="choice__title">Com fibra ou alongamento</span><span class="choice__sub">Manutenção ou remoção</span></span></label>
-            <label class="choice"><input type="radio" name="unhas_hoje" value="Fracas ou roídas"><span class="choice__box"><span class="choice__title">Fracas ou roídas</span><span class="choice__sub">Quero recuperar</span></span></label>
-          </div>
-        </fieldset>
-
-        <!-- 4. Estilo -->
-        <fieldset class="booking__step" data-step data-required="estilo" data-auto hidden>
-          <legend class="booking__question">Qual estilo combina com você?</legend>
-          <div class="choices">
-            <label class="choice"><input type="radio" name="estilo" value="Natural e discreto"><span class="choice__box"><span class="swatch" style="--sw: #e9c4b4"></span><span class="choice__title">Natural e discreto</span></span></label>
-            <label class="choice"><input type="radio" name="estilo" value="Francesinha clássica"><span class="choice__box"><span class="swatch swatch--french"></span><span class="choice__title">Francesinha clássica</span></span></label>
-            <label class="choice"><input type="radio" name="estilo" value="Cor marcante"><span class="choice__box"><span class="swatch" style="--sw: #a3122a"></span><span class="choice__title">Cor marcante</span></span></label>
-            <label class="choice"><input type="radio" name="estilo" value="Com arte e detalhes"><span class="choice__box"><span class="swatch swatch--art"></span><span class="choice__title">Com arte e detalhes</span></span></label>
-            <label class="choice choice--wide"><input type="radio" name="estilo" value="Quero sugestão da Vilma"><span class="choice__box"><span class="choice__title">Quero uma sugestão</span><span class="choice__sub">A Vilma indica o que combina com você</span></span></label>
-          </div>
-        </fieldset>
-
-        <!-- 5. Quando -->
-        <fieldset class="booking__step" data-step data-required="dias,periodo" hidden>
-          <legend class="booking__question">Quando fica melhor para você?</legend>
-          <p class="booking__label" id="lbl-dias">Dias da semana <span class="booking__hint-inline">(pode marcar vários)</span></p>
-          <div class="choices choices--chips" role="group" aria-labelledby="lbl-dias">
-            <label class="choice choice--chip"><input type="checkbox" name="dias" value="Segunda"><span class="choice__box">Seg</span></label>
-            <label class="choice choice--chip"><input type="checkbox" name="dias" value="Terça"><span class="choice__box">Ter</span></label>
-            <label class="choice choice--chip"><input type="checkbox" name="dias" value="Quarta"><span class="choice__box">Qua</span></label>
-            <label class="choice choice--chip"><input type="checkbox" name="dias" value="Quinta"><span class="choice__box">Qui</span></label>
-            <label class="choice choice--chip"><input type="checkbox" name="dias" value="Sexta"><span class="choice__box">Sex</span></label>
-            <label class="choice choice--chip"><input type="checkbox" name="dias" value="Sábado"><span class="choice__box">Sáb</span></label>
-          </div>
-          <p class="booking__label" id="lbl-periodo">Período</p>
-          <div class="choices choices--three" role="radiogroup" aria-labelledby="lbl-periodo">
-            <label class="choice"><input type="radio" name="periodo" value="Manhã"><span class="choice__box"><span class="choice__title">Manhã</span></span></label>
-            <label class="choice"><input type="radio" name="periodo" value="Tarde"><span class="choice__box"><span class="choice__title">Tarde</span></span></label>
-            <label class="choice"><input type="radio" name="periodo" value="Fim do dia"><span class="choice__box"><span class="choice__title">Fim do dia</span></span></label>
-          </div>
-        </fieldset>
-
-        <!-- 6. Finalizar -->
-        <fieldset class="booking__step" data-step data-required="nome" hidden>
-          <legend class="booking__question">Para finalizar, como você se chama?</legend>
-          <label class="field">
-            <span class="field__label">Seu nome</span>
-            <input class="field__input" type="text" name="nome" autocomplete="given-name" placeholder="Ex.: Ana" required>
-          </label>
-          <label class="field">
-            <span class="field__label">Algum detalhe? <span class="booking__hint-inline">(opcional)</span></span>
-            <textarea class="field__input" name="obs" rows="2" placeholder="Ex.: tenho uma foto de referência, prefiro unha curta…"></textarea>
-          </label>
-          <div class="summary">
-            <p class="booking__label">Resumo</p>
-            <dl class="summary__list" data-summary></dl>
-          </div>
-        </fieldset>
-
-        <!-- Concluído -->
-        <div class="booking__done" data-done hidden tabindex="-1">
-          <svg class="booking__done-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M15 24.5l6 6 12-13"/></svg>
-          <h3 class="booking__question">Tudo pronto!</h3>
-          <p>Abrimos o WhatsApp com as suas respostas. É só enviar a mensagem que a Vilma responde para confirmar o horário.</p>
-          <a class="btn btn--ghost" href="#" data-wa-final target="_blank" rel="noopener">Abrir o WhatsApp de novo</a>
+      <div class="sched__body" data-sched-form>
+        <!-- 1. Procedimento -->
+        <div>
+          <span class="sched__label">1 · Procedimento <span>(pode escolher mais de um)</span></span>
+          <div class="sched__procs" data-procs role="group" aria-label="Procedimentos"></div>
         </div>
 
-        <p class="booking__error" role="alert" data-error></p>
+        <!-- 2. Calendário -->
+        <div>
+          <span class="sched__label">2 · Dia do atendimento</span>
+          <div class="cal" data-cal>
+            <div class="cal__head">
+              <button class="cal__nav" type="button" data-cal-prev aria-label="Mês anterior">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6 9 12l6 6"/></svg>
+              </button>
+              <span class="cal__month" data-cal-month></span>
+              <button class="cal__nav" type="button" data-cal-next aria-label="Próximo mês">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+              </button>
+            </div>
+            <div class="cal__grid" data-cal-dow aria-hidden="true"></div>
+            <div class="cal__grid" data-cal-days role="group" aria-label="Dias disponíveis"></div>
+          </div>
+          <p class="proc__time" data-cal-picked style="margin-top:.7rem"></p>
+        </div>
+
+        <!-- 3. Horário -->
+        <div>
+          <span class="sched__label">3 · Horário</span>
+          <div class="slots" data-slots role="group" aria-label="Horários"></div>
+        </div>
       </div>
 
-      <footer class="booking__foot" data-foot>
-        <button class="btn btn--ghost" type="button" data-prev>Voltar</button>
-        <button class="btn btn--dark" type="button" data-next>Continuar</button>
-        <button class="btn btn--dark" type="button" data-submit hidden>
-          <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
-          Enviar pelo WhatsApp
-        </button>
+      <footer class="sched__foot" data-sched-foot>
+        <div class="sched__total">
+          <small>Valor estimado</small>
+          <span class="sched__total-value" data-total>R$ 0,00</span>
+        </div>
+        <button class="btn sched__confirm" type="button" data-confirm disabled>Confirmar agendamento</button>
       </footer>
-    </form>
+
+      <!-- Confirmação -->
+      <div class="sched__done" data-done hidden tabindex="-1">
+        <span class="sched__done-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/><path d="M15 24.5l6 6 12-13"/></svg>
+        </span>
+        <h3>Horário <em>reservado!</em></h3>
+        <p>Guardamos este resumo do seu pedido. É só confirmar com a Vilma para fechar o seu horário.</p>
+        <dl class="sched__receipt" data-receipt></dl>
+        <button class="btn sched__confirm" type="button" data-sched-close style="margin-top:.6rem">Fechar</button>
+      </div>
+    </div>
   </dialog>
+
+  <!-- Cursor personalizado (apenas desktop; ativado por JS) -->
+  <div class="cursor-dot" data-cursor aria-hidden="true"></div>
 
   <script src="js/vendor/gsap.min.js" defer></script>
   <script src="js/vendor/ScrollTrigger.min.js" defer></script>
   <script src="js/vendor/ScrollSmoother.min.js" defer></script>
-  <script src="js/booking.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/pricing.js" defer></script>
+  <script src="js/schedule.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

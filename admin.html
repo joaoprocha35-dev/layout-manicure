@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel · Vilma Delmiro</title>
+  <meta name="theme-color" content="#2F211A">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233E2B22'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-style='italic' text-anchor='middle' fill='%23EBCFC8'%3EV%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="app">
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="side">
+      <div class="side__brand">Vilma Delmiro<small>Painel da manicure</small></div>
+
+      <nav class="side__nav" data-nav>
+        <button class="side__link is-active" data-view="dashboard">
+          <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3zM13 21h8V3h-8zM3 21h8v-6H3z"/></svg> Dashboard
+        </button>
+        <button class="side__link" data-view="servicos">
+          <svg viewBox="0 0 24 24"><path d="M12 3v18M3 7l6 5-6 5M21 7l-6 5 6 5"/></svg> Serviços e preços
+        </button>
+        <button class="side__link" data-view="estoque">
+          <svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"/></svg> Estoque
+        </button>
+        <button class="side__link" data-view="produtos">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg> Produtos (loja)
+        </button>
+      </nav>
+
+      <div class="side__foot">
+        <a href="index.html">↗ Ver o site</a>
+        <button type="button" data-reset>↺ Restaurar exemplos</button>
+      </div>
+    </aside>
+
+    <!-- ================= CONTEÚDO ================= -->
+    <main class="main">
+
+      <!-- ---------- DASHBOARD ---------- -->
+      <section class="view is-active" data-view-panel="dashboard">
+        <div class="view__head">
+          <h1 class="view__title">Caixa & movimento</h1>
+          <p class="view__sub">Lance entradas e saídas — o total é calculado na hora e os gráficos se atualizam sozinhos.</p>
+        </div>
+
+        <div class="grid grid--kpi" style="margin-bottom:1rem">
+          <div class="card kpi kpi--in"><p class="kpi__label">Entradas</p><p class="kpi__value" data-kpi-in>R$ 0</p><p class="kpi__hint" data-kpi-in-count>0 lançamentos</p></div>
+          <div class="card kpi kpi--out"><p class="kpi__label">Saídas</p><p class="kpi__value" data-kpi-out>R$ 0</p><p class="kpi__hint" data-kpi-out-count>0 lançamentos</p></div>
+          <div class="card kpi kpi--net"><p class="kpi__label">Saldo</p><p class="kpi__value" data-kpi-net>R$ 0</p><p class="kpi__hint">entradas − saídas</p></div>
+        </div>
+
+        <div class="grid grid--2" style="margin-bottom:1rem">
+          <!-- Lançamento -->
+          <div class="card">
+            <h2 class="card__title">Novo lançamento</h2>
+            <div class="launch">
+              <div class="toggle" data-tipo-toggle>
+                <button type="button" data-tipo="entrada" class="is-on">Entrada</button>
+                <button type="button" data-tipo="saida">Saída</button>
+              </div>
+
+              <div class="row row--2">
+                <div class="field">
+                  <label for="l-item">Categoria / item</label>
+                  <select class="select" id="l-item" data-launch-item></select>
+                </div>
+                <div class="field">
+                  <label for="l-qtd">Quantidade</label>
+                  <input class="input" id="l-qtd" type="number" min="1" step="1" value="1" data-launch-qtd>
+                </div>
+              </div>
+
+              <div class="field" data-custom hidden>
+                <label for="l-custom">Descrição e valor (R$) do item avulso</label>
+                <div class="row row--2">
+                  <input class="input" id="l-custom" type="text" placeholder="Ex.: conta de luz" data-launch-desc>
+                  <input class="input" type="number" min="0" step="0.01" placeholder="0,00" data-launch-valor>
+                </div>
+              </div>
+
+              <div class="calc" data-calc>
+                <div>
+                  <p class="calc__label">Total deste lançamento</p>
+                  <p class="calc__detail" data-calc-detail>Selecione um item</p>
+                </div>
+                <p class="calc__value" data-calc-value>R$ 0,00</p>
+              </div>
+
+              <button class="btn btn--rose" type="button" data-launch-add disabled>+ Lançar no caixa</button>
+            </div>
+          </div>
+
+          <!-- Donut entradas x saídas -->
+          <div class="card">
+            <h2 class="card__title">Entradas × Saídas</h2>
+            <div class="chart" data-chart-donut></div>
+            <div class="legend">
+              <span class="legend__item"><span class="legend__dot" style="background:#3F9D6A"></span> Entradas</span>
+              <span class="legend__item"><span class="legend__dot" style="background:#C06A5E"></span> Saídas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barras por categoria -->
+        <div class="card" style="margin-bottom:1rem">
+          <h2 class="card__title">Entradas por categoria de serviço</h2>
+          <div class="chart" data-chart-bars></div>
+        </div>
+
+        <!-- Histórico -->
+        <div class="card">
+          <h2 class="card__title">Últimos lançamentos</h2>
+          <div class="list" data-tx-list></div>
+        </div>
+      </section>
+
+      <!-- ---------- SERVIÇOS ---------- -->
+      <section class="view" data-view-panel="servicos">
+        <div class="view__head">
+          <h1 class="view__title">Serviços e preços</h1>
+          <p class="view__sub">O que você cadastra aqui aparece no site e vira opção de entrada no caixa.</p>
+        </div>
+        <button class="btn btn--rose" type="button" data-add-service style="margin-bottom:1rem">+ Novo serviço</button>
+        <div class="card"><div class="list" data-services-list></div></div>
+      </section>
+
+      <!-- ---------- ESTOQUE ---------- -->
+      <section class="view" data-view-panel="estoque">
+        <div class="view__head">
+          <h1 class="view__title">Estoque</h1>
+          <p class="view__sub">Seus produtos de trabalho, separados por categoria. Itens abaixo do mínimo ficam marcados.</p>
+        </div>
+        <button class="btn btn--rose" type="button" data-add-stock style="margin-bottom:1rem">+ Novo item de estoque</button>
+        <div class="card"><div data-stock-list></div></div>
+      </section>
+
+      <!-- ---------- PRODUTOS ---------- -->
+      <section class="view" data-view-panel="produtos">
+        <div class="view__head">
+          <h1 class="view__title">Produtos da loja</h1>
+          <p class="view__sub">Marque como <strong>público</strong> para o produto aparecer na seção “Produtos” do site.</p>
+        </div>
+        <button class="btn btn--rose" type="button" data-add-product style="margin-bottom:1rem">+ Novo produto</button>
+        <div class="card"><div class="list" data-products-list></div></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- diálogo de edição genérico -->
+  <dialog class="dlg" data-dialog>
+    <form class="dlg__form" method="dialog" data-dialog-form></form>
+  </dialog>
+
+  <div class="tooltip" data-tooltip></div>
+  <div class="toast" data-toast></div>
+
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</body>
+</html>

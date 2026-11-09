@@ -5,9 +5,8 @@
   "scripts": {
     "build:css": "sass scss/main.scss css/main.css --style=compressed --no-source-map",
     "watch:css": "sass --watch scss/main.scss css/main.css --style=expanded",
-    "images": "node scripts/build-images.mjs",
     "vendor": "node -e \"for (const f of ['gsap','ScrollTrigger','ScrollSmoother']) require('fs').copyFileSync('node_modules/gsap/dist/'+f+'.min.js','js/vendor/'+f+'.min.js')\"",
-    "build": "npm run images && npm run vendor && npm run build:css"
+    "build": "npm run vendor && npm run build:css"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,226 @@
+@use 'tokens' as *;
+
+// =========================================================
+// TEMA — fundo em degradê CONTÍNUO + camada decorativa
+// As seções ficam transparentes para o degradê escorrer por
+// trás delas, sem cortes entre uma seção e outra.
+// =========================================================
+
+body {
+  // Degradê único que percorre a página inteira, do creme do topo
+  // até um mauve rosado que encosta no rodapé escuro.
+  background:
+    linear-gradient(180deg,
+      #F6EEE5 0%,
+      #F3E8DD 16%,
+      #F0E0D6 34%,
+      #EFD9D2 54%,
+      #ECCFC7 74%,
+      #E3BDB4 90%,
+      #D9ADA4 100%);
+  background-attachment: scroll;
+}
+
+// Camada decorativa fixa: manchas rosadas suaves que dão textura
+// ao fundo sem brigar com o conteúdo. Fica atrás de tudo.
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+
+  // Sem filter: blur() — o próprio radial-gradient já é suave.
+  // (o blur custava repintura cara a cada quadro de rolagem)
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: .6;
+  }
+  &::before {
+    width: 46vw; height: 46vw;
+    top: 8%; left: -10%;
+    background: radial-gradient(circle at 50% 50%, rgba(235, 207, 200, .85), transparent 70%);
+  }
+  &::after {
+    width: 52vw; height: 52vw;
+    top: 52%; right: -14%;
+    background: radial-gradient(circle at 50% 50%, rgba(221, 176, 167, .65), transparent 70%);
+  }
+}
+
+// --------- Seções transparentes (deixa o degradê aparecer) ---------
+.services,
+.gallery,
+.experience,
+.testimonials,
+.faq,
+.prices,
+.products { background: transparent; }
+
+// As miniaturas e caixas que tinham fundo creme ganham um creme
+// translúcido, para continuar legível sobre o degradê.
+.service-card__media { background: rgba(239, 228, 216, .6); }
+.gallery__item figure { background: rgba(231, 213, 195, .6); }
+
+// --------- Fita SVG em zigue-zague (desenha no scroll) ---------
+#smooth-content { position: relative; }
+#conteudo { position: relative; z-index: 1; }
+.site-footer { position: relative; z-index: 1; }
+
+.ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;              // atrás das seções, à frente do fundo
+  pointer-events: none;
+  // SEM opacity aqui: opacidade < 1 num elemento de 1366x9000px obriga o
+  // navegador a compor a camada inteira fora da tela (custava ~5 FPS ao rolar).
+  // A transparência vai dentro da própria cor do traço, que é barata.
+}
+#ribbonPath {
+  stroke-width: 34;                    // fita larga
+  stroke: rgba(246, 51, 140, .82);     // rosa sólido, forte e vivo
+}
+// texto branco correndo dentro da fita
+.ribbon__text {
+  fill: #FFFFFF;
+  font-family: $sans;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  text-rendering: optimizeSpeed; // rasteriza mais rápido ao rolar
+}
+@media (max-width: 600px) {
+  #ribbonPath { stroke-width: 24; stroke: rgba(246, 51, 140, .75); }
+  .ribbon__text { font-size: 13px; letter-spacing: .2em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ribbon { display: none; } // sem desenho / texto animado
+}
+
+// --------- Brilho sutil nas palavras-destaque dos títulos ---------
+.section-title em,
+.cta__title em {
+  background: linear-gradient(100deg, #B9776E 0%, #D99A8F 35%, #B9776E 70%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: vd-shimmer 7s linear infinite;
+}
+@keyframes vd-shimmer {
+  to { background-position: 220% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-title em, .cta__title em { animation: none; }
+}
+
+// --------- Faixa rosa animada (marquee) ---------
+.marquee {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #C98A91 0%, #B9776E 50%, #C98A91 100%);
+  color: $cream;
+  padding-block: clamp(.7rem, 1.6vw, 1rem);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), inset 0 -1px 0 rgba(0, 0, 0, .08);
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: vd-marquee 34s linear infinite;
+}
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__group { display: flex; align-items: center; }
+.marquee__item {
+  font-family: $serif;
+  font-size: clamp(1.05rem, 2vw, 1.55rem);
+  font-weight: 400;
+  white-space: nowrap;
+  letter-spacing: .01em;
+
+  strong { font-weight: 600; color: #FFF6EF; }
+}
+.marquee__sep {
+  margin-inline: clamp(1rem, 2.5vw, 1.8rem);
+  color: $rose;
+  font-size: .8em;
+  opacity: .85;
+}
+@keyframes vd-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; transform: none; }
+}
+
+// --------- Tira de números (prova social / autoridade) ---------
+.stats {
+  padding-block: clamp(2rem, 5vw, 3rem);
+}
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: $line;
+  border: 1px solid $line;
+  border-radius: $radius;
+  overflow: hidden;
+
+  @include up($bp-md) { grid-template-columns: repeat(4, 1fr); }
+}
+.stat {
+  background: rgba(251, 247, 242, .72);
+  padding: clamp(1.4rem, 3vw, 2rem) 1rem;
+  text-align: center;
+}
+.stat__num {
+  font-family: $serif;
+  font-size: clamp(2.2rem, 5vw, 3.1rem);
+  font-weight: 500;
+  line-height: 1;
+  color: $brown-800;
+  em { font-style: normal; color: $rose-600; }
+}
+.stat__label {
+  margin-top: .5rem;
+  font-size: .82rem;
+  letter-spacing: .03em;
+  color: $brown-600;
+}
+
+// --------- Faixa de urgência / escassez ---------
+.urgency {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  flex-wrap: wrap;
+  max-width: 46rem;
+  margin: clamp(2rem, 4vw, 3rem) auto 0;
+  padding: .9rem 1.4rem;
+  border-radius: 999px;
+  background: rgba(62, 43, 34, .92);
+  color: $cream;
+  font-size: .92rem;
+  text-align: center;
+
+  strong { color: $rose; font-weight: 500; }
+}
+.urgency__dot {
+  width: .55rem; height: .55rem; flex: none;
+  border-radius: 50%;
+  background: #7CC77C;
+  box-shadow: 0 0 0 0 rgba(124, 199, 124, .6);
+  animation: vd-pulse 2s infinite;
+}
+@keyframes vd-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(124, 199, 124, .6); }
+  70%  { box-shadow: 0 0 0 10px rgba(124, 199, 124, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(124, 199, 124, 0); }
+}

@@ -1,25 +1,84 @@
 @use 'tokens' as *;
 
 // =========================================================
-// HERO — foto editorial em toda a largura, texto em HTML
+// HERO — vídeo cinematográfico em tela cheia + conteúdo à esquerda
+// Camadas:  .hero__bg (vídeo + fallback + overlay)  <  .hero__inner
 // =========================================================
 
 .hero {
   position: relative;
+  display: flex;
+  align-items: center;
   overflow: hidden;
   isolation: isolate;
+  min-height: clamp(500px, 78svh, 720px);
+  background: $cream-hero; // cor enquanto o vídeo carrega
+
+  // Desktop: altura próxima de 16:9 para o vídeo aparecer quase inteiro
+  // (sem zoom exagerado) e sem barras pretas.
+  @include up($bp-md) {
+    min-height: 0;
+    height: clamp(480px, 56vw, 760px);
+  }
 }
 
-.hero__media {
+// ---------- Camada 1: fundo (fica atrás do conteúdo) ----------
+.hero__bg {
   position: absolute;
+  inset: 0;
   z-index: -1;
-  display: block;
+  overflow: hidden;
 }
 
-.hero__img {
+.hero__video,
+.hero__fallback {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 72% 50%; // foco nas mãos / unhas (centro-direita)
+}
+
+.hero__fallback { z-index: 0; }   // imagem por trás do vídeo (fallback)
+.hero__video    { z-index: 1; }   // vídeo por cima da imagem
+
+// Oculta o vídeo quando ele falha (fica só o fallback)
+.hero__video:not([src])[data-broken] { display: none; }
+
+// ---------- Camada 2: overlay (bem leve — sem filtro branco) ----------
+// Mostra a qualidade do vídeo. Só um leve blush rosado na borda esquerda
+// (atrás do texto) e um fade inferior para emendar na faixa rosa / página.
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg,
+      rgba(235, 207, 200, .55) 0%,
+      rgba(235, 207, 200, .22) 20%,
+      rgba(235, 207, 200, 0) 40%),
+    linear-gradient(180deg,
+      rgba(235, 207, 200, 0) 84%,
+      rgba(227, 189, 180, .55) 100%);
+}
+
+// ---------- Camada 3: conteúdo ----------
+.hero__inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding-top: 72px; // altura do header fixo
+}
+
+.hero__content {
+  max-width: min(34rem, 52vw);
+
+  // Halo creme suave só nas letras (legibilidade sobre o vídeo, sem camada)
+  .eyebrow { text-shadow: 0 1px 12px rgba(246, 238, 229, .7); }
+  .hero__title { text-shadow: 0 2px 24px rgba(246, 238, 229, .6); }
+  .hero__lead { text-shadow: 0 1px 16px rgba(246, 238, 229, .75); }
 }
 
 .hero__title {
@@ -34,7 +93,7 @@
 }
 
 .hero__lead {
-  max-width: 26rem;
+  max-width: 28rem;
   color: $brown-600;
   font-size: clamp(1rem, 1.3vw, 1.08rem);
   text-wrap: pretty;
@@ -47,89 +106,41 @@
   margin-top: 2rem;
 }
 
-// ---------- Computador / telas em paisagem ----------
-// Mãos à direita, texto à esquerda na área creme da foto.
-@media #{$hero-wide} {
-  .hero {
-    display: flex;
-    align-items: center;
-    // Altura limitada: em telas muito largas o recorte vertical
-    // não cresce a ponto de cortar as pontas das unhas.
-    height: clamp(600px, 100svh, 960px);
-    background: $sand;
-
-    // Véu creme suave à esquerda para legibilidade, sem tocar as mãos.
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(90deg,
-        rgba(240, 228, 216, .78) 0%,
-        rgba(240, 228, 216, .5) 30%,
-        rgba(240, 228, 216, 0) 52%);
-      pointer-events: none;
-    }
-  }
-
-  .hero__media { inset: 0; }
-
-  .hero__img {
-    // Ponto focal: mãos (direita) e pontas das unhas (parte inferior).
-    object-position: 74% 72%;
-  }
-
-  .hero__inner { padding-top: 72px; } // altura do header
-
-  .hero__content { max-width: min(33rem, 46vw); }
-
-  .hero__spacer { display: none; }
+// ---------- Tablet ----------
+@media (min-width: $bp-md) and (max-width: 1023px) {
+  .hero__content { max-width: min(30rem, 62vw); }
+  .hero__video, .hero__fallback { object-position: 74% 50%; }
 }
 
-// Telas ultralargas: puxa o foco ainda mais para baixo para manter as pontas.
-@media (min-width: 768px) and (orientation: landscape) and (min-aspect-ratio: 21/10) {
-  .hero__img { object-position: 76% 82%; }
-}
-
-// ---------- Celular / telas em retrato ----------
-// Texto e botões em fluxo normal sobre o creme; mãos na metade inferior.
-// Se o texto crescer (tela estreita / fonte ampliada), ele empurra o
-// espaçador e a foto desce junto — o texto nunca cobre as unhas.
-@media #{$hero-stacked} {
+// ---------- Celular / telas estreitas ----------
+// Enquanto não há vídeo vertical, usa o horizontal com enquadramento
+// nas mãos e um scrim vertical para o texto no topo ficar legível.
+@media (max-width: $bp-md - 1px) {
   .hero {
-    // Altura visível reservada para as mãos (≈52% inferior da foto 9:16).
-    --hands-h: min(92vw, 66svh);
-    display: flex;
-    flex-direction: column;
+    align-items: flex-start;
     min-height: 100svh;
-    background: $cream-hero;
   }
 
   .hero__inner {
-    flex: 1 0 auto;
-    padding-top: calc(72px + clamp(1.25rem, 6vw, 3rem));
-    padding-bottom: 1.5rem;
+    padding-top: calc(72px + clamp(1.5rem, 8vw, 3rem));
+    padding-bottom: 2.5rem;
   }
 
   .hero__content { max-width: 34rem; }
 
-  .hero__spacer {
-    flex: none;
-    height: var(--hands-h);
-  }
+  .hero__video, .hero__fallback { object-position: 64% 46%; }
 
-  // A foto ocupa da base até ~1,9× a altura das mãos. A parte creme dela
-  // fica atrás do texto; se o texto for alto, ela é coberta pelo fundo creme.
-  .hero__media {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: calc(var(--hands-h) * 1.92);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%);
-    mask-image: linear-gradient(to bottom, transparent 0, #000 22%);
+  .hero__overlay {
+    background:
+      linear-gradient(180deg,
+        rgba(235, 207, 200, .62) 0%,
+        rgba(235, 207, 200, .34) 24%,
+        rgba(235, 207, 200, .08) 48%,
+        rgba(235, 207, 200, 0) 70%),
+      linear-gradient(180deg,
+        rgba(227, 189, 180, 0) 80%,
+        rgba(227, 189, 180, .6) 100%);
   }
-
-  .hero__img { object-position: 50% 100%; }
 
   .hero__actions .btn { flex: 1 1 auto; }
 }
@@ -137,4 +148,9 @@
 @media (max-width: 380px) {
   .hero__actions { flex-direction: column; }
   .hero__actions .btn { width: 100%; }
+}
+
+// Movimento reduzido: sem parallax; o vídeo é pausado via JS (mostra o poster).
+@media (prefers-reduced-motion: reduce) {
+  .hero__video { /* o JS pausa; mantém o primeiro quadro */ }
 }

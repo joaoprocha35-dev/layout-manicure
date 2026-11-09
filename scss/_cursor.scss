@@ -1,0 +1,47 @@
+@use 'tokens' as *;
+
+// =========================================================
+// CURSOR PERSONALIZADO — pequeno círculo rosa (só desktop)
+// Ativado via JS (classe .has-cursor no <html>). pointer-events:none.
+// =========================================================
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(185, 119, 110, .35);      // rosa suave translúcido
+  border: 1px solid rgba(185, 119, 110, .85);
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+  transition: width .22s $ease, height .22s $ease,
+              background-color .22s $ease, border-color .22s $ease, opacity .3s $ease;
+}
+
+// Só aparece quando o JS ativa (desktop com mouse)
+html.has-cursor .cursor-dot { opacity: 1; }
+
+// Esconde o cursor nativo só no desktop com cursor custom
+html.has-cursor,
+html.has-cursor * { cursor: none !important; }
+
+// Estado sobre elementos clicáveis: cresce e fica um pouco mais nítido
+.cursor-dot.is-active {
+  width: 30px;
+  height: 30px;
+  background: rgba(185, 119, 110, .14);
+  border-color: rgba(185, 119, 110, .9);
+}
+
+// Dentro do modal (top-layer) o dot não alcança: devolve o cursor nativo
+html.has-cursor dialog[open],
+html.has-cursor dialog[open] * { cursor: auto !important; }
+html.has-cursor dialog[open] a,
+html.has-cursor dialog[open] button,
+html.has-cursor dialog[open] [data-booking],
+html.has-cursor dialog[open] .proc,
+html.has-cursor dialog[open] .cal__day:not(:disabled),
+html.has-cursor dialog[open] .slot { cursor: pointer !important; }

@@ -1,6 +1,6 @@
 @use 'tokens' as *;
 
-// Inspirado em inspiracao-footer/desing-01.png: bloco escuro com topo arredondado.
+// Bloco escuro com topo arredondado.
 .site-footer {
   position: relative;
   margin-top: -$radius-lg; // sobe sobre o CTA para mostrar a curva

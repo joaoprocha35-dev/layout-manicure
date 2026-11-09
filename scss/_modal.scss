@@ -1,0 +1,303 @@
+@use 'tokens' as *;
+
+// =========================================================
+// MODAL DE AGENDAMENTO — fundo preto, escritas rosas
+// Procedimento + calendário + dia/horário + valor na tela
+// =========================================================
+$ink:      #141013;   // preto quente
+$ink-2:    #1E1618;   // cartões internos
+$ink-line: rgba(235, 207, 200, .16);
+$pink:     #EBCFC8;
+$pink-2:   #E7B6AC;
+$pink-hot: #F0A9B8;
+$cream-t:  #F6EEE5;
+
+.sched {
+  width: min(680px, 94vw);
+  max-height: 92svh;
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: $radius-lg;
+  background: $ink;
+  color: $cream-t;
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, .8);
+  overflow: hidden;
+
+  &::backdrop {
+    background: rgba(10, 6, 7, .72);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+}
+
+.sched__panel {
+  display: flex;
+  flex-direction: column;
+  max-height: 92svh;
+}
+
+// o atributo hidden precisa vencer os display: grid/flex abaixo
+.sched [hidden] { display: none !important; }
+
+.sched__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(1.3rem, 3vw, 1.8rem) clamp(1.3rem, 4vw, 2rem) 1rem;
+  border-bottom: 1px solid $ink-line;
+}
+.sched__eyebrow {
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: $pink-2;
+}
+.sched__title {
+  font-family: $serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.05;
+  margin-top: .2rem;
+  em { font-style: italic; color: $pink-hot; }
+}
+.sched__close {
+  flex: none;
+  display: grid; place-items: center;
+  width: 42px; height: 42px;
+  border: 1px solid $ink-line;
+  border-radius: 50%;
+  background: transparent;
+  color: $pink;
+  cursor: pointer;
+  transition: background-color .3s $ease, border-color .3s $ease;
+  &:hover { background: rgba(235, 207, 200, .1); border-color: $pink; }
+  svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+}
+
+.sched__body {
+  padding: clamp(1.2rem, 3vw, 1.8rem) clamp(1.3rem, 4vw, 2rem);
+  overflow-y: auto;
+  display: grid;
+  gap: 1.6rem;
+}
+
+.sched__label {
+  display: block;
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: $pink-2;
+  margin-bottom: .8rem;
+  span { color: rgba(246, 238, 229, .45); font-weight: 400; letter-spacing: .02em; text-transform: none; }
+}
+
+// ---------- Procedimentos ----------
+.sched__procs {
+  display: grid;
+  gap: .6rem;
+  grid-template-columns: repeat(2, 1fr);
+  @include up($bp-sm) { grid-template-columns: repeat(3, 1fr); }
+}
+.proc {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  padding: .85rem .9rem;
+  border: 1px solid $ink-line;
+  border-radius: $radius-sm;
+  background: $ink-2;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  transition: border-color .25s $ease, background-color .25s $ease, transform .2s $ease;
+
+  &:hover { border-color: rgba(235, 207, 200, .45); transform: translateY(-1px); }
+
+  &.is-on {
+    border-color: $pink-hot;
+    background: linear-gradient(180deg, rgba(240, 169, 184, .14), rgba(235, 207, 200, .06));
+    box-shadow: inset 0 0 0 1px $pink-hot;
+  }
+}
+.proc__name { font-weight: 400; font-size: .95rem; }
+.proc__price { font-family: $serif; font-size: 1.15rem; color: $pink; }
+.proc__time { font-size: .72rem; color: rgba(246, 238, 229, .5); }
+.proc__check {
+  position: absolute; top: .55rem; right: .6rem;
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 1px solid $ink-line;
+  display: grid; place-items: center;
+  opacity: 0; transform: scale(.6);
+  transition: opacity .2s $ease, transform .2s $ease;
+  background: $pink-hot;
+  svg { width: 10px; height: 10px; stroke: $ink; stroke-width: 3; fill: none; }
+}
+.proc.is-on .proc__check { opacity: 1; transform: scale(1); border-color: $pink-hot; }
+
+// ---------- Calendário ----------
+.cal {
+  background: $ink-2;
+  border: 1px solid $ink-line;
+  border-radius: $radius;
+  padding: 1rem;
+}
+.cal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .8rem;
+}
+.cal__month {
+  font-family: $serif;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  color: $cream-t;
+}
+.cal__nav {
+  display: grid; place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1px solid $ink-line;
+  background: transparent;
+  color: $pink;
+  cursor: pointer;
+  transition: background-color .25s $ease;
+  &:hover:not(:disabled) { background: rgba(235, 207, 200, .12); }
+  &:disabled { opacity: .3; cursor: not-allowed; }
+  svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; }
+}
+.cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.cal__dow {
+  text-align: center;
+  font-size: .68rem;
+  letter-spacing: .06em;
+  color: rgba(246, 238, 229, .4);
+  padding-bottom: .3rem;
+}
+.cal__day {
+  aspect-ratio: 1;
+  display: grid; place-items: center;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: $cream-t;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: background-color .2s $ease, color .2s $ease, transform .15s $ease;
+
+  &:hover:not(:disabled):not(.is-on) { background: rgba(235, 207, 200, .14); }
+  &.is-on {
+    background: $pink-hot;
+    color: $ink;
+    font-weight: 500;
+    transform: scale(1.04);
+  }
+  &:disabled { color: rgba(246, 238, 229, .18); cursor: not-allowed; }
+  &.is-empty { visibility: hidden; }
+}
+
+// ---------- Horários ----------
+.slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.slot {
+  padding: .55rem 1rem;
+  border: 1px solid $ink-line;
+  border-radius: 999px;
+  background: $ink-2;
+  color: $cream-t;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: border-color .2s $ease, background-color .2s $ease;
+  &:hover { border-color: rgba(235, 207, 200, .45); }
+  &.is-on { background: $pink; color: $ink; border-color: $pink; font-weight: 500; }
+}
+
+// ---------- Rodapé com valor ----------
+.sched__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.1rem clamp(1.3rem, 4vw, 2rem);
+  border-top: 1px solid $ink-line;
+  background: rgba(0, 0, 0, .25);
+}
+.sched__total {
+  line-height: 1.1;
+  small { display: block; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: $pink-2; }
+}
+.sched__total-value {
+  font-family: $serif;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-weight: 600;
+  color: $pink-hot;
+}
+.sched__confirm {
+  --btn-bg: #{$pink-hot};
+  --btn-fg: #{$ink};
+  min-height: 52px;
+  padding-inline: 1.8rem;
+  &:hover { --btn-bg: #{$pink}; }
+  &[disabled] { opacity: .4; }
+}
+
+// ---------- Tela de confirmação ----------
+.sched__done {
+  padding: clamp(2rem, 6vw, 3.5rem) clamp(1.5rem, 5vw, 2.5rem);
+  text-align: center;
+  display: grid;
+  gap: .9rem;
+  justify-items: center;
+}
+.sched__done-icon {
+  width: 72px; height: 72px;
+  svg { width: 100%; height: 100%; fill: none; stroke: $pink-hot; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+}
+.sched__done h3 {
+  font-family: $serif;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-weight: 500;
+  em { font-style: italic; color: $pink-hot; }
+}
+.sched__done p { color: rgba(246, 238, 229, .7); max-width: 30rem; }
+.sched__receipt {
+  width: 100%;
+  max-width: 24rem;
+  margin-top: .5rem;
+  text-align: left;
+  border: 1px solid $ink-line;
+  border-radius: $radius;
+  overflow: hidden;
+}
+.sched__receipt-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .7rem 1.1rem;
+  font-size: .92rem;
+  border-bottom: 1px solid $ink-line;
+  &:last-child { border-bottom: none; }
+  dt { color: $pink-2; }
+  dd { color: $cream-t; text-align: right; }
+  &.is-total {
+    background: rgba(240, 169, 184, .12);
+    dd { color: $pink-hot; font-family: $serif; font-size: 1.2rem; font-weight: 600; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proc, .cal__day, .sched__panel { transition: none; }
+}

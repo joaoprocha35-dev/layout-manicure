@@ -1,1 +1,4 @@
 node_modules/
+
+# Arquivos originais guardados pelos scripts de otimizacao (nao vao para o deploy)
+otimizacao/originais/

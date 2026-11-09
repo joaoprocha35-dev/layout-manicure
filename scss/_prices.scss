@@ -1,0 +1,94 @@
+@use 'tokens' as *;
+
+// =========================================================
+// PREÇOS — tabela de serviços (preenchida por js/pricing.js)
+// =========================================================
+.prices__grid {
+  display: grid;
+  gap: 1rem;
+  @include up($bp-sm) { grid-template-columns: repeat(2, 1fr); }
+  @include up($bp-lg) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.price-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  padding: clamp(1.4rem, 3vw, 1.9rem);
+  border-radius: $radius;
+  background: rgba(251, 247, 242, .82);
+  border: 1px solid rgba(255, 255, 255, .55);
+  box-shadow: 0 20px 40px -32px rgba(47, 33, 26, .5);
+  overflow: hidden;
+  transition: transform .45s $ease, box-shadow .45s $ease;
+
+  // detalhe rosa na borda esquerda (engrossa no hover)
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, $rose, $rose-600);
+    transition: width .35s $ease;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 36px 60px -34px rgba(185, 119, 110, .55);
+  }
+  &:hover::before { width: 7px; }
+}
+
+.price-card__cat {
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: $rose-600;
+}
+.price-card__name {
+  font-family: $serif;
+  font-size: clamp(1.5rem, 2.4vw, 1.8rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+.price-card__desc {
+  color: $brown-600;
+  font-size: .9rem;
+  flex: 1;
+}
+.price-card__foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: .8rem;
+}
+.price-card__value {
+  font-family: $serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1;
+  color: $brown-800;
+
+  small {
+    display: block;
+    font-family: $sans;
+    font-size: .68rem;
+    font-weight: 400;
+    letter-spacing: .04em;
+    color: $brown-400;
+  }
+}
+.price-card__time {
+  font-size: .8rem;
+  color: $brown-600;
+  white-space: nowrap;
+}
+.prices__note {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: .85rem;
+  color: $brown-600;
+}
