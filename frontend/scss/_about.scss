@@ -1,0 +1,167 @@
+@use 'tokens' as *;
+
+// =========================================================
+// SOBRE A VILMA — composição editorial da imagem 2
+// (foto real à esquerda, diferenciais à direita)
+// =========================================================
+.about {
+  background:
+    radial-gradient(45% 50% at 20% 40%, rgba(255, 255, 255, .55), transparent 70%),
+    linear-gradient(180deg, $blush-200 0%, #F4E1D8 60%, $blush-100 100%);
+  .wave { --wave-fill: #{$brown-850}; }
+  .botanic { right: -1rem; top: 3rem; opacity: .5; }
+
+  // arco rosé gold atravessando o fundo
+  &__arc {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    path { fill: none; stroke: url(#gold-stroke); stroke-width: 1.2; opacity: .7; vector-effect: non-scaling-stroke; }
+  }
+}
+
+.about__layout {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+  @include up(960px) { grid-template-columns: .9fr 1.1fr; }
+}
+
+.about__media {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.about__frame {
+  position: relative;
+  border-radius: 46px 46px 46px 160px;
+  padding: 10px;
+  background: linear-gradient(150deg, rgba(255, 255, 255, .9), rgba(241, 214, 195, .7));
+  box-shadow: 0 50px 90px -50px rgba(74, 46, 38, .7), inset 0 0 0 1px rgba(200, 149, 122, .5);
+
+  img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: 50% 20%;
+    border-radius: 38px 38px 38px 152px;
+  }
+}
+
+// contorno rosé gold deslocado
+.about__outline {
+  position: absolute;
+  inset: -18px 18px 18px -18px;
+  z-index: -1;
+  border-radius: 46px 46px 46px 160px;
+  border: 1.5px solid $gold-500;
+  opacity: .7;
+}
+
+.about__seal {
+  position: absolute;
+  right: -1rem;
+  bottom: 2.2rem;
+  display: grid;
+  place-items: center;
+  width: clamp(116px, 15vw, 140px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  text-align: center;
+  color: $offwhite;
+  background: radial-gradient(circle at 30% 25%, $brown-700, $brown-900 78%);
+  box-shadow: 0 24px 40px -20px rgba(46, 27, 22, .9), inset 0 0 0 1px rgba(227, 183, 156, .45);
+
+  // texto circular girando
+  svg {
+    position: absolute;
+    inset: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    text { font-family: $sans; font-size: 8.4px; letter-spacing: 2.6px; text-transform: uppercase; fill: $gold-300; }
+  }
+  strong {
+    font-family: $serif;
+    font-size: clamp(2.3rem, 3.4vw, 2.8rem);
+    font-weight: 600;
+    line-height: .9;
+    background: $gold-grad;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  span { display: block; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: $blush-200; margin-top: .2rem; }
+
+  @include down(600px) { right: -.4rem; }
+}
+
+.about__content {
+  .eyebrow { margin-bottom: 1rem; }
+  .section-title { font-size: clamp(2.2rem, 4.4vw, 3.5rem); }
+}
+
+.about__text {
+  margin-top: 1.2rem;
+  max-width: 36rem;
+  font-size: clamp(1rem, 1.3vw, 1.08rem);
+  line-height: 1.75;
+  color: $brown-700;
+}
+
+.about__sign {
+  margin-top: .9rem;
+  font-family: $serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  color: $rose-600;
+}
+
+.diffs {
+  display: grid;
+  gap: .85rem;
+  margin-top: 1.8rem;
+}
+
+.diff {
+  display: grid;
+  grid-template-columns: auto 1px 1fr;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1rem 1.4rem 1rem 1rem;
+  border-radius: 22px;
+  background: linear-gradient(120deg, rgba(255, 255, 255, .78), rgba(255, 250, 247, .5));
+  border: 1px solid rgba(255, 255, 255, .9);
+  box-shadow: $shadow-soft, inset 0 0 0 1px rgba(200, 149, 122, .16);
+  transition: transform .6s $ease-out, box-shadow .6s $ease-out;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover { transform: translateX(6px); box-shadow: 0 28px 50px -32px rgba(74, 46, 38, .6), inset 0 0 0 1px rgba(200, 149, 122, .35); }
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 62px;
+    height: 62px;
+    border-radius: 18px;
+    color: $rose-600;
+    background: radial-gradient(circle at 30% 25%, #FFF, $blush-100);
+    box-shadow: inset 0 0 0 1px rgba(200, 149, 122, .35);
+    .i { width: 28px; height: 28px; stroke-width: 1.25; }
+  }
+  &__line { width: 1px; height: 70%; background: rgba(200, 149, 122, .45); }
+  h3 { font-family: $serif; font-size: 1.38rem; font-weight: 500; line-height: 1.1; color: $ink; }
+  p { margin-top: .3rem; font-size: .88rem; line-height: 1.5; color: $brown-600; }
+
+  @include down(480px) {
+    grid-template-columns: auto 1fr;
+    &__line { display: none; }
+    &__icon { width: 50px; height: 50px; border-radius: 14px; .i { width: 24px; height: 24px; } }
+    h3 { font-size: 1.22rem; }
+  }
+}

@@ -1,4 +1,8 @@
 node_modules/
 
 # Arquivos originais guardados pelos scripts de otimizacao (nao vao para o deploy)
-otimizacao/originais/
+frontend/otimizacao/originais/
+
+# Foto original em alta (2,2 MB). O site usa as versoes otimizadas
+# frontend/assets/vilma.webp e vilma-560.webp (geradas a partir dela).
+frontend/assets/vilma.png

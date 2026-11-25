@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Painel · Vilma Delmiro</title>
+  <meta name="theme-color" content="#2E1B16">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233A231D'/%3E%3Ctext x='9' y='45' font-family='Georgia,serif' font-size='34' fill='%23E3B79C'%3EV%3C/text%3E%3Ctext x='27' y='49' font-family='Georgia,serif' font-size='34' fill='%23E3B79C'%3ED%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <!-- ícones -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="gold-fill" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#F1D6C3"/><stop offset=".5" stop-color="#C8957A"/><stop offset="1" stop-color="#E3B79C"/>
+      </linearGradient>
+    </defs>
+    <symbol id="mono" viewBox="0 0 64 50">
+      <text x="3" y="41" font-size="47" font-family="Cormorant Garamond, Georgia, serif" font-weight="500" fill="url(#gold-fill)">V</text>
+      <text x="23" y="46" font-size="47" font-family="Cormorant Garamond, Georgia, serif" font-weight="500" fill="url(#gold-fill)">D</text>
+      <path fill="#E3B79C" d="M56 1.5l1.3 4.4 4.4 1.3-4.4 1.3L56 12.9l-1.3-4.4-4.4-1.3 4.4-1.3z"/>
+    </symbol>
+    <symbol id="a-dash" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="9" rx="2"/><rect x="13.5" y="3" width="7.5" height="5.5" rx="2"/><rect x="13.5" y="11.5" width="7.5" height="9.5" rx="2"/><rect x="3" y="15" width="7.5" height="6" rx="2"/></symbol>
+    <symbol id="a-tag" viewBox="0 0 24 24"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+    <symbol id="a-box" viewBox="0 0 24 24"><path d="m3 7 9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7M12 11v10"/></symbol>
+    <symbol id="a-bag" viewBox="0 0 24 24"><path d="M5.5 8h13l-1 12.5h-11z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+    <symbol id="a-in" viewBox="0 0 24 24"><path d="M12 4v13M6 11l6 6 6-6M5 20h14"/></symbol>
+    <symbol id="a-out" viewBox="0 0 24 24"><path d="M12 20V7M6 13l6-6 6 6M5 4h14"/></symbol>
+    <symbol id="a-wallet" viewBox="0 0 24 24"><path d="M4 7h15a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M4 7l11-3v3M15.5 13.5h1.5"/></symbol>
+    <symbol id="a-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></symbol>
+    <symbol id="a-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="a-reset" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7L4 8.5M4 4v4.5h4.5"/></symbol>
+    <symbol id="a-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="a-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="a-alert" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.2v.1"/></symbol>
+  </svg>
+
+  <div class="app">
+    <!-- ================= SIDEBAR (desktop) ================= -->
+    <aside class="side" aria-label="Menu do painel">
+      <div class="side__brand">
+        <svg class="side__mono" aria-hidden="true"><use href="#mono"/></svg>
+        <div><strong>Vilma Delmiro</strong><small>Painel da manicure</small></div>
+      </div>
+
+      <nav class="side__nav" data-nav>
+        <button class="side__link is-active" type="button" data-view="dashboard"><svg class="i"><use href="#a-dash"/></svg><span>Caixa</span></button>
+        <button class="side__link" type="button" data-view="servicos"><svg class="i"><use href="#a-tag"/></svg><span>Serviços e preços</span><em data-count-services></em></button>
+        <button class="side__link" type="button" data-view="estoque"><svg class="i"><use href="#a-box"/></svg><span>Estoque</span><em class="is-warn" data-count-low hidden></em></button>
+        <button class="side__link" type="button" data-view="produtos"><svg class="i"><use href="#a-bag"/></svg><span>Produtos da loja</span><em data-count-products></em></button>
+      </nav>
+
+      <div class="side__foot">
+        <a class="side__btn" href="index.html"><svg class="i"><use href="#a-ext"/></svg>Ver o site</a>
+        <button class="side__btn" type="button" data-reset><svg class="i"><use href="#a-reset"/></svg>Restaurar exemplos</button>
+        <p class="side__note">Os dados ficam salvos neste navegador.</p>
+      </div>
+    </aside>
+
+    <!-- ================= CONTEÚDO ================= -->
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar__brand">
+          <svg class="side__mono" aria-hidden="true"><use href="#mono"/></svg>
+          <span>Painel</span>
+        </div>
+        <div class="topbar__hello">
+          <p class="topbar__date" data-today></p>
+          <h1 class="topbar__title">Olá, <em>Vilma</em></h1>
+        </div>
+        <div class="topbar__actions">
+          <a class="btn btn--ghost btn--sm topbar__site" href="index.html"><svg class="i"><use href="#a-ext"/></svg><span>Ver o site</span></a>
+        </div>
+      </header>
+
+      <!-- ---------- CAIXA / DASHBOARD ---------- -->
+      <section class="view is-active" data-view-panel="dashboard" aria-labelledby="v-dash">
+        <div class="view__head">
+          <div>
+            <h2 class="view__title" id="v-dash">Caixa &amp; movimento</h2>
+            <p class="view__sub">Lance entradas e saídas — o total é calculado na hora e os gráficos se atualizam sozinhos.</p>
+          </div>
+        </div>
+
+        <div class="kpis">
+          <article class="kpi kpi--in">
+            <span class="kpi__icon"><svg class="i"><use href="#a-in"/></svg></span>
+            <p class="kpi__label">Entradas</p><p class="kpi__value" data-kpi-in>R$ 0</p><p class="kpi__hint" data-kpi-in-count>0 lançamentos</p>
+          </article>
+          <article class="kpi kpi--out">
+            <span class="kpi__icon"><svg class="i"><use href="#a-out"/></svg></span>
+            <p class="kpi__label">Saídas</p><p class="kpi__value" data-kpi-out>R$ 0</p><p class="kpi__hint" data-kpi-out-count>0 lançamentos</p>
+          </article>
+          <article class="kpi kpi--net">
+            <span class="kpi__icon"><svg class="i"><use href="#a-wallet"/></svg></span>
+            <p class="kpi__label">Saldo</p><p class="kpi__value" data-kpi-net>R$ 0</p><p class="kpi__hint">entradas − saídas</p>
+          </article>
+          <article class="kpi kpi--avg">
+            <span class="kpi__icon"><svg class="i"><use href="#a-receipt"/></svg></span>
+            <p class="kpi__label">Ticket médio</p><p class="kpi__value" data-kpi-avg>R$ 0</p><p class="kpi__hint">por atendimento</p>
+          </article>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="card card--launch">
+            <div class="card__head"><h3 class="card__title">Novo lançamento</h3></div>
+            <div class="launch">
+              <div class="toggle" data-tipo-toggle role="group" aria-label="Tipo de lançamento">
+                <button type="button" data-tipo="entrada" class="is-on"><svg class="i"><use href="#a-in"/></svg>Entrada</button>
+                <button type="button" data-tipo="saida"><svg class="i"><use href="#a-out"/></svg>Saída</button>
+              </div>
+
+              <div class="row row--2">
+                <div class="field">
+                  <label for="l-item">Serviço / item</label>
+                  <select class="select" id="l-item" data-launch-item></select>
+                </div>
+                <div class="field">
+                  <label for="l-qtd">Quantidade</label>
+                  <input class="input" id="l-qtd" type="number" min="1" step="1" value="1" inputmode="numeric" data-launch-qtd>
+                </div>
+              </div>
+
+              <div class="field" data-custom hidden>
+                <label for="l-custom">Descrição e valor (R$) do item avulso</label>
+                <div class="row row--2">
+                  <input class="input" id="l-custom" type="text" placeholder="Ex.: conta de luz" data-launch-desc>
+                  <input class="input" type="number" min="0" step="0.01" placeholder="0,00" inputmode="decimal" aria-label="Valor do item avulso" data-launch-valor>
+                </div>
+              </div>
+
+              <div class="calc" data-calc>
+                <div>
+                  <p class="calc__label">Total deste lançamento</p>
+                  <p class="calc__detail" data-calc-detail>Selecione um item</p>
+                </div>
+                <p class="calc__value" data-calc-value>R$ 0,00</p>
+              </div>
+
+              <button class="btn btn--rose btn--block" type="button" data-launch-add disabled><svg class="i"><use href="#a-plus"/></svg>Lançar no caixa</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__head"><h3 class="card__title">Entradas × Saídas</h3></div>
+            <div class="chart chart--donut" data-chart-donut></div>
+            <div class="legend">
+              <span class="legend__item"><span class="legend__dot" style="background:#3F9D6A"></span> Entradas</span>
+              <span class="legend__item"><span class="legend__dot" style="background:#C06A5E"></span> Saídas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid--2b">
+          <div class="card">
+            <div class="card__head"><h3 class="card__title">Entradas por categoria</h3></div>
+            <div class="chart" data-chart-bars></div>
+          </div>
+          <div class="card">
+            <div class="card__head"><h3 class="card__title">Últimos lançamentos</h3></div>
+            <div class="list" data-tx-list></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- SERVIÇOS ---------- -->
+      <section class="view" data-view-panel="servicos" aria-labelledby="v-serv">
+        <div class="view__head">
+          <div>
+            <h2 class="view__title" id="v-serv">Serviços e preços</h2>
+            <p class="view__sub">O que você cadastra aqui aparece no site, no agendamento e no caixa.</p>
+          </div>
+          <button class="btn btn--rose" type="button" data-add-service><svg class="i"><use href="#a-plus"/></svg>Novo serviço</button>
+        </div>
+        <div class="toolbar">
+          <label class="search"><svg class="i"><use href="#a-search"/></svg><input type="search" placeholder="Buscar serviço…" aria-label="Buscar serviço" data-services-search></label>
+        </div>
+        <div data-services-list></div>
+      </section>
+
+      <!-- ---------- ESTOQUE ---------- -->
+      <section class="view" data-view-panel="estoque" aria-labelledby="v-stock">
+        <div class="view__head">
+          <div>
+            <h2 class="view__title" id="v-stock">Estoque</h2>
+            <p class="view__sub">Seus materiais de trabalho por categoria. Itens abaixo do mínimo ficam marcados para repor.</p>
+          </div>
+          <button class="btn btn--rose" type="button" data-add-stock><svg class="i"><use href="#a-plus"/></svg>Novo item</button>
+        </div>
+        <div class="chips" data-stock-summary></div>
+        <div data-stock-list></div>
+      </section>
+
+      <!-- ---------- PRODUTOS ---------- -->
+      <section class="view" data-view-panel="produtos" aria-labelledby="v-prod">
+        <div class="view__head">
+          <div>
+            <h2 class="view__title" id="v-prod">Produtos da loja</h2>
+            <p class="view__sub">Marque como <strong>no site</strong> para o produto aparecer na seção “Produtos”.</p>
+          </div>
+          <button class="btn btn--rose" type="button" data-add-product><svg class="i"><use href="#a-plus"/></svg>Novo produto</button>
+        </div>
+        <div class="prod-grid" data-products-list></div>
+      </section>
+    </main>
+
+    <!-- ================= BARRA INFERIOR (celular / tablet) ================= -->
+    <nav class="tabbar" aria-label="Menu do painel">
+      <button class="tabbar__btn is-active" type="button" data-view="dashboard"><svg class="i"><use href="#a-dash"/></svg>Caixa</button>
+      <button class="tabbar__btn" type="button" data-view="servicos"><svg class="i"><use href="#a-tag"/></svg>Serviços</button>
+      <button class="tabbar__btn" type="button" data-view="estoque"><svg class="i"><use href="#a-box"/></svg>Estoque</button>
+      <button class="tabbar__btn" type="button" data-view="produtos"><svg class="i"><use href="#a-bag"/></svg>Produtos</button>
+    </nav>
+  </div>
+
+  <dialog class="dlg" data-dialog>
+    <form class="dlg__form" method="dialog" data-dialog-form></form>
+  </dialog>
+
+  <div class="tooltip" data-tooltip></div>
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</body>
+</html>

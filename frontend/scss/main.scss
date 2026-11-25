@@ -1,0 +1,15 @@
+// Vilma Delmiro — estilos principais (redesign)
+// Compilar: npm run build:css   |   Assistir: npm run watch:css
+@use 'base';
+@use 'loader';
+@use 'nav';
+@use 'hero';
+@use 'services';
+@use 'gallery';
+@use 'prices';
+@use 'about';
+@use 'products';
+@use 'voices';
+@use 'footer';
+@use 'modal';
+@use 'cursor';

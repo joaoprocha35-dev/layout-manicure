@@ -1,0 +1,197 @@
+@use 'tokens' as *;
+
+// =========================================================
+// DEPOIMENTOS + DÚVIDAS (imagem 3)
+// =========================================================
+.voices {
+  background:
+    radial-gradient(45% 40% at 80% 40%, rgba(255, 255, 255, .55), transparent 70%),
+    linear-gradient(180deg, $blush-50 0%, $blush-100 100%);
+  .wave { --wave-fill: #{$blush-200}; }
+}
+
+.voices__grid {
+  display: grid;
+  gap: clamp(.9rem, 1.6vw, 1.3rem);
+  grid-template-columns: 1fr;
+  @include up(640px) { grid-template-columns: repeat(2, 1fr); }
+  @include up(1100px) { grid-template-columns: repeat(4, 1fr); }
+}
+
+.voice {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.4rem 1.3rem;
+  border-radius: 24px;
+  background: linear-gradient(170deg, rgba(255, 255, 255, .88), rgba(250, 238, 232, .7));
+  border: 1px solid rgba(255, 255, 255, .95);
+  box-shadow: $shadow-card, inset 0 0 0 1px rgba(200, 149, 122, .16);
+  transition: transform .6s $ease-out;
+
+  @media (hover: hover) and (pointer: fine) { &:hover { transform: translateY(-5px); } }
+
+  &__quote {
+    position: absolute;
+    top: .9rem;
+    right: 1.1rem;
+    font-family: $serif;
+    font-size: 4.2rem;
+    line-height: 1;
+    color: $rose-300;
+    opacity: .55;
+  }
+  &__stars { display: flex; gap: .15rem; color: $rose-600; .i { width: 15px; height: 15px; } }
+  blockquote {
+    margin-top: 1rem;
+    font-family: $serif;
+    font-size: 1.18rem;
+    line-height: 1.45;
+    color: $ink;
+  }
+  &__who {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    margin-top: auto;
+    padding-top: 1.2rem;
+    font-size: .82rem;
+    color: $brown-600;
+    strong { font-weight: 500; color: $ink; }
+  }
+  &__avatar {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $blush-200;
+    color: $brown-800;
+    font-family: $serif;
+    font-size: 1.1rem;
+  }
+}
+
+.voices__note {
+  margin-top: 1.4rem;
+  text-align: center;
+  font-size: .8rem;
+  color: $brown-400;
+}
+
+// ---------- FAQ ----------
+.faq {
+  background: linear-gradient(180deg, $blush-200 0%, $blush-100 100%);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+  .botanic { right: 2%; top: 3rem; }
+}
+
+.faq__layout {
+  display: grid;
+  gap: clamp(1.2rem, 2.5vw, 2rem);
+  align-items: start;
+  @include up(960px) { grid-template-columns: 1.55fr 1fr; }
+}
+
+.faq__list { display: grid; gap: .75rem; }
+
+.qa {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .72);
+  border: 1px solid rgba(255, 255, 255, .95);
+  box-shadow: $shadow-soft, inset 0 0 0 1px rgba(200, 149, 122, .16);
+  transition: background-color .4s $ease, box-shadow .4s $ease;
+
+  &[open] { background: rgba(255, 255, 255, .92); box-shadow: 0 24px 40px -28px rgba(74, 46, 38, .5), inset 0 0 0 1px rgba(200, 149, 122, .35); }
+
+  summary {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: .85rem 1.2rem .85rem .85rem;
+    font-family: $serif;
+    font-size: clamp(1.1rem, 1.7vw, 1.3rem);
+    font-weight: 500;
+    line-height: 1.25;
+    color: $ink;
+    cursor: pointer;
+    list-style: none;
+    &::-webkit-details-marker { display: none; }
+    .icon-badge { width: 40px; height: 40px; .i { width: 19px; height: 19px; } }
+  }
+
+  &__plus {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1.5px;
+      background: $brown-800;
+      transition: transform .45s $ease-out;
+    }
+    &::after { transform: rotate(90deg); }
+  }
+  &[open] .qa__plus::after { transform: rotate(0); }
+
+  &__answer {
+    overflow: hidden;
+    p { padding: 0 1.4rem 1.2rem calc(.85rem + 40px + 1rem); color: $brown-600; font-size: .95rem; }
+    strong { font-weight: 500; color: $ink; }
+    @include down(520px) { p { padding-left: 1.2rem; } }
+  }
+}
+
+.wa-card {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  min-height: 330px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .85), rgba(250, 238, 232, .75));
+  border: 1px solid rgba(255, 255, 255, .95);
+  box-shadow: $shadow-card, inset 0 0 0 1px rgba(200, 149, 122, .3);
+
+  &__img {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 52%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% 50%;
+    -webkit-mask: linear-gradient(90deg, transparent, #000 55%);
+    mask: linear-gradient(90deg, transparent, #000 55%);
+  }
+  &__body {
+    position: relative;
+    align-self: end;
+    padding: 1.6rem;
+    max-width: 15.5rem;
+  }
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, $rose-500, $rose-700);
+    color: #FFF;
+    box-shadow: 0 12px 24px -12px rgba(158, 85, 86, .9);
+    margin-bottom: 1rem;
+    .i { width: 26px; height: 26px; }
+  }
+  h3 {
+    font-family: $serif;
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
+    font-weight: 400;
+    line-height: 1.02;
+    color: $ink;
+    em { font-style: italic; color: $rose-600; }
+  }
+  p { margin: .6rem 0 1.2rem; font-size: .92rem; color: $brown-700; }
+}

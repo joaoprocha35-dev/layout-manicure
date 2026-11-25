@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vilma Delmiro · Nail Designer — Manicure há mais de 30 anos</title>
+  <meta name="description" content="Vilma Delmiro, manicure há mais de 30 anos e especialista em fibra de vidro: mão, pé, spa dos pés, esmaltação em gel, blindagem, banho de gel e alongamento. Atendimento com hora marcada.">
+  <meta name="theme-color" content="#2E1B16">
+  <meta name="author" content="Vilma Delmiro">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233A231D'/%3E%3Ctext x='9' y='45' font-family='Georgia,serif' font-size='34' fill='%23E3B79C'%3EV%3C/text%3E%3Ctext x='27' y='49' font-family='Georgia,serif' font-size='34' fill='%23E3B79C'%3ED%3C/text%3E%3C/svg%3E">
+
+  <!-- SEO / compartilhamento -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Vilma Delmiro">
+  <meta property="og:title" content="Vilma Delmiro · Nail Designer — Manicure há mais de 30 anos">
+  <meta property="og:description" content="Unhas impecáveis, do seu jeito. Especialista em fibra de vidro, com atendimento com hora marcada.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vilma Delmiro · Nail Designer">
+  <meta name="twitter:description" content="Unhas impecáveis, do seu jeito. Atendimento com hora marcada.">
+
+  <link rel="preload" as="image" type="image/webp"
+        imagesrcset="assets/hero/hero-desktop-1000.webp 1000w, assets/hero/hero-desktop.webp 1600w"
+        imagesizes="100vw" fetchpriority="high">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <script>
+    // Abertura (1x por sessão) e texto da hero escondido até o GSAP assumir.
+    // Há fallbacks em CSS caso o JavaScript falhe.
+    (function () {
+      var d = document.documentElement;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      d.classList.add('preload-anim');
+      var seen = false;
+      try { seen = !!sessionStorage.getItem('vd.intro'); } catch (e) {}
+      if (!seen) d.classList.add('is-loading');
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Vilma Delmiro",
+    "description": "Manicure há mais de 30 anos, especialista em alongamento de unhas em fibra de vidro, esmaltação em gel, blindagem, banho de gel e spa dos pés.",
+    "telephone": ["+55 14 99767-0868", "+55 14 98168-7986"],
+    "priceRange": "R$7 - R$180",
+    "currenciesAccepted": "BRL",
+    "paymentAccepted": "PIX, cartão de crédito",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Serviços",
+      "itemListElement": [
+        { "@type": "Offer", "price": "45.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Mão" } },
+        { "@type": "Offer", "price": "55.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Pé" } },
+        { "@type": "Offer", "price": "80.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Pé e Mão" } },
+        { "@type": "Offer", "price": "40.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Spa dos Pés" } },
+        { "@type": "Offer", "price": "180.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Alongamento em Gel (Fibra de Vidro ou Tips)" } },
+        { "@type": "Offer", "price": "70.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Esmaltação em Gel" } },
+        { "@type": "Offer", "price": "80.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Blindagem" } },
+        { "@type": "Offer", "price": "110.00", "priceCurrency": "BRL", "itemOffered": { "@type": "Service", "name": "Banho de Gel com Cuticulagem" } }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ================= SPRITE: gradientes, monograma, ícones ================= -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="gold-stroke" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#E3B79C" stop-opacity=".2"/>
+        <stop offset=".25" stop-color="#C8957A"/>
+        <stop offset=".5" stop-color="#F3D4BE"/>
+        <stop offset=".75" stop-color="#B98065"/>
+        <stop offset="1" stop-color="#E3B79C" stop-opacity=".2"/>
+      </linearGradient>
+      <linearGradient id="gold-fill" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#E9BFA3"/>
+        <stop offset=".45" stop-color="#B5785E"/>
+        <stop offset=".7" stop-color="#D9A487"/>
+        <stop offset="1" stop-color="#8F5A44"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Monograma VD -->
+    <symbol id="mono" viewBox="0 0 64 50">
+      <text x="3" y="41" font-size="47" font-family="Cormorant Garamond, Georgia, serif" font-weight="500" fill="url(#gold-fill)">V</text>
+      <text x="23" y="46" font-size="47" font-family="Cormorant Garamond, Georgia, serif" font-weight="500" fill="url(#gold-fill)">D</text>
+      <path fill="#C8957A" d="M56 1.5l1.3 4.4 4.4 1.3-4.4 1.3L56 12.9l-1.3-4.4-4.4-1.3 4.4-1.3z"/>
+      <circle cx="51" cy="13" r="1" fill="#C8957A"/>
+    </symbol>
+
+    <!-- Ramo botânico (traço fino) -->
+    <symbol id="botanic" viewBox="0 0 200 200">
+      <path pathLength="1" d="M14 192C50 150 92 104 176 22"/>
+      <path pathLength="1" d="M52 148C30 132 26 104 40 84c18 16 22 42 12 64z"/>
+      <path pathLength="1" d="M52 148c-6-22-8-44-12-64"/>
+      <path pathLength="1" d="M70 126c22-6 46 2 60 20-22 8-46 0-60-20z"/>
+      <path pathLength="1" d="M70 126c22 6 42 12 60 20"/>
+      <path pathLength="1" d="M96 98C80 78 82 50 100 34c12 22 10 46-4 64z"/>
+      <path pathLength="1" d="M96 98c0-22 2-44 4-64"/>
+      <path pathLength="1" d="M122 72c22-8 46-2 60 14-22 10-46 4-60-14z"/>
+      <path pathLength="1" d="M122 72c20 6 42 10 60 14"/>
+      <path pathLength="1" d="M150 46c0-16 10-32 28-40 4 18-8 34-28 40z"/>
+    </symbol>
+
+    <!-- Ícones (24×24, traço) -->
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 10.5 12 4l8.5 6.5V20a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-diamond" viewBox="0 0 24 24"><path d="M7 4h10l4 5-9 11L3 9z"/><path d="M3 9h18M10 4 8.5 9 12 20l3.5-11L14 4"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3 3 7.5l9 4.5 9-4.5z"/><path d="m3 12 9 4.5 9-4.5M3 16.5 12 21l9-4.5"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6M12 17v.2"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-calendar-x" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M10 13.5l4 4M14 13.5l-4 4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13.5 6.5 19 12l-5.5 5.5"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-polish" viewBox="0 0 24 24"><rect x="7.5" y="10" width="9" height="11" rx="2"/><path d="M10 10V7h4v3M11 7V2.5h2V7"/></symbol>
+    <symbol id="i-foot" viewBox="0 0 24 24"><path d="M9 21c-2.6 0-3.6-2.2-3.2-5.2.4-2.8 1.2-5.3 3.8-5.3s3.3 2.6 2.8 5.6C12 19 11.4 21 9 21z"/><circle cx="7" cy="6.5" r="1.5"/><circle cx="10.5" cy="4.5" r="1.3"/><circle cx="13.6" cy="5.3" r="1.1"/><circle cx="15.8" cy="7.3" r="1"/><circle cx="16.8" cy="10" r=".9"/></symbol>
+    <symbol id="i-lotus" viewBox="0 0 24 24"><path d="M12 20c-4.5 0-8.2-3-9-7.5 3.2.2 6.2 1.6 9 4.5 2.8-2.9 5.8-4.3 9-4.5-.8 4.5-4.5 7.5-9 7.5z"/><path d="M12 17c-2.2-2.2-3-5.4-2-9.2 1 .7 1.6 1.4 2 2 .4-.6 1-1.3 2-2 1 3.8.2 7-2 9.2z"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11z"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19.5 10A8 8 0 0 0 5.6 7.2L4 9M4 4.5V9h4.5M4.5 14a8 8 0 0 0 13.9 2.8L20 15M20 19.5V15h-4.5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 20 6v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="m12 3 1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z"/><path d="M19 3v4M17 5h4M5.5 17v3.5M3.8 18.8h3.5"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.3a4.2 4.2 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 10.5 10.5 5 19 5c0 8.5-5.5 14-14 14z"/><path d="m5 19 8.5-8.5"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.6 13.9-1.6 7.1 5-2.6 5 2.6-1.6-7.1"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3.5l2 5-2.4 1.5a11 11 0 0 0 5.4 5.4L15 13.5l5 2V19a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol>
+    <symbol id="i-whats" viewBox="0 0 24 24"><path d="M4 20.5 5.3 16.6A8.6 8.6 0 1 1 8.4 19.5z"/><path d="M9.2 8.6c.2-.5.5-.6.9-.6h.5l1 2.2-.7.9c.5 1 1.3 1.9 2.4 2.4l.9-.7 2.2 1v.5c0 .4-.2.8-.6.9-.8.4-1.8.3-2.9-.2a8.2 8.2 0 0 1-3.6-3.6c-.4-1-.5-2-.1-2.8z"/></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="M15 5.5 8.5 12l6.5 6.5"/></symbol>
+    <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="m9 5.5 6.5 6.5L9 18.5"/></symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4M11 8.5v5M8.5 11h5"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 8h13l-1 12.5h-11z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></symbol>
+    <symbol id="i-dot4" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></symbol>
+  </svg>
+
+  <!-- ================= TELA DE ABERTURA ================= -->
+  <div class="loader" data-loader aria-hidden="true">
+    <div class="loader__panel" data-loader-panel>
+      <div class="loader__grain"></div>
+      <div class="loader__center">
+        <div class="loader__mark">
+          <svg class="loader__ring" viewBox="0 0 200 200">
+            <circle class="loader__ring-main" data-loader-ring cx="100" cy="100" r="97" pathLength="1" transform="rotate(-90 100 100)"/>
+            <circle class="loader__ring-dash" data-loader-ring2 cx="100" cy="100" r="86"/>
+          </svg>
+          <svg class="loader__mono" viewBox="0 0 64 52">
+            <text data-loader-letter x="3" y="42" font-size="48">V</text>
+            <text data-loader-letter x="23" y="47" font-size="48">D</text>
+          </svg>
+          <svg class="loader__spark" data-loader-spark viewBox="0 0 24 24"><use href="#i-dot4"/></svg>
+        </div>
+        <p class="loader__name" data-loader-name>Vilma Delmiro</p>
+        <p class="loader__role" data-loader-role><span>Nail Designer</span></p>
+        <p class="loader__tag" data-loader-tag>Beleza e cuidado em cada detalhe</p>
+      </div>
+      <div class="loader__bar"><i data-loader-bar></i></div>
+      <svg class="loader__edge" viewBox="0 0 1440 160" preserveAspectRatio="none">
+        <path data-loader-edge d="M0 0H1440V0C1080 0 360 0 0 0Z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ================= NAVBAR HORIZONTAL (imagem 4) ================= -->
+  <header class="nav" data-nav>
+    <nav class="nav__bar" aria-label="Principal">
+      <svg class="nav__bump" viewBox="0 0 360 34" aria-hidden="true">
+        <path class="bump-fill" d="M0 32C78 32 112 1 180 1s102 31 180 31v6H0z"/>
+        <path class="bump-line" d="M0 32C78 32 112 1 180 1s102 31 180 31"/>
+      </svg>
+      <svg class="nav__leaf nav__leaf--l" aria-hidden="true"><use href="#botanic"/></svg>
+      <svg class="nav__leaf nav__leaf--r" aria-hidden="true"><use href="#botanic"/></svg>
+
+      <div class="nav__group nav__group--left">
+        <a class="nav__link is-active" href="#topo" data-scroll-link data-nav-link><svg class="i"><use href="#i-home"/></svg>Início</a>
+        <span class="nav__sep" aria-hidden="true"></span>
+        <a class="nav__link" href="#servicos" data-scroll-link data-nav-link><svg class="i"><use href="#i-diamond"/></svg>Serviços</a>
+        <span class="nav__sep" aria-hidden="true"></span>
+        <a class="nav__link" href="#trabalhos" data-scroll-link data-nav-link><svg class="i"><use href="#i-layers"/></svg>Trabalhos</a>
+      </div>
+
+      <a class="nav__brand" href="#topo" data-scroll-link aria-label="Vilma Delmiro, Nail Designer — voltar ao início">
+        <svg class="nav__mono" aria-hidden="true"><use href="#mono"/></svg>
+        <span class="nav__name">Vilma Delmiro</span>
+        <span class="nav__role">Nail Designer</span>
+      </a>
+      <p class="nav__tag"><svg class="i" aria-hidden="true"><use href="#i-dot4"/></svg>Manicure há mais de 30 anos<svg class="i" aria-hidden="true"><use href="#i-dot4"/></svg></p>
+
+      <div class="nav__group nav__group--right">
+        <a class="nav__link" href="#precos" data-scroll-link data-nav-link><svg class="i"><use href="#i-tag"/></svg>Preços</a>
+        <span class="nav__sep" aria-hidden="true"></span>
+        <a class="nav__link" href="#duvidas" data-scroll-link data-nav-link><svg class="i"><use href="#i-help"/></svg>Dúvidas</a>
+        <a class="btn btn--dark nav__cta" href="#agendar" data-booking>
+          <svg class="i i--lead"><use href="#i-calendar"/></svg><span class="nav__cta-txt">Agendar horário</span><svg class="i i--arrow"><use href="#i-arrow"/></svg>
+        </a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Abrir menu" data-nav-toggle>
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu compacto (tablet / celular) -->
+    <div class="nav__panel" id="nav-panel" data-nav-panel>
+      <ul role="list">
+        <li><a class="nav__plink" href="#topo" data-scroll-link data-nav-link><svg class="i"><use href="#i-home"/></svg>Início</a></li>
+        <li><a class="nav__plink" href="#servicos" data-scroll-link data-nav-link><svg class="i"><use href="#i-diamond"/></svg>Serviços</a></li>
+        <li><a class="nav__plink" href="#trabalhos" data-scroll-link data-nav-link><svg class="i"><use href="#i-layers"/></svg>Trabalhos</a></li>
+        <li><a class="nav__plink" href="#precos" data-scroll-link data-nav-link><svg class="i"><use href="#i-tag"/></svg>Preços</a></li>
+        <li><a class="nav__plink" href="#duvidas" data-scroll-link data-nav-link><svg class="i"><use href="#i-help"/></svg>Dúvidas</a></li>
+      </ul>
+      <div class="nav__panel-foot">
+        <div class="nav__seal">
+          <span class="seal__num" aria-hidden="true">30<sup>+</sup></span>
+          <span class="seal__txt">Manicure há<strong>mais de 30 anos</strong></span>
+        </div>
+        <a class="btn btn--dark" href="#agendar" data-booking><svg class="i i--lead"><use href="#i-calendar"/></svg>Agendar horário<svg class="i i--arrow"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main id="conteudo">
+
+        <!-- ================= HERO (vídeo em toda a seção) ================= -->
+        <section class="hero" id="topo" aria-labelledby="hero-title">
+          <div class="hero__media" aria-hidden="true" data-hero-media>
+            <img src="assets/hero/hero-desktop.webp"
+                 srcset="assets/hero/hero-desktop-1000.webp 1000w, assets/hero/hero-desktop.webp 1600w"
+                 sizes="100vw" width="1600" height="900" alt="" decoding="async">
+            <video data-hero-video autoplay muted loop playsinline preload="metadata"
+                   poster="assets/hero/hero-desktop-1000.webp">
+              <source src="assets/hero/hero-manicure-computador.webm" type="video/webm">
+              <source src="assets/hero/hero-manicure-computador.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="hero__veil" aria-hidden="true"></div>
+
+          <div class="container hero__inner">
+            <div class="hero__content">
+              <p class="eyebrow eyebrow--left" data-hero-item>Especialista em fibra de vidro</p>
+              <h1 class="hero__title" id="hero-title" data-hero-item>
+                <span class="hero__line" data-hero-line>Unhas impecáveis,</span>
+                <span class="hero__line" data-hero-line><em>do seu jeito.<svg class="hero__swash" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" data-swash d="M4 14C70 4 170 2 296 10"/></svg></em></span>
+              </h1>
+              <p class="hero__lead" data-hero-item>
+                Seu próximo cuidado começa aqui. Descubra procedimentos, conheça meu trabalho e encontre o estilo perfeito para <strong>valorizar suas mãos</strong>.
+              </p>
+              <div class="hero__actions" data-hero-item>
+                <a class="btn btn--dark" href="#agendar" data-booking data-magnetic>
+                  <svg class="i i--lead"><use href="#i-calendar"/></svg>Agendar horário<svg class="i i--arrow"><use href="#i-arrow"/></svg>
+                </a>
+                <a class="btn btn--light" href="#trabalhos" data-scroll-link data-magnetic>
+                  <svg class="i i--lead"><use href="#i-image"/></svg>Ver inspirações<svg class="i i--arrow"><use href="#i-arrow"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <ul class="hero__facts" role="list" data-hero-facts>
+            <li><svg class="i"><use href="#i-diamond"/></svg><span>Especialista em<strong>fibra de vidro</strong></span></li>
+            <li><svg class="i"><use href="#i-calendar"/></svg><span>Atendimento com<strong>hora marcada</strong></span></li>
+            <li><svg class="i"><use href="#i-award"/></svg><span>Manicure há<strong>mais de 30 anos</strong></span></li>
+            <li><svg class="i"><use href="#i-card"/></svg><span>Pagamento via<strong>PIX e cartão</strong></span></li>
+          </ul>
+
+          <svg class="wave" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+            <path class="wave__fill" d="M0 96C220 150 470 40 760 70s470 30 680-12v92H0z"/>
+          </svg>
+        </section>
+
+        <!-- ================= FAIXA PRETA ANIMADA ================= -->
+        <div class="ticker" role="marquee" aria-label="Destaques da Vilma">
+          <div class="ticker__band">
+            <div class="ticker__track" data-ticker>
+              <div class="ticker__group">
+                <span class="ticker__item"><svg class="i"><use href="#i-award"/></svg>Manicure há <em>mais de 30 anos</em></span>
+                <svg class="ticker__sep" aria-hidden="true"><use href="#i-dot4"/></svg>
+                <span class="ticker__item"><svg class="i"><use href="#i-diamond"/></svg>Especialista em <em>fibra de vidro</em></span>
+                <svg class="ticker__sep" aria-hidden="true"><use href="#i-dot4"/></svg>
+                <span class="ticker__item"><svg class="i"><use href="#i-calendar"/></svg>Atendimento com <em>hora marcada</em></span>
+                <svg class="ticker__sep" aria-hidden="true"><use href="#i-dot4"/></svg>
+                <span class="ticker__item"><svg class="i"><use href="#i-heart"/></svg>Cuidado e atenção <em>aos detalhes</em></span>
+                <svg class="ticker__sep" aria-hidden="true"><use href="#i-dot4"/></svg>
+                <span class="ticker__item"><svg class="i"><use href="#i-sparkle"/></svg>Procedimentos <em>personalizados</em></span>
+                <svg class="ticker__sep" aria-hidden="true"><use href="#i-dot4"/></svg>
+              </div>
+              <div class="ticker__group" aria-hidden="true">
+                <span class="ticker__item"><svg class="i"><use href="#i-award"/></svg>Manicure há <em>mais de 30 anos</em></span>
+                <svg class="ticker__sep"><use href="#i-dot4"/></svg>
+                <span class="ticker__item"><svg class="i"><use href="#i-diamond"/></svg>Especialista em <em>fibra de vidro</em></span>
+                <svg class="ticker__sep"><use href="#i-dot4"/></svg>
+                <span class="ticker__item"><svg class="i"><use href="#i-calendar"/></svg>Atendimento com <em>hora marcada</em></span>
+                <svg class="ticker__sep"><use href="#i-dot4"/></svg>
+                <span class="ticker__item"><svg class="i"><use href="#i-heart"/></svg>Cuidado e atenção <em>aos detalhes</em></span>
+                <svg class="ticker__sep"><use href="#i-dot4"/></svg>
+                <span class="ticker__item"><svg class="i"><use href="#i-sparkle"/></svg>Procedimentos <em>personalizados</em></span>
+                <svg class="ticker__sep"><use href="#i-dot4"/></svg>
+              </div>
+            </div>
+          </div>
+          <svg class="ticker__tail" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+            <path class="tail-fill" d="M0 0h1440v22c-260 58-540 64-800 34C420 30 200 36 0 72z"/>
+          </svg>
+        </div>
+
+        <!-- ================= SERVIÇOS (imagem 1) ================= -->
+        <section class="section services" id="servicos" aria-labelledby="servicos-title">
+          <svg class="botanic" aria-hidden="true" data-draw><use href="#botanic"/></svg>
+          <div class="container">
+            <header class="section-head">
+              <p class="eyebrow" data-reveal>Nossos serviços</p>
+              <h2 class="section-title" id="servicos-title" data-split>Cuidados feitos para <br><em>valorizar suas mãos.</em></h2>
+              <p class="section-lead" data-reveal>Serviços completos, com técnica, segurança e acabamento de alta qualidade, para unhas bonitas, saudáveis e duradouras.</p>
+            </header>
+
+            <ul class="services__grid" role="list">
+              <li class="svc" data-card>
+                <div class="svc__body">
+                  <span class="icon-badge"><svg class="i"><use href="#i-polish"/></svg></span>
+                  <h3 class="svc__title">Manicure</h3>
+                  <p class="svc__text">Cutilagem, formatação e esmaltação impecável.</p>
+                  <a class="link-arrow" href="#precos" data-goto-price="mao">Ver valores<svg class="i"><use href="#i-arrow"/></svg></a>
+                </div>
+                <div class="svc__media" style="--pos: 50% 78%">
+                  <img src="assets/galeria/05-nude-natural-560.webp" srcset="assets/galeria/05-nude-natural-560.webp 560w, assets/galeria/05-nude-natural.webp 1000w" sizes="(min-width: 1024px) 14vw, (min-width: 640px) 20vw, 40vw" width="560" height="560" loading="lazy" decoding="async" alt="Unhas curtas em nude rosado natural com acabamento brilhante.">
+                </div>
+              </li>
+              <li class="svc" data-card>
+                <div class="svc__body">
+                  <span class="icon-badge"><svg class="i"><use href="#i-foot"/></svg></span>
+                  <h3 class="svc__title">Pedicure</h3>
+                  <p class="svc__text">Cuidado completo para os pés.</p>
+                  <a class="link-arrow" href="#precos" data-goto-price="pe">Ver valores<svg class="i"><use href="#i-arrow"/></svg></a>
+                </div>
+                <div class="svc__media" style="--pos: 50% 70%">
+                  <img src="assets/servicos/pedicure-560.webp" srcset="assets/servicos/pedicure-560.webp 560w, assets/servicos/pedicure.webp 1000w" sizes="(min-width: 1024px) 14vw, (min-width: 640px) 20vw, 40vw" width="560" height="420" loading="lazy" decoding="async" alt="Pés com unhas em nude rosado sobre toalha creme.">
+                </div>
+              </li>
+              <li class="svc" data-card>
+                <div class="svc__body">
+                  <span class="icon-badge"><svg class="i"><use href="#i-drop"/></svg></span>
+                  <h3 class="svc__title">Esmaltação em Gel</h3>
+                  <p class="svc__text">Brilho intenso e longa duração.</p>
+                  <a class="link-arrow" href="#precos" data-goto-price="gel">Ver valores<svg class="i"><use href="#i-arrow"/></svg></a>
+                </div>
+                <div class="svc__media" style="--pos: 50% 74%">
+                  <img src="assets/galeria/10-blush-rose-560.webp" srcset="assets/galeria/10-blush-rose-560.webp 560w, assets/galeria/10-blush-rose.webp 1000w" sizes="(min-width: 1024px) 14vw, (min-width: 640px) 20vw, 40vw" width="560" height="560" loading="lazy" decoding="async" alt="Unhas em rosa blush com brilho de esmaltação em gel.">
+                </div>
+              </li>
+              <li class="svc" data-card>
+                <div class="svc__body">
+                  <span class="icon-badge"><svg class="i"><use href="#i-layers"/></svg></span>
+                  <h3 class="svc__title">Fibra de Vidro</h3>
+                  <p class="svc__text">Alongamento leve, resistente e com resultado natural.</p>
+                  <a class="link-arrow" href="#precos" data-goto-price="alongamento">Ver valores<svg class="i"><use href="#i-arrow"/></svg></a>
+                </div>
+                <div class="svc__media" style="--pos: 50% 62%">
+                  <img src="assets/galeria/06-french-classic-560.webp" srcset="assets/galeria/06-french-classic-560.webp 560w, assets/galeria/06-french-classic.webp 1000w" sizes="(min-width: 1024px) 14vw, (min-width: 640px) 20vw, 40vw" width="560" height="700" loading="lazy" decoding="async" alt="Alongamento em fibra de vidro com francesinha clássica.">
+                </div>
+              </li>
+              <li class="svc" data-card>
+                <div class="svc__body">
+                  <span class="icon-badge"><svg class="i"><use href="#i-refresh"/></svg></span>
+                  <h3 class="svc__title">Manutenção de Fibra</h3>
+                  <p class="svc__text">Preserva a durabilidade e a beleza do alongamento.</p>
+                  <a class="link-arrow" href="#precos" data-goto-price="manut-15">Ver valores<svg class="i"><use href="#i-arrow"/></svg></a>
+                </div>
+                <div class="svc__media" style="--pos: 50% 70%">
+                  <img src="assets/galeria/01-fibra-de-vidro-560.webp" srcset="assets/galeria/01-fibra-de-vidro-560.webp 560w, assets/galeria/01-fibra-de-vidro.webp 1000w" sizes="(min-width: 1024px) 14vw, (min-width: 640px) 20vw, 40vw" width="560" height="700" loading="lazy" decoding="async" alt="Unhas amendoadas em rosa translúcido com uma flor branca pintada à mão.">
+                </div>
+              </li>
+              <li class="svc" data-card>
+                <div class="svc__body">
+                  <span class="icon-badge"><svg class="i"><use href="#i-lotus"/></svg></span>
+                  <h3 class="svc__title">Spa dos Pés</h3>
+                  <p class="svc__text">Esfoliação, hidratação e massagem relaxante.</p>
+                  <a class="link-arrow" href="#precos" data-goto-price="spa">Ver valores<svg class="i"><use href="#i-arrow"/></svg></a>
+                </div>
+                <div class="svc__media" style="--pos: 62% 72%">
+                  <img src="assets/servicos/spa-dos-pes-560.webp" srcset="assets/servicos/spa-dos-pes-560.webp 560w, assets/servicos/spa-dos-pes.webp 1000w" sizes="(min-width: 1024px) 14vw, (min-width: 640px) 20vw, 40vw" width="560" height="420" loading="lazy" decoding="async" alt="Pé hidratado com unhas em nude rosado sobre toalha macia.">
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <svg class="wave" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+            <path class="wave__fill" d="M0 40c300 0 520 88 820 72 260-14 430-82 620-94v132H0z"/>
+          </svg>
+        </section>
+
+        <!-- ================= TRABALHOS / PORTFÓLIO ================= -->
+        <section class="section gallery on-dark" id="trabalhos" aria-labelledby="trabalhos-title">
+          <svg class="botanic" aria-hidden="true" data-draw><use href="#botanic"/></svg>
+          <div class="container">
+            <header class="section-head">
+              <p class="eyebrow" data-reveal>Nossos trabalhos</p>
+              <h2 class="section-title" id="trabalhos-title" data-split>Inspirações para o seu <em>próximo cuidado.</em></h2>
+              <p class="section-lead" data-reveal>Veja alguns estilos e encontre o que mais combina com você — organizado por categoria, sem se perder no Instagram.</p>
+            </header>
+
+            <div class="filters" role="group" aria-label="Filtrar trabalhos" data-reveal>
+              <button class="filter" type="button" data-filter="todos" aria-pressed="true"><svg class="i"><use href="#i-sparkle"/></svg>Todos</button>
+              <button class="filter" type="button" data-filter="naturais" aria-pressed="false"><svg class="i"><use href="#i-leaf"/></svg>Naturais</button>
+              <button class="filter" type="button" data-filter="elegantes" aria-pressed="false"><svg class="i"><use href="#i-diamond"/></svg>Elegantes</button>
+              <button class="filter" type="button" data-filter="alongamentos" aria-pressed="false"><svg class="i"><use href="#i-layers"/></svg>Alongamentos</button>
+              <button class="filter" type="button" data-filter="nailart" aria-pressed="false"><svg class="i"><use href="#i-sparkle"/></svg>Nail Art</button>
+            </div>
+
+            <ul class="gallery__grid" role="list" data-gallery>
+              <li class="shot" data-cat="alongamentos nailart"><figure><button type="button" aria-label="Ampliar: Rosa translúcido com flor"><img src="assets/galeria/01-fibra-de-vidro-560.webp" data-full="assets/galeria/01-fibra-de-vidro.webp" width="560" height="700" loading="lazy" decoding="async" alt="Unhas amendoadas em rosa translúcido com flor branca delicada no anelar."></button><figcaption>Rosa translúcido com flor<svg class="i"><use href="#i-zoom"/></svg></figcaption></figure></li>
+              <li class="shot" data-cat="elegantes"><figure><button type="button" aria-label="Ampliar: Verde-esmeralda"><img src="assets/galeria/02-esmeralda-560.webp" data-full="assets/galeria/02-esmeralda.webp" width="560" height="560" loading="lazy" decoding="async" alt="Unhas curtas quadradas em verde-esmeralda com brilho intenso."></button><figcaption>Verde-esmeralda<svg class="i"><use href="#i-zoom"/></svg></figcaption></figure></li>
+              <li class="shot" data-cat="elegantes nailart"><figure><button type="button" aria-label="Ampliar: Lilás opalescente"><img src="assets/galeria/03-lilas-opalescente-560.webp" data-full="assets/galeria/03-lilas-opalescente.webp" width="560" height="700" loading="lazy" decoding="async" alt="Unhas ovais em lilás claro com acabamento opalescente perolado."></button><figcaption>Lilás opalescente<svg class="i"><use href="#i-zoom"/></svg></figcaption></figure></li>
+              <li class="shot" data-cat="elegantes"><figure><button type="button" aria-label="Ampliar: Vermelho-cereja"><img src="assets/galeria/04-vermelho-cereja-560.webp" data-full="assets/galeria/04-vermelho-cereja.webp" width="560" height="560" loading="lazy" decoding="async" alt="Unhas ovais em vermelho-cereja com brilho espelhado."></button><figcaption>Vermelho-cereja<svg class="i"><use href="#i-zoom"/></svg></figcaption></figure></li>
+              <li class="shot" data-cat="naturais"><figure><button type="button" aria-label="Ampliar: Nude natural"><img src="assets/galeria/05-nude-natural-560.webp" data-full="assets/galeria/05-nude-natural.webp" width="560" height="560" loading="lazy" decoding="async" alt="Unhas curtas em nude rosado natural com acabamento brilhante."></button><figcaption>Nude natural<svg class="i"><use href="#i-zoom"/></svg></figcaption></figure></li>
+              <li class="shot" data-cat="alongamentos naturais"><figure><button type="button" aria-label="Ampliar: Francesinha clássica"><img src="assets/galeria/06-french-classic-560.webp" data-full="assets/galeria/06-french-classic.webp" width="560" height="700" loading="lazy" decoding="async" alt="Francesinha clássica com base nude rosada e pontas brancas finas."></button><figcaption>Francesinha clássica<svg class="i"><use href="#i-zoom"/></svg></figcaption></figure></li>
+              <li class="shot" data-cat="naturais"><figure><button type="button" aria-label="Ampliar: Coral vibrante"><img src="assets/galeria/07-coral-560.webp" data-full="assets/galeria/07-coral.webp" width="560" height="560" loading="lazy" decoding="async" alt="Unhas ovais em coral vibrante com brilho de esmalte em gel."></button><figcaption>Coral vibrante<svg class="i"><use href="#i-zoom"/></svg></figcaption></figure></li>
+              <li class="shot" data-cat="elegantes alongamentos"><figure><button type="button" aria-label="Ampliar: Vinho profundo"><img src="assets/galeria/08-vinho-560.webp" data-full="assets/galeria/08-vinho.webp" width="560" height="700" loading="lazy" decoding="async" alt="Unhas amendoadas em vinho profundo com acabamento brilhante."></button><figcaption>Vinho profundo<svg class="i"><use href="#i-zoom"/></svg></figcaption></figure></li>
+              <li class="shot" data-cat="elegantes alongamentos"><figure><button type="button" aria-label="Ampliar: Preto brilhante"><img src="assets/galeria/09-preto-560.webp" data-full="assets/galeria/09-preto.webp" width="560" height="700" loading="lazy" decoding="async" alt="Unhas amendoadas em preto intenso com brilho espelhado."></button><figcaption>Preto brilhante<svg class="i"><use href="#i-zoom"/></svg></figcaption></figure></li>
+              <li class="shot" data-cat="naturais"><figure><button type="button" aria-label="Ampliar: Rosa blush"><img src="assets/galeria/10-blush-rose-560.webp" data-full="assets/galeria/10-blush-rose.webp" width="560" height="560" loading="lazy" decoding="async" alt="Unhas curtas arredondadas em rosa blush queimado."></button><figcaption>Rosa blush<svg class="i"><use href="#i-zoom"/></svg></figcaption></figure></li>
+              <li class="shot" data-cat="nailart alongamentos"><figure><button type="button" aria-label="Ampliar: Rose gold cintilante"><img src="assets/galeria/11-rose-gold-560.webp" data-full="assets/galeria/11-rose-gold.webp" width="560" height="700" loading="lazy" decoding="async" alt="Unhas amendoadas em rose gold com glitter fino e cintilante."></button><figcaption>Rose gold cintilante<svg class="i"><use href="#i-zoom"/></svg></figcaption></figure></li>
+              <li class="shot" data-cat="naturais"><figure><button type="button" aria-label="Ampliar: Verde-menta"><img src="assets/galeria/12-menta-560.webp" data-full="assets/galeria/12-menta.webp" width="560" height="560" loading="lazy" decoding="async" alt="Unhas quadradas em verde-menta pastel com acabamento cremoso."></button><figcaption>Verde-menta<svg class="i"><use href="#i-zoom"/></svg></figcaption></figure></li>
+            </ul>
+            <p class="gallery__note">As imagens são ilustrações criadas digitalmente como referência de estilo.</p>
+            <div class="gallery__cta" data-reveal>
+              <a class="btn btn--blush" href="#agendar" data-booking><svg class="i i--lead"><use href="#i-heart"/></svg>Quero um desses<svg class="i i--arrow"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+
+          <svg class="wave" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+            <path class="wave__fill" d="M0 120C260 60 520 30 780 70s440 50 660-6v86H0z"/>
+            <path class="wave__line" pathLength="1" data-draw-line d="M0 120C260 60 520 30 780 70s440 50 660-6"/>
+          </svg>
+        </section>
+
+        <!-- ================= PREÇOS (imagem 2) ================= -->
+        <section class="section prices" id="precos" aria-labelledby="precos-title">
+          <svg class="botanic" aria-hidden="true" data-draw><use href="#botanic"/></svg>
+          <div class="container">
+            <header class="section-head">
+              <p class="eyebrow" data-reveal>Nossos serviços e valores</p>
+              <h2 class="section-title" id="precos-title" data-split>Valores claros para você <em>escolher com confiança.</em></h2>
+              <p class="section-lead" data-reveal>Tabela oficial da Vilma. Escolha o seu cuidado e agende — o procedimento já vai selecionado.</p>
+            </header>
+
+            <div class="tabs" role="tablist" aria-label="Categorias de serviços" data-tabs data-reveal>
+              <span class="tabs__pill" data-tabs-pill aria-hidden="true"></span>
+              <!-- abas geradas por js/pricing.js -->
+            </div>
+
+            <div data-price-panels>
+              <!-- painéis de preços gerados por js/pricing.js (a partir de js/data.js) -->
+            </div>
+
+            <p class="prices__note">Valores por procedimento. Comprimento, formato e arte escolhida podem alterar o valor final — combine tudo antes com a Vilma.</p>
+
+            <!-- Informações importantes (folheto oficial) -->
+            <div class="infos" id="informacoes">
+              <div class="infos__title"><p class="eyebrow" data-reveal>Informações importantes</p></div>
+              <div class="infos__grid">
+                <article class="info" data-card>
+                  <span class="icon-badge"><svg class="i"><use href="#i-calendar"/></svg></span>
+                  <div>
+                    <h3>Agendamentos</h3>
+                    <p>Agende o seu horário pelo WhatsApp:</p>
+                    <div class="phones">
+                      <a href="https://wa.me/5514997670868" target="_blank" rel="noopener">(14) 99767-0868</a>
+                      <a href="https://wa.me/5514981687986" target="_blank" rel="noopener">(14) 98168-7986</a>
+                    </div>
+                  </div>
+                </article>
+                <article class="info" data-card>
+                  <span class="icon-badge"><svg class="i"><use href="#i-card"/></svg></span>
+                  <div>
+                    <h3>Formas de pagamento</h3>
+                    <p>Aceitamos <strong>PIX</strong> e <strong>cartão de crédito</strong> (com acréscimo da máquina).</p>
+                    <span class="pix-key">PIX: <strong>(14) 99767-0868</strong>
+                      <button class="copy" type="button" data-copy="14997670868" aria-label="Copiar chave PIX"><svg class="i"><use href="#i-copy"/></svg><span>Copiar</span></button>
+                    </span>
+                    <p style="font-size:.78rem;margin-top:.5rem">A chave PIX é o celular.</p>
+                  </div>
+                </article>
+                <article class="info info--alert" data-card id="cancelamento">
+                  <span class="icon-badge"><svg class="i"><use href="#i-calendar-x"/></svg></span>
+                  <div>
+                    <h3>Política de cancelamento</h3>
+                    <p>Precisou desmarcar? Avise com antecedência. Clientes que <strong style="color:#F1D6C3;font-weight:500">não desmarcarem com antecedência</strong> — cancelamento em cima da hora ou falta sem aviso — serão cobradas em:</p>
+                    <span class="info__badge"><strong>50%</strong> do valor do procedimento</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <svg class="wave" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+            <path class="wave__fill" d="M0 70c340 80 760-70 1100-10 160 28 260 30 340 20v70H0z"/>
+            <path class="wave__line" pathLength="1" data-draw-line d="M0 70c340 80 760-70 1100-10 160 28 260 30 340 20"/>
+          </svg>
+        </section>
+
+        <!-- ================= SOBRE A VILMA ================= -->
+        <section class="section about" id="sobre" aria-labelledby="sobre-title">
+          <svg class="about__arc" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+            <path pathLength="1" data-draw-line d="M-20 650C300 520 520 860 900 700s420-320 560-280"/>
+          </svg>
+          <svg class="botanic" aria-hidden="true" data-draw><use href="#botanic"/></svg>
+          <div class="container">
+            <div class="about__layout">
+              <div class="about__media" data-about-media>
+                <span class="about__outline" aria-hidden="true"></span>
+                <div class="about__frame">
+                  <img src="assets/vilma-560.webp" srcset="assets/vilma-560.webp 560w, assets/vilma.webp 900w"
+                       sizes="(min-width: 960px) 480px, 90vw" width="900" height="1200" loading="lazy" decoding="async"
+                       alt="Retrato de Vilma Delmiro, manicure e nail designer, sorrindo, com cabelos longos escuros e blusa verde.">
+                </div>
+                <div class="about__seal" aria-label="Mais de 30 anos de manicure">
+                  <svg viewBox="0 0 120 120" aria-hidden="true" data-seal-ring>
+                    <defs><path id="seal-circle" d="M60 60m-49 0a49 49 0 1 1 98 0a49 49 0 1 1-98 0"/></defs>
+                    <text><textPath href="#seal-circle">Manicure ✦ Nail Designer ✦ Vilma Delmiro ✦</textPath></text>
+                  </svg>
+                  <div><strong>30+</strong><span>anos</span></div>
+                </div>
+              </div>
+
+              <div class="about__content">
+                <p class="eyebrow eyebrow--left" data-reveal>Conheça a Vilma</p>
+                <h2 class="section-title" id="sobre-title" data-split>Mais de 30 anos cuidando da <em>beleza de cada detalhe.</em></h2>
+                <p class="about__text" data-reveal>Com mais de 30 anos de experiência em manicure, Vilma Delmiro une técnica, dedicação e atenção aos detalhes para proporcionar um atendimento acolhedor e valorizar a beleza de cada cliente.</p>
+                <p class="about__sign" data-reveal>— Vilma Delmiro</p>
+
+                <div class="diffs">
+                  <article class="diff" data-diff>
+                    <span class="diff__icon"><svg class="i"><use href="#i-award"/></svg></span>
+                    <span class="diff__line" aria-hidden="true"></span>
+                    <div>
+                      <h3>Experiência e dedicação</h3>
+                      <p>Mais de três décadas de cuidado e atenção às unhas, com técnicas que valorizam a beleza de cada cliente.</p>
+                    </div>
+                  </article>
+                  <article class="diff" data-diff>
+                    <span class="diff__icon"><svg class="i"><use href="#i-diamond"/></svg></span>
+                    <span class="diff__line" aria-hidden="true"></span>
+                    <div>
+                      <h3>Especialista em fibra de vidro</h3>
+                      <p>Alongamentos personalizados para quem busca elegância, resistência e acabamento natural.</p>
+                    </div>
+                  </article>
+                  <article class="diff" data-diff>
+                    <span class="diff__icon"><svg class="i"><use href="#i-heart"/></svg></span>
+                    <span class="diff__line" aria-hidden="true"></span>
+                    <div>
+                      <h3>Atendimento personalizado</h3>
+                      <p>Cada cliente recebe atenção especial, respeitando suas preferências, seu estilo e suas necessidades.</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <svg class="wave" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+            <path class="wave__fill" d="M0 20c200 10 360 80 620 92 300 14 520-72 820-72v110H0z"/>
+          </svg>
+        </section>
+
+        <!-- ================= PRODUTOS ================= -->
+        <section class="section products on-dark" id="produtos" aria-labelledby="produtos-title">
+          <div class="container">
+            <header class="section-head">
+              <p class="eyebrow" data-reveal>Cuidados em casa</p>
+              <h2 class="section-title" id="produtos-title" data-split>Produtos que ajudam seu cuidado a <em>durar mais.</em></h2>
+              <p class="section-lead" data-reveal>Itens selecionados pela Vilma para manter suas unhas saudáveis e bonitas entre uma visita e outra.</p>
+            </header>
+            <div class="products__grid" data-products-grid role="list">
+              <!-- produtos públicos gerados por js/pricing.js -->
+            </div>
+          </div>
+
+          <svg class="wave" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+            <path class="wave__fill" d="M0 64c240 56 560 56 820 16s440-30 620 16v54H0z"/>
+            <path class="wave__line" pathLength="1" data-draw-line d="M0 64c240 56 560 56 820 16s440-30 620 16"/>
+          </svg>
+        </section>
+
+        <!-- ================= DEPOIMENTOS (imagem 3) ================= -->
+        <section class="section voices" id="depoimentos" aria-labelledby="depoimentos-title">
+          <div class="container">
+            <header class="section-head">
+              <p class="eyebrow" data-reveal>Depoimentos de clientes</p>
+              <h2 class="section-title" id="depoimentos-title" data-split>Quem agenda uma vez, <em>volta com confiança.</em></h2>
+              <p class="section-lead" data-reveal>Espaço reservado para as avaliações das clientes da Vilma.</p>
+            </header>
+
+            <!-- TODO: trocar pelos depoimentos REAIS (com autorização das clientes). -->
+            <ul class="voices__grid" role="list">
+              <li class="voice" data-card data-exemplo>
+                <span class="voice__quote" aria-hidden="true">”</span>
+                <p class="voice__stars" aria-hidden="true"><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg></p>
+                <blockquote>“A fibra ficou tão natural que ninguém acredita que não é a minha unha. Durou lindamente até a manutenção.”</blockquote>
+                <p class="voice__who"><span class="voice__avatar" aria-hidden="true">C</span><span><strong>Exemplo</strong> · Fibra de Vidro</span></p>
+              </li>
+              <li class="voice" data-card data-exemplo>
+                <span class="voice__quote" aria-hidden="true">”</span>
+                <p class="voice__stars" aria-hidden="true"><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg></p>
+                <blockquote>“O cuidado em cada detalhe faz toda a diferença. Atendimento tranquilo, sem pressa, e unhas impecáveis.”</blockquote>
+                <p class="voice__who"><span class="voice__avatar" aria-hidden="true">M</span><span><strong>Exemplo</strong> · Manutenção</span></p>
+              </li>
+              <li class="voice" data-card data-exemplo>
+                <span class="voice__quote" aria-hidden="true">”</span>
+                <p class="voice__stars" aria-hidden="true"><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg></p>
+                <blockquote>“Levei uma foto de referência e a Vilma ainda sugeriu um detalhe que deixou tudo mais delicado.”</blockquote>
+                <p class="voice__who"><span class="voice__avatar" aria-hidden="true">A</span><span><strong>Exemplo</strong> · Esmaltação em Gel</span></p>
+              </li>
+              <li class="voice" data-card data-exemplo>
+                <span class="voice__quote" aria-hidden="true">”</span>
+                <p class="voice__stars" aria-hidden="true"><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg><svg class="i"><use href="#i-star"/></svg></p>
+                <blockquote>“Saí do spa dos pés renovada. Dá para sentir o carinho em todo o processo.”</blockquote>
+                <p class="voice__who"><span class="voice__avatar" aria-hidden="true">R</span><span><strong>Exemplo</strong> · Spa dos Pés</span></p>
+              </li>
+            </ul>
+            <p class="voices__note">Textos de exemplo para visualização do layout — serão substituídos por depoimentos reais, com autorização das clientes.</p>
+          </div>
+
+          <svg class="wave" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+            <path class="wave__fill" d="M0 100c320-70 640-70 900-20 220 40 400 30 540-20v90H0z"/>
+            <path class="wave__line" pathLength="1" data-draw-line d="M0 100c320-70 640-70 900-20 220 40 400 30 540-20"/>
+          </svg>
+        </section>
+
+        <!-- ================= DÚVIDAS (imagem 3) ================= -->
+        <section class="section faq" id="duvidas" aria-labelledby="duvidas-title">
+          <svg class="botanic" aria-hidden="true" data-draw><use href="#botanic"/></svg>
+          <div class="container">
+            <header class="section-head">
+              <p class="eyebrow" data-reveal>Dúvidas frequentes</p>
+              <h2 class="section-title" id="duvidas-title" data-split>Antes do seu <em>horário.</em></h2>
+              <p class="section-lead" data-reveal>Tire aqui as principais dúvidas e se prepare para o seu atendimento.</p>
+            </header>
+
+            <div class="faq__layout">
+              <div class="faq__list">
+                <details class="qa" data-card>
+                  <summary><span class="icon-badge"><svg class="i"><use href="#i-diamond"/></svg></span>O que é a fibra de vidro e quanto tempo dura?<span class="qa__plus" aria-hidden="true"></span></summary>
+                  <div class="qa__answer"><p>É um alongamento feito com fios finos de fibra aplicados sobre a unha natural e cobertos com gel. Fica leve, resistente e com aparência natural. O ideal é fazer a <strong>manutenção entre 15 e 22 dias</strong>; de 23 a 30 dias ela também é feita, com outro valor.</p></div>
+                </details>
+                <details class="qa" data-card>
+                  <summary><span class="icon-badge"><svg class="i"><use href="#i-leaf"/></svg></span>A fibra de vidro estraga a unha natural?<span class="qa__plus" aria-hidden="true"></span></summary>
+                  <div class="qa__answer"><p>Quando aplicada e removida corretamente, não. A preparação é suave e a remoção é feita com cuidado — inclusive com a opção de <strong>remoção com blindagem</strong>, que protege a unha natural.</p></div>
+                </details>
+                <details class="qa" data-card>
+                  <summary><span class="icon-badge"><svg class="i"><use href="#i-image"/></svg></span>Posso levar uma foto de referência?<span class="qa__plus" aria-hidden="true"></span></summary>
+                  <div class="qa__answer"><p>Pode e deve! Envie a foto pelo WhatsApp ao agendar. A Vilma avalia o formato da sua unha e sugere ajustes para o resultado ficar harmônico com as suas mãos.</p></div>
+                </details>
+                <details class="qa" data-card>
+                  <summary><span class="icon-badge"><svg class="i"><use href="#i-clock"/></svg></span>Quanto tempo leva o atendimento?<span class="qa__plus" aria-hidden="true"></span></summary>
+                  <div class="qa__answer"><p>Depende do serviço. Mão e pé são mais rápidos; alongamento e decorações pedem mais tempo. O tempo estimado é informado na confirmação do horário.</p></div>
+                </details>
+                <details class="qa" data-card>
+                  <summary><span class="icon-badge"><svg class="i"><use href="#i-calendar-x"/></svg></span>Como faço para remarcar ou cancelar?<span class="qa__plus" aria-hidden="true"></span></summary>
+                  <div class="qa__answer"><p>Avise pelo WhatsApp <strong>com antecedência</strong>. Clientes que não desmarcarem com antecedência (cancelamento em cima da hora ou falta sem aviso) serão cobradas em <strong>50% do valor do procedimento</strong>.</p></div>
+                </details>
+                <details class="qa" data-card>
+                  <summary><span class="icon-badge"><svg class="i"><use href="#i-card"/></svg></span>Quais são as formas de pagamento?<span class="qa__plus" aria-hidden="true"></span></summary>
+                  <div class="qa__answer"><p><strong>PIX</strong> (a chave é o celular: (14) 99767-0868) e <strong>cartão de crédito</strong>, com acréscimo da taxa da máquina.</p></div>
+                </details>
+              </div>
+
+              <aside class="wa-card" data-card aria-labelledby="wa-title">
+                <img class="wa-card__img" src="assets/galeria/05-nude-natural-560.webp" width="560" height="560" loading="lazy" decoding="async" alt="">
+                <div class="wa-card__body">
+                  <span class="wa-card__icon"><svg class="i"><use href="#i-whats"/></svg></span>
+                  <h3 id="wa-title">Ainda ficou com <em>dúvida?</em></h3>
+                  <p>Fale comigo no WhatsApp. Vou te responder com todo carinho!</p>
+                  <a class="btn btn--dark btn--small" href="https://wa.me/5514997670868?text=Ol%C3%A1%2C%20Vilma!%20Tenho%20uma%20d%C3%BAvida%20sobre%20os%20servi%C3%A7os." target="_blank" rel="noopener">
+                    <svg class="i i--lead"><use href="#i-whats"/></svg>Fale comigo<svg class="i i--arrow"><use href="#i-arrow"/></svg>
+                  </a>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= CTA FINAL ================= -->
+        <section class="cta" aria-labelledby="cta-title">
+          <svg class="wave wave--top" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+            <path class="wave__fill" d="M0 90c300 60 620 70 900 20 220-38 400-40 540-10v50H0z"/>
+          </svg>
+          <img class="cta__bg" src="assets/hero/hero-desktop.webp" srcset="assets/hero/hero-desktop-1000.webp 1000w, assets/hero/hero-desktop.webp 1600w" sizes="100vw" width="1600" height="900" loading="lazy" decoding="async" alt="" data-cta-bg>
+          <div class="cta__card" data-reveal>
+            <svg class="botanic" aria-hidden="true"><use href="#botanic"/></svg>
+            <p class="eyebrow">Agende hoje</p>
+            <h2 class="cta__title" id="cta-title">Pronta para o seu <em>próximo cuidado?</em></h2>
+            <p>Garanta um horário especial e viva a experiência de unhas bonitas, saudáveis e bem cuidadas.</p>
+            <a class="btn btn--dark" href="#agendar" data-booking data-magnetic><svg class="i i--lead"><use href="#i-calendar"/></svg>Agendar horário<svg class="i i--arrow"><use href="#i-arrow"/></svg></a>
+          </div>
+          <svg class="wave" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+            <path class="wave__fill" d="M0 80c260-60 560-70 860-20 240 40 420 30 580-10v100H0z"/>
+            <path class="wave__line" pathLength="1" data-draw-line d="M0 80c260-60 560-70 860-20 240 40 420 30 580-10"/>
+          </svg>
+        </section>
+      </main>
+
+      <!-- ================= FOOTER ================= -->
+      <footer class="footer">
+        <div class="container">
+          <p class="footer__headline">Unhas bonitas, <em>com calma e cuidado.</em></p>
+          <div class="footer__rule" aria-hidden="true"></div>
+
+          <div class="footer__cols">
+            <div class="footer__brand">
+              <svg class="nav__mono" aria-hidden="true"><use href="#mono"/></svg>
+              <strong>Vilma Delmiro</strong>
+              <small>Nail Designer</small>
+            </div>
+            <p class="footer__about">Manicure há mais de 30 anos. Cuidado, técnica e capricho para realçar a beleza das suas mãos e pés, com um atendimento personalizado e acolhedor.</p>
+            <div class="footer__col">
+              <!-- TODO: confirmar horários com a Vilma -->
+              <h3><svg class="i"><use href="#i-clock"/></svg>Horários</h3>
+              <p>Segunda a sexta<br>9h às 19h</p>
+              <p>Sábado<br>9h às 14h</p>
+            </div>
+            <div class="footer__col">
+              <h3><svg class="i"><use href="#i-pin"/></svg>Atendimento</h3>
+              <p>Com hora marcada.</p>
+              <small>Endereço enviado na confirmação do horário.</small>
+              <p style="margin-top:.5rem"><a href="#cancelamento" data-scroll-link>Política de cancelamento</a></p>
+            </div>
+            <div class="footer__col">
+              <h3><svg class="i"><use href="#i-whats"/></svg>WhatsApp</h3>
+              <p><a href="https://wa.me/5514997670868" target="_blank" rel="noopener">(14) 99767-0868</a><br>
+                 <a href="https://wa.me/5514981687986" target="_blank" rel="noopener">(14) 98168-7986</a></p>
+              <!-- TODO: colocar o @ real do Instagram da Vilma -->
+              <h3 style="margin-top:1rem"><svg class="i"><use href="#i-insta"/></svg>Instagram</h3>
+              <p><a href="https://instagram.com/" target="_blank" rel="noopener">Siga no Instagram</a></p>
+            </div>
+          </div>
+
+          <div class="footer__bottom">
+            <p>© <span data-year>2026</span> Vilma Delmiro. Todos os direitos reservados.</p>
+            <span><a href="admin.html">Painel da Vilma</a> &nbsp;·&nbsp; <a href="#topo" data-scroll-link>Voltar ao topo ↑</a></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ================= LIGHTBOX DA GALERIA ================= -->
+  <dialog class="lightbox" data-lightbox aria-label="Foto ampliada">
+    <figure class="lightbox__fig">
+      <img data-lightbox-img src="" alt="">
+      <figcaption data-lightbox-cap></figcaption>
+      <button class="lightbox__btn lightbox__btn--prev" type="button" data-lightbox-prev aria-label="Foto anterior"><svg class="i"><use href="#i-chev-l"/></svg></button>
+      <button class="lightbox__btn lightbox__btn--next" type="button" data-lightbox-next aria-label="Próxima foto"><svg class="i"><use href="#i-chev-r"/></svg></button>
+      <button class="lightbox__btn lightbox__btn--close" type="button" data-lightbox-close aria-label="Fechar"><svg class="i"><use href="#i-close"/></svg></button>
+    </figure>
+  </dialog>
+
+  <!-- ================= DETALHES DO PRODUTO ================= -->
+  <dialog class="pdlg" data-pdlg aria-labelledby="pdlg-title">
+    <div data-pdlg-art></div>
+    <div class="pdlg__body">
+      <p class="prod__cat" data-pdlg-cat></p>
+      <h3 id="pdlg-title" data-pdlg-name></h3>
+      <p data-pdlg-desc></p>
+      <p class="price" data-pdlg-price></p>
+      <div class="pdlg__actions">
+        <a class="btn btn--dark btn--small" data-pdlg-wa href="https://wa.me/5514997670868" target="_blank" rel="noopener"><svg class="i i--lead"><use href="#i-whats"/></svg>Perguntar no WhatsApp<svg class="i i--arrow"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <button class="pdlg__close" type="button" data-pdlg-close aria-label="Fechar"><svg class="i"><use href="#i-close"/></svg></button>
+  </dialog>
+
+  <!-- ================= MODAL DE AGENDAMENTO (preto / rosa) ================= -->
+  <dialog class="sched" id="agendar" aria-labelledby="sched-title">
+    <div class="sched__panel" data-sched-panel>
+      <header class="sched__head">
+        <div>
+          <p class="sched__eyebrow">Agendar horário</p>
+          <h2 class="sched__title" id="sched-title">Monte o seu <em>atendimento</em></h2>
+        </div>
+        <button class="sched__close" type="button" data-sched-close aria-label="Fechar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+
+      <div class="sched__body" data-sched-form>
+        <div>
+          <span class="sched__label">1 · Procedimento <span>(pode escolher mais de um)</span></span>
+          <div class="sched__procs" data-procs role="group" aria-label="Procedimentos"></div>
+        </div>
+
+        <div>
+          <span class="sched__label">2 · Dia do atendimento</span>
+          <div class="cal" data-cal>
+            <div class="cal__head">
+              <button class="cal__nav" type="button" data-cal-prev aria-label="Mês anterior">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6 9 12l6 6"/></svg>
+              </button>
+              <span class="cal__month" data-cal-month></span>
+              <button class="cal__nav" type="button" data-cal-next aria-label="Próximo mês">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+              </button>
+            </div>
+            <div class="cal__grid" data-cal-dow aria-hidden="true"></div>
+            <div class="cal__grid" data-cal-days role="group" aria-label="Dias disponíveis"></div>
+          </div>
+          <p class="proc__time" data-cal-picked style="margin-top:.7rem"></p>
+        </div>
+
+        <div>
+          <span class="sched__label">3 · Horário</span>
+          <div class="slots" data-slots role="group" aria-label="Horários"></div>
+        </div>
+
+        <p class="sched__policy">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16v.2"/></svg>
+          <span><strong>Política de cancelamento:</strong> desmarque com antecedência. Cancelamentos em cima da hora ou faltas sem aviso são cobrados em 50% do valor do procedimento.</span>
+        </p>
+      </div>
+
+      <footer class="sched__foot" data-sched-foot>
+        <div class="sched__total">
+          <small>Valor estimado</small>
+          <span class="sched__total-value" data-total>R$ 0,00</span>
+        </div>
+        <button class="btn sched__confirm" type="button" data-confirm disabled>Confirmar agendamento</button>
+      </footer>
+
+      <div class="sched__done" data-done hidden tabindex="-1">
+        <span class="sched__done-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/><path d="M15 24.5l6 6 12-13"/></svg>
+        </span>
+        <h3>Horário <em>reservado!</em></h3>
+        <p>Guardamos este resumo do seu pedido. É só confirmar com a Vilma para fechar o seu horário.</p>
+        <dl class="sched__receipt" data-receipt></dl>
+        <p class="sched__policy" style="margin-top:.4rem;text-align:left">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16v.2"/></svg>
+          <span>Não pode comparecer? Avise com antecedência — faltas e cancelamentos em cima da hora são cobrados em 50% do valor.</span>
+        </p>
+        <button class="btn sched__confirm" type="button" data-sched-close style="margin-top:.6rem">Fechar</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="cursor-dot" data-cursor aria-hidden="true"></div>
+
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/ScrollSmoother.min.js" defer></script>
+  <script src="js/vendor/SplitText.min.js" defer></script>
+  <script src="js/vendor/Flip.min.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/pricing.js" defer></script>
+  <script src="js/schedule.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

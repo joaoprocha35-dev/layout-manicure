@@ -1,0 +1,146 @@
+@use 'tokens' as *;
+
+// =========================================================
+// CTA FINAL + FOOTER (imagem 3)
+// =========================================================
+.cta {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(560px, 80vh, 720px);
+  padding: clamp(6rem, 12vw, 9rem) 1rem clamp(8rem, 14vw, 11rem);
+  overflow: hidden;
+  isolation: isolate;
+  background: $brown-850;
+
+  .wave { --wave-fill: #{$brown-900}; }
+  // onda superior: o marrom da seção anterior entra por cima da foto
+  .wave--top { --wave-fill: #{$blush-100}; }
+}
+
+.cta__bg {
+  position: absolute;
+  inset: -8% 0;
+  z-index: -2;
+  width: 100%;
+  height: 116%;
+  object-fit: cover;
+  object-position: 50% 55%;
+}
+.cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(50% 60% at 50% 50%, rgba(252, 246, 242, .35), transparent 75%),
+    linear-gradient(180deg, rgba(46, 27, 22, .25), rgba(242, 220, 211, .15) 50%, rgba(46, 27, 22, .35));
+}
+
+.cta__card {
+  position: relative;
+  width: min(560px, 100%);
+  padding: clamp(2rem, 4vw, 2.8rem) clamp(1.4rem, 4vw, 3rem);
+  border-radius: 30px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(253, 248, 245, .9), rgba(247, 232, 225, .86));
+  border: 1px solid rgba(255, 255, 255, .9);
+  box-shadow: 0 40px 80px -40px rgba(46, 27, 22, .8), inset 0 0 0 1px rgba(200, 149, 122, .35);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  .eyebrow { margin-bottom: 1rem; }
+  p { margin: 1rem auto 1.8rem; max-width: 26rem; color: $brown-700; }
+  .botanic { position: absolute; left: -1.2rem; bottom: -1rem; width: 110px; z-index: 1; opacity: .7; }
+}
+
+.cta__title {
+  font-family: $serif;
+  font-size: clamp(2.3rem, 5vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.02;
+  color: $ink;
+  em { display: block; font-style: italic; color: $rose-600; }
+}
+
+// ---------- Footer ----------
+.footer {
+  position: relative;
+  padding: clamp(2.5rem, 5vw, 4rem) 0 1.6rem;
+  background:
+    radial-gradient(50% 45% at 50% 40%, rgba(200, 149, 122, .14), transparent 70%),
+    $brown-900;
+  color: rgba(247, 232, 225, .8);
+}
+
+.footer__headline {
+  text-align: center;
+  font-family: $serif;
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: $offwhite;
+  em { font-style: italic; color: $rose-300; }
+}
+.footer__rule {
+  width: min(320px, 60%);
+  height: 1px;
+  margin: 1.2rem auto clamp(2rem, 4vw, 3rem);
+  background: linear-gradient(90deg, transparent, $gold-500, transparent);
+}
+
+.footer__cols {
+  display: grid;
+  gap: 2rem 1.5rem;
+  grid-template-columns: 1fr;
+  @include up(600px) { grid-template-columns: repeat(2, 1fr); }
+  @include up(1024px) {
+    grid-template-columns: auto 1.1fr 1fr 1.2fr 1.2fr;
+    > * + * { border-left: 1px solid rgba(227, 183, 156, .22); padding-left: 1.5rem; }
+  }
+}
+
+.footer__brand {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  color: $offwhite;
+  .nav__mono { width: 64px; height: 50px; }
+  strong { font-family: $serif; font-size: 1.7rem; font-weight: 500; line-height: 1; margin-top: .2rem; }
+  small { margin-top: .4rem; font-size: .58rem; letter-spacing: .36em; text-transform: uppercase; color: $gold-300; }
+  @include down(600px) { justify-self: start; justify-items: start; text-align: left; }
+}
+
+.footer__about { font-size: .9rem; line-height: 1.65; }
+
+.footer__col {
+  font-size: .9rem;
+  line-height: 1.6;
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    margin-bottom: .6rem;
+    font-family: $sans;
+    font-size: .95rem;
+    font-weight: 500;
+    color: $offwhite;
+    .i { width: 20px; height: 20px; color: $gold-300; }
+  }
+  a { color: $blush-100; text-decoration: none; border-bottom: 1px solid rgba(227, 183, 156, .35); transition: border-color .3s $ease, color .3s $ease; }
+  a:hover { color: #FFF; border-color: $gold-300; }
+  small { display: block; font-size: .78rem; color: rgba(247, 232, 225, .6); }
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .8rem 1.5rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: 1.3rem;
+  border-top: 1px solid rgba(227, 183, 156, .18);
+  font-size: .8rem;
+  color: rgba(247, 232, 225, .6);
+  a { color: inherit; text-decoration: none; &:hover { color: $offwhite; } }
+}

@@ -1,0 +1,173 @@
+@use 'tokens' as *;
+
+// =========================================================
+// TELA DE ABERTURA — monograma VD desenhado em rosé gold.
+// Só aparece quando o <head> marca html.is-loading
+// (1ª visita da sessão, sem "reduzir movimento").
+// =========================================================
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  pointer-events: none;
+}
+
+html.is-loading {
+  overflow: hidden;
+  .loader { display: block; pointer-events: auto; }
+}
+
+// Se o JavaScript falhar, a abertura some sozinha
+html.is-loading .loader {
+  animation: loader-failsafe .6s 6s forwards;
+}
+@keyframes loader-failsafe { to { opacity: 0; visibility: hidden; } }
+
+.loader__panel {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 100%;
+  background:
+    radial-gradient(60% 55% at 50% 45%, rgba(200, 149, 122, .22), transparent 70%),
+    radial-gradient(90% 70% at 50% 120%, rgba(184, 108, 108, .25), transparent 60%),
+    linear-gradient(180deg, $brown-900 0%, $brown-950 100%);
+  will-change: transform;
+}
+
+// borda inferior em onda (acompanha o painel quando ele sobe)
+.loader__edge {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 18vh;
+  margin-top: -1px;
+  display: block;
+  path { fill: $brown-950; }
+}
+
+.loader__grain {
+  position: absolute;
+  inset: 0;
+  opacity: .06;
+  background-image: radial-gradient(rgba(255, 255, 255, .8) .5px, transparent .6px);
+  background-size: 3px 3px;
+}
+
+.loader__center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.loader__mark {
+  position: relative;
+  width: clamp(150px, 26vw, 210px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.loader__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  circle {
+    fill: none;
+    stroke: url(#gold-stroke);
+    stroke-width: 1;
+  }
+  .loader__ring-dash { stroke-dasharray: 2 7; opacity: .6; }
+}
+
+.loader__mono {
+  width: 66%;
+  height: auto;
+  overflow: visible;
+  text {
+    font-family: $serif;
+    font-weight: 400;
+    fill: url(#gold-fill);
+    stroke: url(#gold-stroke);
+    stroke-width: .7;
+  }
+}
+
+.loader__spark {
+  position: absolute;
+  width: 15%;
+  top: 14%;
+  right: 16%;
+  fill: $gold-200;
+  filter: drop-shadow(0 0 6px rgba(243, 212, 190, .9));
+}
+
+.loader__name {
+  margin-top: 1.6rem;
+  font-family: $serif;
+  font-weight: 400;
+  font-size: clamp(2.1rem, 5.2vw, 3.2rem);
+  line-height: 1;
+  color: $blush-100;
+  letter-spacing: .01em;
+  overflow: hidden;
+  padding-bottom: .1em;
+}
+
+.loader__role {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  margin-top: .9rem;
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .5em;
+  text-transform: uppercase;
+  color: $gold-300;
+
+  // compensa o letter-spacing da última letra
+  span { margin-right: -.5em; }
+
+  &::before, &::after {
+    content: '';
+    width: clamp(2rem, 6vw, 3.4rem);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $gold-500);
+    transform: scaleX(var(--rl, 1));
+    transform-origin: right center;
+  }
+  &::after { background: linear-gradient(90deg, $gold-500, transparent); transform-origin: left center; }
+}
+
+.loader__tag {
+  margin-top: 1.4rem;
+  font-family: $serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(247, 232, 225, .7);
+}
+
+.loader__bar {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(2rem, 7vh, 4rem);
+  width: min(220px, 50vw);
+  height: 1px;
+  translate: -50% 0;
+  background: rgba(241, 214, 195, .14);
+  overflow: hidden;
+  i {
+    position: absolute;
+    inset: 0;
+    background: $gold-grad;
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+}

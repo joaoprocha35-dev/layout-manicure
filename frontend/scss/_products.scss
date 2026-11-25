@@ -1,0 +1,137 @@
+@use 'tokens' as *;
+
+// =========================================================
+// PRODUTOS — fundo marrom com cards claros (imagem 2)
+// Apenas apresentação: sem carrinho e sem pagamento.
+// =========================================================
+.products {
+  background:
+    radial-gradient(60% 40% at 50% 40%, rgba(200, 149, 122, .16), transparent 70%),
+    linear-gradient(180deg, $brown-850 0%, $brown-800 100%);
+  .wave { --wave-fill: #{$blush-50}; }
+}
+
+.products__grid {
+  display: grid;
+  gap: clamp(.8rem, 1.4vw, 1.2rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  max-width: 1120px;
+  margin-inline: auto;
+  @include down(520px) { grid-template-columns: repeat(2, 1fr); }
+}
+
+.prod {
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #FFF9F6 0%, #F8EAE3 100%);
+  box-shadow: 0 30px 60px -36px rgba(0, 0, 0, .8);
+  transition: transform .6s $ease-out, box-shadow .6s $ease-out;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 44px 70px -36px rgba(0, 0, 0, .85);
+      .prod__art svg { transform: translateY(-4px) rotate(-3deg); }
+    }
+  }
+}
+
+.prod__art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 150px;
+  background:
+    radial-gradient(60% 70% at 50% 60%, rgba(255, 255, 255, .9), transparent 70%),
+    linear-gradient(180deg, $blush-200, $blush-100);
+  overflow: hidden;
+  svg {
+    width: 96px;
+    height: 120px;
+    overflow: visible;
+    transition: transform .8s $ease-out;
+    filter: drop-shadow(0 14px 12px rgba(74, 46, 38, .25));
+  }
+  .botanic-mini {
+    position: absolute;
+    left: .5rem;
+    bottom: .2rem;
+    width: 70px;
+    fill: none;
+    stroke: $gold-500;
+    stroke-width: 1;
+    opacity: .6;
+  }
+}
+
+.prod__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem 1.1rem 1.1rem;
+}
+.prod__cat { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: $rose-600; }
+.prod__name { margin-top: .2rem; font-family: $serif; font-size: 1.35rem; font-weight: 500; line-height: 1.1; color: $ink; }
+.prod__desc { margin-top: .35rem; font-size: .82rem; line-height: 1.45; color: $brown-600; }
+.prod__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  margin-top: auto;
+  padding-top: .9rem;
+  .price { font-size: 1.4rem; }
+}
+
+@include down(520px) {
+  .prod__art { height: 118px; svg { width: 70px; height: 92px; } }
+  .prod__body { padding: .8rem .8rem .9rem; }
+  .prod__name { font-size: 1.15rem; }
+  .prod__desc { display: none; }
+  .prod__foot { flex-direction: column; align-items: flex-start; .btn { width: 100%; } }
+}
+
+.products__empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: rgba(247, 232, 225, .7);
+}
+
+// ---------- Diálogo de detalhes do produto ----------
+.pdlg {
+  width: min(460px, 92vw);
+  padding: 0;
+  border: 0;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #FFF9F6, #F6E6DF);
+  color: $ink;
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, .7);
+  overflow: hidden;
+  &::backdrop { background: rgba(32, 19, 15, .7); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+
+  .prod__art { height: 190px; svg { width: 120px; height: 150px; } }
+}
+.pdlg__body {
+  padding: 1.4rem 1.6rem 1.6rem;
+  h3 { font-family: $serif; font-size: 2rem; font-weight: 500; line-height: 1.05; }
+  p { margin-top: .6rem; color: $brown-600; }
+  .price { margin-top: 1rem; font-size: 1.9rem; }
+}
+.pdlg__actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.4rem; }
+.pdlg__close {
+  position: absolute;
+  top: .8rem;
+  right: .8rem;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .85);
+  color: $brown-800;
+  cursor: pointer;
+  .i { width: 18px; height: 18px; }
+}

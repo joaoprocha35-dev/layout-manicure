@@ -1,3 +1,7 @@
+# Vilma Delmiro — site e painel
+
+> Todo o site fica em **`frontend/`** (é o Root Directory na Vercel). Veja `frontend/REDESIGN.md` e `frontend/DEPLOY.md`.
+
 # Layout Manicure — Protótipo
 
 Protótipo de site para **manicures e estúdios de unhas**, criado como modelo de apresentação
@@ -49,14 +53,15 @@ Gráficos em SVG feitos à mão, sem dependências.
 ## Como usar
 
 ```bash
-npm install
+cd frontend
+npm ci
 npm run watch:css   # ou npm run build:css
 ```
 
 Abra o `index.html` no navegador.
 
-- **Publicar:** veja [`DEPLOY.md`](DEPLOY.md)
-- **Comprimir mídia nova:** veja [`otimizacao/README.md`](otimizacao/README.md)
+- **Publicar:** veja [`frontend/DEPLOY.md`](frontend/DEPLOY.md)
+- **Comprimir mídia nova:** veja [`frontend/otimizacao/README.md`](frontend/otimizacao/README.md)
 
 > As imagens da galeria são ilustrações geradas digitalmente, usadas como referência de estilo.
 > Antes de usar com uma cliente real, troque depoimentos, números, horários, endereço e preços.

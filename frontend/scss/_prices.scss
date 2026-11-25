@@ -1,0 +1,356 @@
+@use 'tokens' as *;
+
+// =========================================================
+// PREÇOS — cards da imagem 2 + adicionais + informações
+// importantes (agendamento, pagamento e cancelamento)
+// =========================================================
+.prices {
+  background:
+    radial-gradient(50% 40% at 10% 20%, rgba(255, 255, 255, .55), transparent 70%),
+    linear-gradient(180deg, $blush-100 0%, $blush-50 100%);
+  .wave { --wave-fill: #{$blush-200}; }
+  .botanic { top: 2rem; right: 1rem; }
+}
+
+// ---------- Abas por categoria ----------
+.tabs {
+  position: relative;
+  display: flex;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto clamp(2rem, 4vw, 2.8rem);
+  padding: .35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .65);
+  box-shadow: inset 0 0 0 1px rgba(200, 149, 122, .3), 0 14px 30px -24px rgba(74, 46, 38, .5);
+  overflow-x: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+.tabs__pill {
+  position: absolute;
+  top: .35rem;
+  bottom: .35rem;
+  left: 0;
+  width: 0;
+  border-radius: 999px;
+  background: $brown-800;
+  box-shadow: 0 10px 22px -12px rgba(46, 27, 22, .8);
+  z-index: 0;
+}
+
+.tab {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 44px;
+  padding: .55rem clamp(.9rem, 2vw, 1.5rem);
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: $brown-700;
+  font-size: .9rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .4s $ease;
+  small { font-size: .72rem; opacity: .7; }
+  &[aria-selected='true'] { color: $offwhite; }
+  // sem JS a pílula não se move: usa fundo próprio
+  html:not(.has-gsap) &[aria-selected='true'] { background: $brown-800; }
+}
+
+// ---------- Cards com foto ----------
+.price-grid {
+  display: grid;
+  gap: clamp(1rem, 1.6vw, 1.4rem);
+  grid-template-columns: 1fr;
+  @include up(560px) { grid-template-columns: repeat(2, 1fr); }
+  @include up(860px) { grid-template-columns: repeat(3, 1fr); }
+  @include up(1140px) { grid-template-columns: repeat(4, 1fr); }
+}
+
+.pcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #FFFBF9 0%, #FAEEE8 100%);
+  border: 1px solid rgba(255, 255, 255, .95);
+  box-shadow: $shadow-card, inset 0 0 0 1px rgba(200, 149, 122, .18);
+  transition: transform .6s $ease-out, box-shadow .6s $ease-out;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 40px 70px -40px rgba(74, 46, 38, .6), inset 0 0 0 1px rgba(200, 149, 122, .35);
+      .pcard__media img { transform: scale(1.07); }
+    }
+  }
+
+  &.is-flash { animation: pcard-flash 1.6s $ease 1; }
+}
+@keyframes pcard-flash {
+  0%, 100% { box-shadow: $shadow-card, inset 0 0 0 1px rgba(200, 149, 122, .18); }
+  30% { box-shadow: 0 0 0 4px rgba(200, 149, 122, .55), $shadow-card; }
+}
+
+.pcard__media {
+  position: relative;
+  height: 138px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 62%;
+    transition: transform 1.2s $ease-out;
+  }
+  // borda inferior curva da foto
+  svg {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 34px;
+    path { fill: #FEF8F5; }
+  }
+}
+
+.pcard .icon-badge {
+  position: absolute;
+  top: 112px;
+  left: 1.1rem;
+  z-index: 2;
+}
+
+.pcard__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.6rem 1.25rem 1.25rem;
+}
+
+.pcard__name {
+  font-family: $serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.05;
+  color: $ink;
+}
+
+.pcard__desc {
+  margin-top: .4rem;
+  font-size: .84rem;
+  line-height: 1.45;
+  color: $brown-600;
+}
+
+.pcard__foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .6rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.price {
+  font-family: $serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1;
+  color: $ink;
+  white-space: nowrap;
+  small {
+    display: block;
+    margin-top: .2rem;
+    font-family: $sans;
+    font-size: .68rem;
+    font-weight: 400;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: $rose-600;
+  }
+}
+
+.duration {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .78rem;
+  color: $brown-600;
+  white-space: nowrap;
+  .i { width: 16px; height: 16px; }
+}
+
+.pcard .btn { margin-top: 1rem; align-self: flex-start; }
+
+@media (max-width: 559px) {
+  .pcard { flex-direction: row; }
+  .pcard__media { width: 38%; height: auto; flex: none; svg { display: none; } }
+  .pcard .icon-badge { display: none; }
+  .pcard__body { padding: 1rem 1rem 1rem; }
+  .pcard__name { font-size: 1.3rem; }
+  .pcard__desc { font-size: .8rem; }
+  .price { font-size: 1.45rem; }
+  .pcard .btn { width: 100%; }
+}
+
+// ---------- Adicionais (lista estilo cardápio) ----------
+.extras {
+  max-width: 980px;
+  margin-inline: auto;
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .8), rgba(250, 238, 232, .7));
+  border: 1px solid rgba(255, 255, 255, .95);
+  box-shadow: $shadow-card, inset 0 0 0 1px rgba(200, 149, 122, .2);
+}
+
+.extras__intro {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 1rem;
+  font-size: .9rem;
+  color: $brown-600;
+}
+
+.extras__list {
+  display: grid;
+  gap: 0 2.5rem;
+  @include up(760px) { grid-template-columns: 1fr 1fr; }
+}
+
+.extra {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: .8rem;
+  padding: .95rem 0;
+  border-bottom: 1px dashed rgba(200, 149, 122, .45);
+}
+.extra__name {
+  font-family: $serif;
+  font-size: 1.22rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: $ink;
+  small { display: block; font-family: $sans; font-size: .76rem; font-weight: 300; color: $brown-600; margin-top: .15rem; }
+}
+.extra .price { font-size: 1.35rem; text-align: right; small { text-align: right; } }
+.extra__add {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 149, 122, .55);
+  background: rgba(255, 255, 255, .7);
+  color: $brown-800;
+  cursor: pointer;
+  transition: background-color .3s $ease, color .3s $ease, transform .45s $ease-out;
+  .i { width: 18px; height: 18px; }
+  @media (hover: hover) and (pointer: fine) {
+    &:hover { background: $brown-800; color: $offwhite; transform: rotate(90deg); }
+  }
+}
+
+.prices__note {
+  margin-top: 1.6rem;
+  text-align: center;
+  font-size: .82rem;
+  color: $brown-600;
+}
+
+// ---------- Informações importantes ----------
+.infos {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+}
+.infos__title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.infos__grid {
+  display: grid;
+  gap: 1rem;
+  @include up(860px) { grid-template-columns: 1fr 1fr 1.15fr; }
+}
+
+.info {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1.4rem 1.4rem 1.5rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .7);
+  border: 1px solid rgba(255, 255, 255, .95);
+  box-shadow: $shadow-soft, inset 0 0 0 1px rgba(200, 149, 122, .2);
+
+  h3 {
+    font-family: $serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.1;
+    color: $ink;
+  }
+  p { margin-top: .4rem; font-size: .9rem; color: $brown-600; line-height: 1.55; }
+  a { color: $ink; text-decoration: none; font-weight: 400; border-bottom: 1px solid rgba(200, 149, 122, .6); }
+  .phones { display: grid; gap: .15rem; margin-top: .5rem; font-family: $serif; font-size: 1.3rem; font-weight: 600; color: $ink; }
+  .pix-key {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: .7rem;
+    padding: .35rem .5rem .35rem .85rem;
+    border-radius: 999px;
+    background: $blush-100;
+    font-size: .82rem;
+    color: $brown-800;
+    strong { font-weight: 500; }
+  }
+  .copy {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    padding: .3rem .7rem;
+    border: 0;
+    border-radius: 999px;
+    background: $brown-800;
+    color: $offwhite;
+    font-size: .72rem;
+    cursor: pointer;
+    transition: background-color .3s $ease;
+    &:hover { background: $brown-900; }
+  }
+
+  // Política de cancelamento em destaque
+  &--alert {
+    background: linear-gradient(150deg, $brown-800 0%, $brown-900 100%);
+    border-color: rgba(200, 149, 122, .4);
+    box-shadow: 0 30px 60px -36px rgba(46, 27, 22, .9), inset 0 0 0 1px rgba(227, 183, 156, .25);
+    h3 { color: $offwhite; }
+    p { color: rgba(247, 232, 225, .82); }
+    .icon-badge { color: $gold-200; background: rgba(255, 255, 255, .08); box-shadow: inset 0 0 0 1px rgba(227, 183, 156, .4); }
+  }
+}
+
+.info__badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .4rem;
+  margin-top: .8rem;
+  padding: .35rem .9rem;
+  border-radius: 999px;
+  background: $gold-grad;
+  color: $brown-950;
+  font-size: .8rem;
+  font-weight: 500;
+  strong { font-family: $serif; font-size: 1.35rem; font-weight: 700; line-height: 1; }
+}
